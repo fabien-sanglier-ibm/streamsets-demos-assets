@@ -1,0 +1,84 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  labels:
+    app: streamsets-pull-external-resources-cron
+  name: streamsets-pull-external-resources-cron
+  namespace: streamsetsdemos
+spec:
+  schedule: "*/5 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app: streamsets-pull-external-resources-cron
+        spec:
+          restartPolicy: OnFailure
+          securityContext: {}
+          imagePullSecrets: []
+          containers:
+            - name: pull-external-resources
+              image: minio/mc:latest
+              imagePullPolicy: IfNotPresent
+              securityContext: {}
+              workingDir: "/libsdir"
+              command: ["sh"]
+              args:
+                - -ce
+                - |
+                  mc alias set myminio "${AWS_S3_ENDPOINT}" "${AWS_ACCESS_KEY_ID}" "${AWS_SECRET_ACCESS_KEY}" --insecure
+
+                  echo "Starting Sync for streamsets-libs-extras"
+                  mkdir -p /externalworkingdir${AWS_S3_BUCKET_PATH_SYSTEM_LIBS_EXTRAS}
+                  mc mirror --remove --overwrite --retry --summary --insecure myminio/${AWS_S3_BUCKET_NAME}${AWS_S3_BUCKET_PATH_SYSTEM_LIBS_EXTRAS} /externalworkingdir${AWS_S3_BUCKET_PATH_SYSTEM_LIBS_EXTRAS}
+                  ls -al /externalworkingdir${AWS_S3_BUCKET_PATH_SYSTEM_LIBS_EXTRAS}/
+                  echo "Sync complete - ststreamsets-libs-extras"
+
+                  echo "Starting Sync for user-libs"
+                  mkdir -p /externalworkingdir${AWS_S3_BUCKET_PATH_USER_LIBS}
+                  mc mirror --remove --overwrite --retry --summary --insecure myminio/${AWS_S3_BUCKET_NAME}${AWS_S3_BUCKET_PATH_USER_LIBS} /externalworkingdir${AWS_S3_BUCKET_PATH_USER_LIBS}
+                  ls -al /externalworkingdir${AWS_S3_BUCKET_PATH_USER_LIBS}/
+                  echo "Sync complete - user-libs"
+
+                  echo "Starting Sync for resources"
+                  mkdir -p /externalworkingdir${AWS_S3_BUCKET_PATH_RESOURCES}
+                  mc mirror --remove --overwrite --retry --summary --insecure myminio/${AWS_S3_BUCKET_NAME}${AWS_S3_BUCKET_PATH_RESOURCES} /externalworkingdir${AWS_S3_BUCKET_PATH_RESOURCES}
+                  ls -al /externalworkingdir${AWS_S3_BUCKET_PATH_RESOURCES}/
+                  echo "Sync complete - resources"
+              env:
+                - name: AWS_ACCESS_KEY_ID
+                  valueFrom:
+                    secretKeyRef:
+                      name: streamsets-libspull-credentials
+                      key: access_key_id
+                - name: AWS_SECRET_ACCESS_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: streamsets-libspull-credentials
+                      key: secret_access_key
+                - name: AWS_S3_ENDPOINT
+                  value: https://10.43.107.22:443
+                - name: AWS_S3_BUCKET_NAME
+                  value: streamsets-datacollector-external-resources
+                - name: AWS_S3_BUCKET_PATH_USER_LIBS
+                  value: "/user-libs"
+                - name: AWS_S3_BUCKET_PATH_SYSTEM_LIBS_EXTRAS
+                  value: "/streamsets-libs-extras"
+                - name: AWS_S3_BUCKET_PATH_RESOURCES
+                  value: "/resources"
+              resources:
+                requests:
+                  cpu: "100m"
+                  memory: "256Mi"
+                limits:
+                  cpu: "500m"
+                  memory: "512Mi"
+              volumeMounts:
+                - mountPath: "/externalworkingdir"
+                  name: "externalworkingdir"
+                  readOnly: false
+          volumes:
+            - name: externalworkingdir
+              persistentVolumeClaim:
+                claimName: streamsets-external-resources

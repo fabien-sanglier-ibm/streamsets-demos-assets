@@ -1,0 +1,146 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: streamsets-deployment-UUID
+    vendor: streamsets-sch
+    env: na01
+  name: streamsets-deployment-UUID
+  namespace: streamsetsdemos
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: streamsets-deployment-UUID
+  template:
+    metadata:
+      labels:
+        app: streamsets-deployment-UUID
+        vendor: streamsets-sch
+        env: na01
+    spec:
+      terminationGracePeriodSeconds: 30
+      restartPolicy: Always
+      imagePullSecrets: []
+      initContainers:
+        - name: init-pull-external-resources
+          # image: amazon/aws-cli:latest
+          image: minio/mc:latest
+          imagePullPolicy: IfNotPresent
+          securityContext: {}
+          workingDir: "/externalworkingdir"
+          command: ["sh"]
+          args:
+            - -ce
+            - |
+              mc alias set myminio "${AWS_S3_ENDPOINT}" "${AWS_ACCESS_KEY_ID}" "${AWS_SECRET_ACCESS_KEY}" --insecure
+
+              echo "Starting Sync for streamsets-libs-extras"
+              mkdir -p /externalworkingdir${AWS_S3_BUCKET_PATH_SYSTEM_LIBS_EXTRAS}
+              mc mirror --remove --overwrite --retry --summary --insecure myminio/${AWS_S3_BUCKET_NAME}${AWS_S3_BUCKET_PATH_SYSTEM_LIBS_EXTRAS} /externalworkingdir${AWS_S3_BUCKET_PATH_SYSTEM_LIBS_EXTRAS}
+              echo "Sync complete - ststreamsets-libs-extras"
+
+              echo "Starting Sync for user-libs"
+              mkdir -p /externalworkingdir${AWS_S3_BUCKET_PATH_USER_LIBS}
+              mc mirror --remove --overwrite --retry --summary --insecure myminio/${AWS_S3_BUCKET_NAME}${AWS_S3_BUCKET_PATH_USER_LIBS} /externalworkingdir${AWS_S3_BUCKET_PATH_USER_LIBS}
+              echo "Sync complete - user-libs"
+
+              echo "Starting Sync for resources"
+              mkdir -p /externalworkingdir${AWS_S3_BUCKET_PATH_RESOURCES}
+              mc mirror --remove --overwrite --retry --summary --insecure myminio/${AWS_S3_BUCKET_NAME}${AWS_S3_BUCKET_PATH_RESOURCES} /externalworkingdir${AWS_S3_BUCKET_PATH_RESOURCES}
+              echo "Sync complete - resources"
+          env:
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: streamsets-libspull-credentials
+                  key: access_key_id
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: streamsets-libspull-credentials
+                  key: secret_access_key
+            - name: AWS_S3_ENDPOINT
+              value: https://10.43.107.22:443
+            - name: AWS_S3_BUCKET_NAME
+              value: streamsets-datacollector-external-resources
+            - name: AWS_S3_BUCKET_PATH_USER_LIBS
+              value: "/user-libs"
+            - name: AWS_S3_BUCKET_PATH_SYSTEM_LIBS_EXTRAS
+              value: "/streamsets-libs-extras"
+            - name: AWS_S3_BUCKET_PATH_RESOURCES
+              value: "/resources"
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+          volumeMounts:
+            - mountPath: "/externalworkingdir"
+              name: "externalworkingdir"
+              readOnly: false
+      containers:
+        - env:
+            - name: STREAMSETS_DEPLOYMENT_ID
+              value: UUID:ORGID
+            - name: STREAMSETS_DEPLOYMENT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  key: token
+                  name: streamsets-deployment-secret-UUID
+                  optional: false
+            - name: STREAMSETS_DEPLOYMENT_SCH_URL
+              value: https://na01.hub.streamsets.com
+          image: streamsets/datacollector:JDK17_5.12.0
+          livenessProbe:
+            failureThreshold: 20
+            httpGet:
+              path: /public-rest/ping
+              port: engine-port
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+          name: streamsets-engine-UUID
+          ports:
+            - containerPort: 18630
+              name: engine-port
+          resources:
+            limits:
+              cpu: "2"
+              memory: 4Gi
+            requests:
+              memory: 1Gi
+              cpu: "1"
+          startupProbe:
+            failureThreshold: 60
+            httpGet:
+              path: /public-rest/ping
+              port: engine-port
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+          volumeMounts:
+            - name: externalworkingdir
+              subPath: user-libs
+              mountPath: /opt/streamsets-datacollector-user-libs
+              # /opt/streamsets-datacollector-5.12.0/externalResources/user-libs
+              readOnly: true
+            - name: externalworkingdir
+              subPath: streamsets-libs-extras
+              mountPath: /opt/streamsets-datacollector-5.12.0/streamsets-libs-extras
+              # /opt/streamsets-datacollector-5.12.0/externalResources/streamsets-libs-extras
+              readOnly: true
+            - name: externalworkingdir
+              subPath: resources
+              mountPath: /resources
+              # /opt/streamsets-datacollector-5.12.0/externalResources/resources
+              readOnly: true
+      volumes:
+        - name: externalworkingdir
+          persistentVolumeClaim:
+            claimName: streamsets-external-resources
+      dnsPolicy: Default
