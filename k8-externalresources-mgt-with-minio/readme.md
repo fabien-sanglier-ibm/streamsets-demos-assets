@@ -78,15 +78,25 @@ kubectl create secret generic streamsets-libspull-credentials \
 
 ## Deploy supporting assets
 
-Supporting assets are: 1 PVC + 2 JOBs (1 cron job for regular syncing, 1 simple job for easy ad-hoc running if/when needed)
+Core Supporting assets: 1 PVC (that will get used by the deployment engines)
 
 ```sh
 kubectl --namespace streamsetsdemos apply -f ./manifests/pvc-pull-libraries.yaml
-kubectl --namespace streamsetsdemos apply -f ./manifests/job-pull-libraries.yaml
+```
+
+1 K8s CRON JOB to offer options and auto-pull assets ongoingly on a schedule  
+
+```sh
 kubectl --namespace streamsetsdemos apply -f ./manifests/cronjob-pull-libraries.yaml
 ```
 
-You can re-run the ad-hoc job at will...
+And 1 K8s JOB for easy ad-hoc running if/when needed...
+
+```sh
+kubectl --namespace streamsetsdemos apply -f ./manifests/job-pull-libraries.yaml
+```
+
+You can re-run the ad-hoc job at will by deleting and recreating...
 
 ```sh
 kubectl --namespace streamsetsdemos delete -f ./manifests/job-pull-libraries.yaml
