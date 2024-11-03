@@ -25,6 +25,8 @@ spec:
               workingDir: "/libsdir"
               command: ["sh","-ce","/scripts/sync-aws.sh"]
               env:
+                - name: AWS_REGION
+                  value: us-east-1
                 - name: AWS_ACCESS_KEY_ID
                   valueFrom:
                     secretKeyRef:
@@ -35,10 +37,10 @@ spec:
                     secretKeyRef:
                       name: streamsets-libspull-credentials-aws
                       key: secret_access_key
-                - name: AWS_S3_ENDPOINT
-                  value: https://10.43.107.22:443
                 - name: AWS_S3_BUCKET_NAME
-                  value: streamsets-datacollector-external-resources
+                  value: softwareaggov-mft-demos
+                - name: AWS_S3_BUCKET_PREFIX
+                  value: /streamsets-demos/externalresources
                 - name: AWS_S3_BUCKET_PATH_USER_LIBS
                   value: "/user-libs"
                 - name: AWS_S3_BUCKET_PATH_SYSTEM_LIBS_EXTRAS

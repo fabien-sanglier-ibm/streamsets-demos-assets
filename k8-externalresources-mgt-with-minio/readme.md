@@ -3,7 +3,9 @@ k8-externalresources-mgt-with-minio
 
 This is a small sample concept, where you centralize your external resources in an object storage (like Minio), and have all the StreamSets data collectors pull from that object store repo automatically to keep in sync.
 
-In this sample/demo, we will use Minio deployed right on our K8 cluster... BUT the very same concept could be easily adapted and achieved with AWS S3 or other object storage platforms.
+In this sample/demo, we will use Minio deployed right on our K8 cluster.
+BUT the very same concept could be easily adapted and achieved with AWS S3 or other object storage platforms.
+You can find the same demo where we use AWS instead of Minio. find it [here](../k8-externalresources-mgt-with-aws/)
 
 ## Prerequisites
 

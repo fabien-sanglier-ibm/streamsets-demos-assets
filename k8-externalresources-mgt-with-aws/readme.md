@@ -1,9 +1,10 @@
-k8-externalresources-mgt-with-minio
+k8-externalresources-mgt-with-aws
 =======================================
 
-This is a small sample concept, where you centralize your external resources in an object storage (like AWS or Minio), and have all the StreamSets data collectors pull from that object store repo automatically to keep in sync.
+This is a small sample concept, where you centralize your external resources in an object storage (like AWS S3), and have all the StreamSets data collectors pull from that object store repo automatically to keep in sync.
 
-In this sample/demo, we will use AWS S3 as the repo source.
+In this sample/demo, we will use AWS S3 as the repo source. 
+You can find the same demo where we use Minio instead of AWS S3. find it [here](../k8-externalresources-mgt-with-minio/)
 
 ## Prerequisites
 
@@ -25,7 +26,7 @@ Each of these S3 directory will get pulled from into a specific directory on the
 
 ## Kubernetes assets
 
-### create secret for minio access (tokens for minio "streamsets-svc")
+### create secret for AWS access
 
 ```sh
 kubectl create secret generic streamsets-libspull-credentials-aws \
@@ -37,7 +38,7 @@ kubectl create secret generic streamsets-libspull-credentials-aws \
 ### create config map for the shell command script
 
 ```sh
-kubectl --namespace streamsetsdemos apply -f ./manifests/cm-sync-minio.yaml
+kubectl --namespace streamsetsdemos apply -f ./manifests/cm-sync-aws.yaml
 ```
 
 ## Deploy supporting assets
@@ -54,7 +55,7 @@ kubectl --namespace streamsetsdemos apply -f ./manifests/pvc-pull-libraries.yaml
 kubectl --namespace streamsetsdemos apply -f ./manifests/cronjob-pull-libraries.yaml
 ```
 
-And 1 K8s JOB for easy ad-hoc running if/when needed...
+And 1 K8s JOB for easy ad-hoc running if/when needed (deploy when needed)
 
 ```sh
 kubectl --namespace streamsetsdemos apply -f ./manifests/job-pull-libraries.yaml
@@ -72,8 +73,9 @@ kubectl --namespace streamsetsdemos apply -f ./manifests/job-pull-libraries.yaml
 The deployment file contains the following customization, in addition to the usual StreamSets items:
  - The PVC gets used by the data collector pod to create a Persistent Volume (PV),
  - PV gets mounted READ-ONLY to the right places on the data collector (specific Sx directories) using volumeMounts section
- - An init container to automatically pull from minio all the required assets onto the same Persistent Volume (PV) BEFORE the data collector container starts
+ - An init container to automatically pull from AWS S3 all the required assets onto the same Persistent Volume (PV) BEFORE the data collector container starts
 
 And outside of that, the cronjob will refresh the data on that Persistent Volume (PV) regularly to keep thing fresh...
 
-The file "./manifests/deployment-with-pvc.yaml" should be added to the StreamSets deployment (make sure to replace the UUID and ORGID in that file with what StreamSets expects)
+The file "./manifests/deployment-with-pvc-template.yaml" should be added to the StreamSets deployment
+IMPORTANT: make sure to replace the placeholders "UUID" and "ORGID" in that file with what StreamSets expects

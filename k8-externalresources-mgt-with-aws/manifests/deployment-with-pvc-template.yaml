@@ -30,6 +30,8 @@ spec:
           workingDir: "/externalworkingdir"
           command: ["sh","-ce","/scripts/sync-aws.sh"]
           env:
+            - name: AWS_REGION
+              value: us-east-1
             - name: AWS_ACCESS_KEY_ID
               valueFrom:
                 secretKeyRef:
@@ -41,7 +43,9 @@ spec:
                   name: streamsets-libspull-credentials-aws
                   key: secret_access_key
             - name: AWS_S3_BUCKET_NAME
-              value: streamsets-datacollector-external-resources
+              value: softwareaggov-mft-demos
+            - name: AWS_S3_BUCKET_PREFIX
+              value: /streamsets-demos/externalresources
             - name: AWS_S3_BUCKET_PATH_USER_LIBS
               value: "/user-libs"
             - name: AWS_S3_BUCKET_PATH_SYSTEM_LIBS_EXTRAS
@@ -107,17 +111,14 @@ spec:
             - name: externalworkingdir
               subPath: user-libs
               mountPath: /opt/streamsets-datacollector-user-libs
-              # /opt/streamsets-datacollector-5.12.0/externalResources/user-libs
               readOnly: true
             - name: externalworkingdir
               subPath: streamsets-libs-extras
               mountPath: /opt/streamsets-datacollector-5.12.0/streamsets-libs-extras
-              # /opt/streamsets-datacollector-5.12.0/externalResources/streamsets-libs-extras
               readOnly: true
             - name: externalworkingdir
               subPath: resources
               mountPath: /resources
-              # /opt/streamsets-datacollector-5.12.0/externalResources/resources
               readOnly: true
       volumes:
         - name: pull-script-aws
