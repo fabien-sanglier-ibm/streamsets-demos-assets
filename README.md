@@ -1,4 +1,9 @@
 # streamsets-demos-assets
-my streamsets demo shareable assets
 
-s3://softwareaggov-mft-demos/streamsets-demos/externalresources/
+Some streamsets demo shareable assets...
+
+## External Resources Management in Kubernetes Deployments
+
+- [k8-externalresources-mgt-with-aws](./k8-externalresources-mgt-with-aws/)
+- [k8-externalresources-mgt-with-minio](./k8-externalresources-mgt-with-minio/)
+
