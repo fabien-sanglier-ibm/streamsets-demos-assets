@@ -25,8 +25,10 @@ Each of these S3 directory will get pulled from into a specific directory on the
 - resources --> custom resources (properties files, etc.)
 
 ## Kubernetes assets
+ 
+### Deploy core supporting assets
 
-### create secret for AWS access
+Core Supporting assets 1: Create secret for AWS access:
 
 ```sh
 kubectl create secret generic streamsets-libspull-credentials-aws \
@@ -35,19 +37,21 @@ kubectl create secret generic streamsets-libspull-credentials-aws \
     --from-literal=secret_access_key="<SOMEVALUE>"
 ```
 
-### create config map for the shell command script
+Core Supporting assets 2: PVC (that will get used by the deployment engines)
+
+```sh
+kubectl --namespace streamsetsdemos apply -f ./manifests/pvc-pull-libraries.yaml
+```
+
+Core Supporting assets 3: Config map for the shell sync command script
 
 ```sh
 kubectl --namespace streamsetsdemos apply -f ./manifests/cm-sync-aws.yaml
 ```
 
-## Deploy supporting assets
+### Deploy JOB supporting assets
 
-Core Supporting assets: 1 PVC (that will get used by the deployment engines)
-
-```sh
-kubectl --namespace streamsetsdemos apply -f ./manifests/pvc-pull-libraries.yaml
-```
+The jobs will allow you to keep things in sync automatically or on demand...
 
 1 K8s CRON JOB to offer options and auto-pull assets ongoingly on a schedule  
 
