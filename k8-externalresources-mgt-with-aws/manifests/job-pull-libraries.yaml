@@ -26,12 +26,12 @@ spec:
             - name: AWS_ACCESS_KEY_ID
               valueFrom:
                 secretKeyRef:
-                  name: streamsets-libspull-credentials
+                  name: streamsets-libspull-credentials-aws
                   key: access_key_id
             - name: AWS_SECRET_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
-                  name: streamsets-libspull-credentials
+                  name: streamsets-libspull-credentials-aws
                   key: secret_access_key
             - name: AWS_S3_ENDPOINT
               value: https://10.43.107.22:443
