@@ -76,6 +76,12 @@ kubectl create secret generic streamsets-libspull-credentials \
     --from-literal=secret_access_key="<SOMEVALUE>"
 ```
 
+### create config map for the shell command script
+
+```sh
+kubectl --namespace streamsetsdemos apply -f ./manifests/cm-sync-minio.yaml
+```
+
 ## Deploy supporting assets
 
 Core Supporting assets: 1 PVC (that will get used by the deployment engines)

@@ -21,29 +21,7 @@ spec:
           imagePullPolicy: IfNotPresent
           securityContext: {}
           workingDir: "/libsdir"
-          command: ["sh"]
-          args:
-            - -ce
-            - |
-              mc alias set myminio "${AWS_S3_ENDPOINT}" "${AWS_ACCESS_KEY_ID}" "${AWS_SECRET_ACCESS_KEY}" --insecure
-
-              echo "Starting Sync for streamsets-libs-extras"
-              mkdir -p /externalworkingdir${AWS_S3_BUCKET_PATH_SYSTEM_LIBS_EXTRAS}
-              mc mirror --remove --overwrite --retry --summary --insecure myminio/${AWS_S3_BUCKET_NAME}${AWS_S3_BUCKET_PATH_SYSTEM_LIBS_EXTRAS} /externalworkingdir${AWS_S3_BUCKET_PATH_SYSTEM_LIBS_EXTRAS}
-              ls -al /externalworkingdir${AWS_S3_BUCKET_PATH_SYSTEM_LIBS_EXTRAS}/
-              echo "Sync complete - ststreamsets-libs-extras"
-
-              echo "Starting Sync for user-libs"
-              mkdir -p /externalworkingdir${AWS_S3_BUCKET_PATH_USER_LIBS}
-              mc mirror --remove --overwrite --retry --summary --insecure myminio/${AWS_S3_BUCKET_NAME}${AWS_S3_BUCKET_PATH_USER_LIBS} /externalworkingdir${AWS_S3_BUCKET_PATH_USER_LIBS}
-              ls -al /externalworkingdir${AWS_S3_BUCKET_PATH_USER_LIBS}/
-              echo "Sync complete - user-libs"
-
-              echo "Starting Sync for resources"
-              mkdir -p /externalworkingdir${AWS_S3_BUCKET_PATH_RESOURCES}
-              mc mirror --remove --overwrite --retry --summary --insecure myminio/${AWS_S3_BUCKET_NAME}${AWS_S3_BUCKET_PATH_RESOURCES} /externalworkingdir${AWS_S3_BUCKET_PATH_RESOURCES}
-              ls -al /externalworkingdir${AWS_S3_BUCKET_PATH_RESOURCES}/
-              echo "Sync complete - resources"
+          command: ["sh","-ce","/scripts/sync-minio.sh"]
           env:
             - name: AWS_ACCESS_KEY_ID
               valueFrom:
@@ -73,10 +51,16 @@ spec:
               cpu: "500m"
               memory: "512Mi"
           volumeMounts:
+            - name: pull-script-minio
+              mountPath: /scripts
             - mountPath: "/externalworkingdir"
               name: "externalworkingdir"
               readOnly: false
       volumes:
+        - name: pull-script-minio
+          configMap:
+            name: streamsets-pull-external-resources-minio
+            defaultMode: 0777
         - name: externalworkingdir
           persistentVolumeClaim:
             claimName: streamsets-external-resources
