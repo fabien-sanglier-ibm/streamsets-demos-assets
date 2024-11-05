@@ -37,49 +37,19 @@ kubectl create secret generic streamsets-libspull-credentials-aws \
     --from-literal=secret_access_key="<SOMEVALUE>"
 ```
 
-Core Supporting assets 2: PVC (that will get used by the deployment engines)
-
-```sh
-kubectl --namespace streamsetsdemos apply -f ./manifests/pvc-pull-libraries.yaml
-```
-
-Core Supporting assets 3: Config map for the shell sync command script
+Core Supporting assets 2: Config map for the shell scripts used by the init container + scheduler...
 
 ```sh
 kubectl --namespace streamsetsdemos apply -f ./manifests/cm-sync-aws.yaml
 ```
 
-### Deploy JOB supporting assets
-
-The jobs will allow you to keep things in sync automatically or on demand...
-
-1 K8s CRON JOB to offer options and auto-pull assets ongoingly on a schedule  
-
-```sh
-kubectl --namespace streamsetsdemos apply -f ./manifests/cronjob-pull-libraries.yaml
-```
-
-And 1 K8s JOB for easy ad-hoc running if/when needed (deploy when needed)
-
-```sh
-kubectl --namespace streamsetsdemos apply -f ./manifests/job-pull-libraries.yaml
-```
-
-You can re-run the ad-hoc job at will by deleting and recreating...
-
-```sh
-kubectl --namespace streamsetsdemos delete -f ./manifests/job-pull-libraries.yaml
-kubectl --namespace streamsetsdemos apply -f ./manifests/job-pull-libraries.yaml
-```
-
 ## Deploy the deployment in streamsets
 
 The deployment file contains the following customization, in addition to the usual StreamSets items:
- - The PVC gets used by the data collector pod to create a Persistent Volume (PV),
- - PV gets mounted READ-ONLY to the right places on the data collector (specific Sx directories) using volumeMounts section
- - An init container to automatically pull from AWS S3 all the required assets onto the same Persistent Volume (PV) BEFORE the data collector container starts
+ - The single EmptyDir volume gets used by all the containers in the pod
+ - The volume gets mounted READ-ONLY to the right places on the data collector (specific Sx directories) using volumeMounts section
+ - An init container to automatically pull from AWS S3 all the required assets onto the volume BEFORE the data collector container starts
+ - A simple side-car container to automatically pull the S3 assets at regular interval to keep the files in sync continuously.
 
-And outside of that, the cronjob will refresh the data on that Persistent Volume (PV) regularly to keep thing fresh...
-
-The file "./manifests/deployment-with-pvc-template.yaml" should be added to the StreamSets deployment
+The file "./manifests/deployment-template.yaml" should be added to the StreamSets deployment
 IMPORTANT: make sure to replace the placeholders "UUID" and "ORGID" in that file with what StreamSets expects
