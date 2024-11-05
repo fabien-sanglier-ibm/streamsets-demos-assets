@@ -1,0 +1,177 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: streamsets-deployment-<UUID>
+    vendor: streamsets-sch
+    env: na01
+  name: streamsets-deployment-<UUID>
+  namespace: streamsetsdemos
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: streamsets-deployment-<UUID>
+  template:
+    metadata:
+      labels:
+        app: streamsets-deployment-<UUID>
+        vendor: streamsets-sch
+        env: na01
+    spec:
+      terminationGracePeriodSeconds: 30
+      restartPolicy: Always
+      imagePullSecrets: []
+      initContainers:
+        - name: init-pull-external-resources
+          image: amazon/aws-cli:latest
+          imagePullPolicy: IfNotPresent
+          securityContext: {}
+          workingDir: "/externalworkingdir"
+          command: ["sh","-ce","/scripts/sync-aws.sh"]
+          env:
+            - name: AWS_REGION
+              value: us-east-1
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: streamsets-libspull-credentials-aws
+                  key: access_key_id
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: streamsets-libspull-credentials-aws
+                  key: secret_access_key
+            - name: AWS_S3_BUCKET_NAME
+              value: softwareaggov-mft-demos
+            - name: AWS_S3_BUCKET_PREFIX
+              value: /streamsets-demos/externalresources
+            - name: AWS_S3_BUCKET_PATH_USER_LIBS
+              value: "/user-libs"
+            - name: AWS_S3_BUCKET_PATH_SYSTEM_LIBS_EXTRAS
+              value: "/streamsets-libs-extras"
+            - name: AWS_S3_BUCKET_PATH_RESOURCES
+              value: "/resources"
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "100m"
+              memory: "256Mi"
+          volumeMounts:
+            - name: pull-script-aws
+              mountPath: /scripts
+            - mountPath: "/externalworkingdir"
+              name: "externalworkingdir"
+              readOnly: false
+      containers:
+        - env:
+            - name: STREAMSETS_DEPLOYMENT_ID
+              value: <UUID>:<ORGID>
+            - name: STREAMSETS_DEPLOYMENT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  key: token
+                  name: streamsets-deployment-secret-<UUID>
+                  optional: false
+            - name: STREAMSETS_DEPLOYMENT_SCH_URL
+              value: https://na01.hub.streamsets.com
+          image: streamsets/datacollector:JDK17_5.12.0
+          livenessProbe:
+            failureThreshold: 20
+            httpGet:
+              path: /public-rest/ping
+              port: engine-port
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+          name: streamsets-engine-<UUID>
+          ports:
+            - containerPort: 18630
+              name: engine-port
+          resources:
+            limits:
+              cpu: "2"
+              memory: 4Gi
+            requests:
+              memory: 1Gi
+              cpu: "1"
+          startupProbe:
+            failureThreshold: 60
+            httpGet:
+              path: /public-rest/ping
+              port: engine-port
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+          volumeMounts:
+            - name: externalworkingdir
+              subPath: user-libs
+              mountPath: /opt/streamsets-datacollector-user-libs
+              readOnly: true
+            - name: externalworkingdir
+              subPath: streamsets-libs-extras
+              mountPath: /opt/streamsets-datacollector-5.12.0/streamsets-libs-extras
+              readOnly: true
+            - name: externalworkingdir
+              subPath: resources
+              mountPath: /resources
+              readOnly: true
+        - name: sidecar-schedule-pull-external-resources
+          image: amazon/aws-cli:latest
+          imagePullPolicy: IfNotPresent
+          securityContext: {}
+          workingDir: "/externalworkingdir"
+          command: ["sh","-ce","/scripts/schedule-sync.sh"]
+          env:
+            - name: SYNC_SCRIPT_PATH
+              value: "/scripts/sync-aws.sh"
+            - name: SCHEDULE_INTERVAL_SEC
+              value: "300"
+            - name: AWS_REGION
+              value: us-east-1
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: streamsets-libspull-credentials-aws
+                  key: access_key_id
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: streamsets-libspull-credentials-aws
+                  key: secret_access_key
+            - name: AWS_S3_BUCKET_NAME
+              value: softwareaggov-mft-demos
+            - name: AWS_S3_BUCKET_PREFIX
+              value: /streamsets-demos/externalresources
+            - name: AWS_S3_BUCKET_PATH_USER_LIBS
+              value: "/user-libs"
+            - name: AWS_S3_BUCKET_PATH_SYSTEM_LIBS_EXTRAS
+              value: "/streamsets-libs-extras"
+            - name: AWS_S3_BUCKET_PATH_RESOURCES
+              value: "/resources"
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "100m"
+              memory: "256Mi"
+          volumeMounts:
+            - name: pull-script-aws
+              mountPath: /scripts
+            - mountPath: "/externalworkingdir"
+              name: "externalworkingdir"
+              readOnly: false
+      volumes:
+        - name: pull-script-aws
+          configMap:
+            name: streamsets-pull-external-resources-emptydir-aws
+            defaultMode: 0777
+        - name: externalworkingdir
+          emptyDir:
+            sizeLimit: 20Gi
+      dnsPolicy: Default
