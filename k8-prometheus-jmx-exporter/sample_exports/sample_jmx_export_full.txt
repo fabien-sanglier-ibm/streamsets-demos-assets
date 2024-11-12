@@ -1,0 +1,1806 @@
+$ curl http://localhost:12345/metrics
+# HELP java_lang_classloading_loadedclasscount java.lang:name=null,type=ClassLoading,attribute=LoadedClassCount
+# TYPE java_lang_classloading_loadedclasscount untyped
+java_lang_classloading_loadedclasscount 12688.0
+# HELP java_lang_classloading_totalloadedclasscount java.lang:name=null,type=ClassLoading,attribute=TotalLoadedClassCount
+# TYPE java_lang_classloading_totalloadedclasscount untyped
+java_lang_classloading_totalloadedclasscount 12688.0
+# HELP java_lang_classloading_unloadedclasscount java.lang:name=null,type=ClassLoading,attribute=UnloadedClassCount
+# TYPE java_lang_classloading_unloadedclasscount untyped
+java_lang_classloading_unloadedclasscount 0.0
+# HELP java_lang_classloading_verbose java.lang:name=null,type=ClassLoading,attribute=Verbose
+# TYPE java_lang_classloading_verbose untyped
+java_lang_classloading_verbose 0.0
+# HELP java_lang_codecachemanager_valid java.lang:name=CodeCacheManager,type=MemoryManager,attribute=Valid
+# TYPE java_lang_codecachemanager_valid untyped
+java_lang_codecachemanager_valid{type="MemoryManager"} 1.0
+# HELP java_lang_codeheap_non_nmethods_collectionusagethresholdsupported java.lang:name=CodeHeap 'non-nmethods',type=MemoryPool,attribute=CollectionUsageThresholdSupported
+# TYPE java_lang_codeheap_non_nmethods_collectionusagethresholdsupported untyped
+java_lang_codeheap_non_nmethods_collectionusagethresholdsupported{type="MemoryPool"} 0.0
+# HELP java_lang_codeheap_non_nmethods_peakusage_committed java.lang.management.MemoryUsage java.lang:name=CodeHeap 'non-nmethods',type=MemoryPool,attribute=committed
+# TYPE java_lang_codeheap_non_nmethods_peakusage_committed untyped
+java_lang_codeheap_non_nmethods_peakusage_committed{type="MemoryPool"} 2555904.0
+# HELP java_lang_codeheap_non_nmethods_peakusage_init java.lang.management.MemoryUsage java.lang:name=CodeHeap 'non-nmethods',type=MemoryPool,attribute=init
+# TYPE java_lang_codeheap_non_nmethods_peakusage_init untyped
+java_lang_codeheap_non_nmethods_peakusage_init{type="MemoryPool"} 2555904.0
+# HELP java_lang_codeheap_non_nmethods_peakusage_max java.lang.management.MemoryUsage java.lang:name=CodeHeap 'non-nmethods',type=MemoryPool,attribute=max
+# TYPE java_lang_codeheap_non_nmethods_peakusage_max untyped
+java_lang_codeheap_non_nmethods_peakusage_max{type="MemoryPool"} 5840896.0
+# HELP java_lang_codeheap_non_nmethods_peakusage_used java.lang.management.MemoryUsage java.lang:name=CodeHeap 'non-nmethods',type=MemoryPool,attribute=used
+# TYPE java_lang_codeheap_non_nmethods_peakusage_used untyped
+java_lang_codeheap_non_nmethods_peakusage_used{type="MemoryPool"} 1587968.0
+# HELP java_lang_codeheap_non_nmethods_usage_committed java.lang.management.MemoryUsage java.lang:name=CodeHeap 'non-nmethods',type=MemoryPool,attribute=committed
+# TYPE java_lang_codeheap_non_nmethods_usage_committed untyped
+java_lang_codeheap_non_nmethods_usage_committed{type="MemoryPool"} 2555904.0
+# HELP java_lang_codeheap_non_nmethods_usage_init java.lang.management.MemoryUsage java.lang:name=CodeHeap 'non-nmethods',type=MemoryPool,attribute=init
+# TYPE java_lang_codeheap_non_nmethods_usage_init untyped
+java_lang_codeheap_non_nmethods_usage_init{type="MemoryPool"} 2555904.0
+# HELP java_lang_codeheap_non_nmethods_usage_max java.lang.management.MemoryUsage java.lang:name=CodeHeap 'non-nmethods',type=MemoryPool,attribute=max
+# TYPE java_lang_codeheap_non_nmethods_usage_max untyped
+java_lang_codeheap_non_nmethods_usage_max{type="MemoryPool"} 5840896.0
+# HELP java_lang_codeheap_non_nmethods_usage_used java.lang.management.MemoryUsage java.lang:name=CodeHeap 'non-nmethods',type=MemoryPool,attribute=used
+# TYPE java_lang_codeheap_non_nmethods_usage_used untyped
+java_lang_codeheap_non_nmethods_usage_used{type="MemoryPool"} 1420672.0
+# HELP java_lang_codeheap_non_nmethods_usagethreshold java.lang:name=CodeHeap 'non-nmethods',type=MemoryPool,attribute=UsageThreshold
+# TYPE java_lang_codeheap_non_nmethods_usagethreshold untyped
+java_lang_codeheap_non_nmethods_usagethreshold{type="MemoryPool"} 0.0
+# HELP java_lang_codeheap_non_nmethods_usagethresholdcount java.lang:name=CodeHeap 'non-nmethods',type=MemoryPool,attribute=UsageThresholdCount
+# TYPE java_lang_codeheap_non_nmethods_usagethresholdcount untyped
+java_lang_codeheap_non_nmethods_usagethresholdcount{type="MemoryPool"} 0.0
+# HELP java_lang_codeheap_non_nmethods_usagethresholdexceeded java.lang:name=CodeHeap 'non-nmethods',type=MemoryPool,attribute=UsageThresholdExceeded
+# TYPE java_lang_codeheap_non_nmethods_usagethresholdexceeded untyped
+java_lang_codeheap_non_nmethods_usagethresholdexceeded{type="MemoryPool"} 0.0
+# HELP java_lang_codeheap_non_nmethods_usagethresholdsupported java.lang:name=CodeHeap 'non-nmethods',type=MemoryPool,attribute=UsageThresholdSupported
+# TYPE java_lang_codeheap_non_nmethods_usagethresholdsupported untyped
+java_lang_codeheap_non_nmethods_usagethresholdsupported{type="MemoryPool"} 1.0
+# HELP java_lang_codeheap_non_nmethods_valid java.lang:name=CodeHeap 'non-nmethods',type=MemoryPool,attribute=Valid
+# TYPE java_lang_codeheap_non_nmethods_valid untyped
+java_lang_codeheap_non_nmethods_valid{type="MemoryPool"} 1.0
+# HELP java_lang_codeheap_non_profiled_nmethods_collectionusagethresholdsupported java.lang:name=CodeHeap 'non-profiled nmethods',type=MemoryPool,attribute=CollectionUsageThresholdSupported
+# TYPE java_lang_codeheap_non_profiled_nmethods_collectionusagethresholdsupported untyped
+java_lang_codeheap_non_profiled_nmethods_collectionusagethresholdsupported{type="MemoryPool"} 0.0
+# HELP java_lang_codeheap_non_profiled_nmethods_peakusage_committed java.lang.management.MemoryUsage java.lang:name=CodeHeap 'non-profiled nmethods',type=MemoryPool,attribute=committed
+# TYPE java_lang_codeheap_non_profiled_nmethods_peakusage_committed untyped
+java_lang_codeheap_non_profiled_nmethods_peakusage_committed{type="MemoryPool"} 9437184.0
+# HELP java_lang_codeheap_non_profiled_nmethods_peakusage_init java.lang.management.MemoryUsage java.lang:name=CodeHeap 'non-profiled nmethods',type=MemoryPool,attribute=init
+# TYPE java_lang_codeheap_non_profiled_nmethods_peakusage_init untyped
+java_lang_codeheap_non_profiled_nmethods_peakusage_init{type="MemoryPool"} 2555904.0
+# HELP java_lang_codeheap_non_profiled_nmethods_peakusage_max java.lang.management.MemoryUsage java.lang:name=CodeHeap 'non-profiled nmethods',type=MemoryPool,attribute=max
+# TYPE java_lang_codeheap_non_profiled_nmethods_peakusage_max untyped
+java_lang_codeheap_non_profiled_nmethods_peakusage_max{type="MemoryPool"} 1.22908672E8
+# HELP java_lang_codeheap_non_profiled_nmethods_peakusage_used java.lang.management.MemoryUsage java.lang:name=CodeHeap 'non-profiled nmethods',type=MemoryPool,attribute=used
+# TYPE java_lang_codeheap_non_profiled_nmethods_peakusage_used untyped
+java_lang_codeheap_non_profiled_nmethods_peakusage_used{type="MemoryPool"} 9393920.0
+# HELP java_lang_codeheap_non_profiled_nmethods_usage_committed java.lang.management.MemoryUsage java.lang:name=CodeHeap 'non-profiled nmethods',type=MemoryPool,attribute=committed
+# TYPE java_lang_codeheap_non_profiled_nmethods_usage_committed untyped
+java_lang_codeheap_non_profiled_nmethods_usage_committed{type="MemoryPool"} 9437184.0
+# HELP java_lang_codeheap_non_profiled_nmethods_usage_init java.lang.management.MemoryUsage java.lang:name=CodeHeap 'non-profiled nmethods',type=MemoryPool,attribute=init
+# TYPE java_lang_codeheap_non_profiled_nmethods_usage_init untyped
+java_lang_codeheap_non_profiled_nmethods_usage_init{type="MemoryPool"} 2555904.0
+# HELP java_lang_codeheap_non_profiled_nmethods_usage_max java.lang.management.MemoryUsage java.lang:name=CodeHeap 'non-profiled nmethods',type=MemoryPool,attribute=max
+# TYPE java_lang_codeheap_non_profiled_nmethods_usage_max untyped
+java_lang_codeheap_non_profiled_nmethods_usage_max{type="MemoryPool"} 1.22908672E8
+# HELP java_lang_codeheap_non_profiled_nmethods_usage_used java.lang.management.MemoryUsage java.lang:name=CodeHeap 'non-profiled nmethods',type=MemoryPool,attribute=used
+# TYPE java_lang_codeheap_non_profiled_nmethods_usage_used untyped
+java_lang_codeheap_non_profiled_nmethods_usage_used{type="MemoryPool"} 9393920.0
+# HELP java_lang_codeheap_non_profiled_nmethods_usagethreshold java.lang:name=CodeHeap 'non-profiled nmethods',type=MemoryPool,attribute=UsageThreshold
+# TYPE java_lang_codeheap_non_profiled_nmethods_usagethreshold untyped
+java_lang_codeheap_non_profiled_nmethods_usagethreshold{type="MemoryPool"} 0.0
+# HELP java_lang_codeheap_non_profiled_nmethods_usagethresholdcount java.lang:name=CodeHeap 'non-profiled nmethods',type=MemoryPool,attribute=UsageThresholdCount
+# TYPE java_lang_codeheap_non_profiled_nmethods_usagethresholdcount untyped
+java_lang_codeheap_non_profiled_nmethods_usagethresholdcount{type="MemoryPool"} 0.0
+# HELP java_lang_codeheap_non_profiled_nmethods_usagethresholdexceeded java.lang:name=CodeHeap 'non-profiled nmethods',type=MemoryPool,attribute=UsageThresholdExceeded
+# TYPE java_lang_codeheap_non_profiled_nmethods_usagethresholdexceeded untyped
+java_lang_codeheap_non_profiled_nmethods_usagethresholdexceeded{type="MemoryPool"} 0.0
+# HELP java_lang_codeheap_non_profiled_nmethods_usagethresholdsupported java.lang:name=CodeHeap 'non-profiled nmethods',type=MemoryPool,attribute=UsageThresholdSupported
+# TYPE java_lang_codeheap_non_profiled_nmethods_usagethresholdsupported untyped
+java_lang_codeheap_non_profiled_nmethods_usagethresholdsupported{type="MemoryPool"} 1.0
+# HELP java_lang_codeheap_non_profiled_nmethods_valid java.lang:name=CodeHeap 'non-profiled nmethods',type=MemoryPool,attribute=Valid
+# TYPE java_lang_codeheap_non_profiled_nmethods_valid untyped
+java_lang_codeheap_non_profiled_nmethods_valid{type="MemoryPool"} 1.0
+# HELP java_lang_codeheap_profiled_nmethods_collectionusagethresholdsupported java.lang:name=CodeHeap 'profiled nmethods',type=MemoryPool,attribute=CollectionUsageThresholdSupported
+# TYPE java_lang_codeheap_profiled_nmethods_collectionusagethresholdsupported untyped
+java_lang_codeheap_profiled_nmethods_collectionusagethresholdsupported{type="MemoryPool"} 0.0
+# HELP java_lang_codeheap_profiled_nmethods_peakusage_committed java.lang.management.MemoryUsage java.lang:name=CodeHeap 'profiled nmethods',type=MemoryPool,attribute=committed
+# TYPE java_lang_codeheap_profiled_nmethods_peakusage_committed untyped
+java_lang_codeheap_profiled_nmethods_peakusage_committed{type="MemoryPool"} 2.0774912E7
+# HELP java_lang_codeheap_profiled_nmethods_peakusage_init java.lang.management.MemoryUsage java.lang:name=CodeHeap 'profiled nmethods',type=MemoryPool,attribute=init
+# TYPE java_lang_codeheap_profiled_nmethods_peakusage_init untyped
+java_lang_codeheap_profiled_nmethods_peakusage_init{type="MemoryPool"} 2555904.0
+# HELP java_lang_codeheap_profiled_nmethods_peakusage_max java.lang.management.MemoryUsage java.lang:name=CodeHeap 'profiled nmethods',type=MemoryPool,attribute=max
+# TYPE java_lang_codeheap_profiled_nmethods_peakusage_max untyped
+java_lang_codeheap_profiled_nmethods_peakusage_max{type="MemoryPool"} 1.22908672E8
+# HELP java_lang_codeheap_profiled_nmethods_peakusage_used java.lang.management.MemoryUsage java.lang:name=CodeHeap 'profiled nmethods',type=MemoryPool,attribute=used
+# TYPE java_lang_codeheap_profiled_nmethods_peakusage_used untyped
+java_lang_codeheap_profiled_nmethods_peakusage_used{type="MemoryPool"} 2.072192E7
+# HELP java_lang_codeheap_profiled_nmethods_usage_committed java.lang.management.MemoryUsage java.lang:name=CodeHeap 'profiled nmethods',type=MemoryPool,attribute=committed
+# TYPE java_lang_codeheap_profiled_nmethods_usage_committed untyped
+java_lang_codeheap_profiled_nmethods_usage_committed{type="MemoryPool"} 2.0774912E7
+# HELP java_lang_codeheap_profiled_nmethods_usage_init java.lang.management.MemoryUsage java.lang:name=CodeHeap 'profiled nmethods',type=MemoryPool,attribute=init
+# TYPE java_lang_codeheap_profiled_nmethods_usage_init untyped
+java_lang_codeheap_profiled_nmethods_usage_init{type="MemoryPool"} 2555904.0
+# HELP java_lang_codeheap_profiled_nmethods_usage_max java.lang.management.MemoryUsage java.lang:name=CodeHeap 'profiled nmethods',type=MemoryPool,attribute=max
+# TYPE java_lang_codeheap_profiled_nmethods_usage_max untyped
+java_lang_codeheap_profiled_nmethods_usage_max{type="MemoryPool"} 1.22908672E8
+# HELP java_lang_codeheap_profiled_nmethods_usage_used java.lang.management.MemoryUsage java.lang:name=CodeHeap 'profiled nmethods',type=MemoryPool,attribute=used
+# TYPE java_lang_codeheap_profiled_nmethods_usage_used untyped
+java_lang_codeheap_profiled_nmethods_usage_used{type="MemoryPool"} 2.0374016E7
+# HELP java_lang_codeheap_profiled_nmethods_usagethreshold java.lang:name=CodeHeap 'profiled nmethods',type=MemoryPool,attribute=UsageThreshold
+# TYPE java_lang_codeheap_profiled_nmethods_usagethreshold untyped
+java_lang_codeheap_profiled_nmethods_usagethreshold{type="MemoryPool"} 0.0
+# HELP java_lang_codeheap_profiled_nmethods_usagethresholdcount java.lang:name=CodeHeap 'profiled nmethods',type=MemoryPool,attribute=UsageThresholdCount
+# TYPE java_lang_codeheap_profiled_nmethods_usagethresholdcount untyped
+java_lang_codeheap_profiled_nmethods_usagethresholdcount{type="MemoryPool"} 0.0
+# HELP java_lang_codeheap_profiled_nmethods_usagethresholdexceeded java.lang:name=CodeHeap 'profiled nmethods',type=MemoryPool,attribute=UsageThresholdExceeded
+# TYPE java_lang_codeheap_profiled_nmethods_usagethresholdexceeded untyped
+java_lang_codeheap_profiled_nmethods_usagethresholdexceeded{type="MemoryPool"} 0.0
+# HELP java_lang_codeheap_profiled_nmethods_usagethresholdsupported java.lang:name=CodeHeap 'profiled nmethods',type=MemoryPool,attribute=UsageThresholdSupported
+# TYPE java_lang_codeheap_profiled_nmethods_usagethresholdsupported untyped
+java_lang_codeheap_profiled_nmethods_usagethresholdsupported{type="MemoryPool"} 1.0
+# HELP java_lang_codeheap_profiled_nmethods_valid java.lang:name=CodeHeap 'profiled nmethods',type=MemoryPool,attribute=Valid
+# TYPE java_lang_codeheap_profiled_nmethods_valid untyped
+java_lang_codeheap_profiled_nmethods_valid{type="MemoryPool"} 1.0
+# HELP java_lang_compilation_compilationtimemonitoringsupported java.lang:name=null,type=Compilation,attribute=CompilationTimeMonitoringSupported
+# TYPE java_lang_compilation_compilationtimemonitoringsupported untyped
+java_lang_compilation_compilationtimemonitoringsupported 1.0
+# HELP java_lang_compilation_totalcompilationtime java.lang:name=null,type=Compilation,attribute=TotalCompilationTime
+# TYPE java_lang_compilation_totalcompilationtime untyped
+java_lang_compilation_totalcompilationtime 20526.0
+# HELP java_lang_compressed_class_space_collectionusagethresholdsupported java.lang:name=Compressed Class Space,type=MemoryPool,attribute=CollectionUsageThresholdSupported
+# TYPE java_lang_compressed_class_space_collectionusagethresholdsupported untyped
+java_lang_compressed_class_space_collectionusagethresholdsupported{type="MemoryPool"} 0.0
+# HELP java_lang_compressed_class_space_peakusage_committed java.lang.management.MemoryUsage java.lang:name=Compressed Class Space,type=MemoryPool,attribute=committed
+# TYPE java_lang_compressed_class_space_peakusage_committed untyped
+java_lang_compressed_class_space_peakusage_committed{type="MemoryPool"} 8192000.0
+# HELP java_lang_compressed_class_space_peakusage_init java.lang.management.MemoryUsage java.lang:name=Compressed Class Space,type=MemoryPool,attribute=init
+# TYPE java_lang_compressed_class_space_peakusage_init untyped
+java_lang_compressed_class_space_peakusage_init{type="MemoryPool"} 0.0
+# HELP java_lang_compressed_class_space_peakusage_max java.lang.management.MemoryUsage java.lang:name=Compressed Class Space,type=MemoryPool,attribute=max
+# TYPE java_lang_compressed_class_space_peakusage_max untyped
+java_lang_compressed_class_space_peakusage_max{type="MemoryPool"} 1.073741824E9
+# HELP java_lang_compressed_class_space_peakusage_used java.lang.management.MemoryUsage java.lang:name=Compressed Class Space,type=MemoryPool,attribute=used
+# TYPE java_lang_compressed_class_space_peakusage_used untyped
+java_lang_compressed_class_space_peakusage_used{type="MemoryPool"} 7822296.0
+# HELP java_lang_compressed_class_space_usage_committed java.lang.management.MemoryUsage java.lang:name=Compressed Class Space,type=MemoryPool,attribute=committed
+# TYPE java_lang_compressed_class_space_usage_committed untyped
+java_lang_compressed_class_space_usage_committed{type="MemoryPool"} 8192000.0
+# HELP java_lang_compressed_class_space_usage_init java.lang.management.MemoryUsage java.lang:name=Compressed Class Space,type=MemoryPool,attribute=init
+# TYPE java_lang_compressed_class_space_usage_init untyped
+java_lang_compressed_class_space_usage_init{type="MemoryPool"} 0.0
+# HELP java_lang_compressed_class_space_usage_max java.lang.management.MemoryUsage java.lang:name=Compressed Class Space,type=MemoryPool,attribute=max
+# TYPE java_lang_compressed_class_space_usage_max untyped
+java_lang_compressed_class_space_usage_max{type="MemoryPool"} 1.073741824E9
+# HELP java_lang_compressed_class_space_usage_used java.lang.management.MemoryUsage java.lang:name=Compressed Class Space,type=MemoryPool,attribute=used
+# TYPE java_lang_compressed_class_space_usage_used untyped
+java_lang_compressed_class_space_usage_used{type="MemoryPool"} 7822296.0
+# HELP java_lang_compressed_class_space_usagethreshold java.lang:name=Compressed Class Space,type=MemoryPool,attribute=UsageThreshold
+# TYPE java_lang_compressed_class_space_usagethreshold untyped
+java_lang_compressed_class_space_usagethreshold{type="MemoryPool"} 0.0
+# HELP java_lang_compressed_class_space_usagethresholdcount java.lang:name=Compressed Class Space,type=MemoryPool,attribute=UsageThresholdCount
+# TYPE java_lang_compressed_class_space_usagethresholdcount untyped
+java_lang_compressed_class_space_usagethresholdcount{type="MemoryPool"} 0.0
+# HELP java_lang_compressed_class_space_usagethresholdexceeded java.lang:name=Compressed Class Space,type=MemoryPool,attribute=UsageThresholdExceeded
+# TYPE java_lang_compressed_class_space_usagethresholdexceeded untyped
+java_lang_compressed_class_space_usagethresholdexceeded{type="MemoryPool"} 0.0
+# HELP java_lang_compressed_class_space_usagethresholdsupported java.lang:name=Compressed Class Space,type=MemoryPool,attribute=UsageThresholdSupported
+# TYPE java_lang_compressed_class_space_usagethresholdsupported untyped
+java_lang_compressed_class_space_usagethresholdsupported{type="MemoryPool"} 1.0
+# HELP java_lang_compressed_class_space_valid java.lang:name=Compressed Class Space,type=MemoryPool,attribute=Valid
+# TYPE java_lang_compressed_class_space_valid untyped
+java_lang_compressed_class_space_valid{type="MemoryPool"} 1.0
+# HELP java_lang_g1_eden_space_collectionusage_committed java.lang.management.MemoryUsage java.lang:name=G1 Eden Space,type=MemoryPool,attribute=committed
+# TYPE java_lang_g1_eden_space_collectionusage_committed untyped
+java_lang_g1_eden_space_collectionusage_committed{type="MemoryPool"} 4.94927872E8
+# HELP java_lang_g1_eden_space_collectionusage_init java.lang.management.MemoryUsage java.lang:name=G1 Eden Space,type=MemoryPool,attribute=init
+# TYPE java_lang_g1_eden_space_collectionusage_init untyped
+java_lang_g1_eden_space_collectionusage_init{type="MemoryPool"} 2.26492416E8
+# HELP java_lang_g1_eden_space_collectionusage_max java.lang.management.MemoryUsage java.lang:name=G1 Eden Space,type=MemoryPool,attribute=max
+# TYPE java_lang_g1_eden_space_collectionusage_max untyped
+java_lang_g1_eden_space_collectionusage_max{type="MemoryPool"} -1.0
+# HELP java_lang_g1_eden_space_collectionusage_used java.lang.management.MemoryUsage java.lang:name=G1 Eden Space,type=MemoryPool,attribute=used
+# TYPE java_lang_g1_eden_space_collectionusage_used untyped
+java_lang_g1_eden_space_collectionusage_used{type="MemoryPool"} 0.0
+# HELP java_lang_g1_eden_space_collectionusagethreshold java.lang:name=G1 Eden Space,type=MemoryPool,attribute=CollectionUsageThreshold
+# TYPE java_lang_g1_eden_space_collectionusagethreshold untyped
+java_lang_g1_eden_space_collectionusagethreshold{type="MemoryPool"} 0.0
+# HELP java_lang_g1_eden_space_collectionusagethresholdcount java.lang:name=G1 Eden Space,type=MemoryPool,attribute=CollectionUsageThresholdCount
+# TYPE java_lang_g1_eden_space_collectionusagethresholdcount untyped
+java_lang_g1_eden_space_collectionusagethresholdcount{type="MemoryPool"} 0.0
+# HELP java_lang_g1_eden_space_collectionusagethresholdexceeded java.lang:name=G1 Eden Space,type=MemoryPool,attribute=CollectionUsageThresholdExceeded
+# TYPE java_lang_g1_eden_space_collectionusagethresholdexceeded untyped
+java_lang_g1_eden_space_collectionusagethresholdexceeded{type="MemoryPool"} 0.0
+# HELP java_lang_g1_eden_space_collectionusagethresholdsupported java.lang:name=G1 Eden Space,type=MemoryPool,attribute=CollectionUsageThresholdSupported
+# TYPE java_lang_g1_eden_space_collectionusagethresholdsupported untyped
+java_lang_g1_eden_space_collectionusagethresholdsupported{type="MemoryPool"} 1.0
+# HELP java_lang_g1_eden_space_peakusage_committed java.lang.management.MemoryUsage java.lang:name=G1 Eden Space,type=MemoryPool,attribute=committed
+# TYPE java_lang_g1_eden_space_peakusage_committed untyped
+java_lang_g1_eden_space_peakusage_committed{type="MemoryPool"} 2.703228928E9
+# HELP java_lang_g1_eden_space_peakusage_init java.lang.management.MemoryUsage java.lang:name=G1 Eden Space,type=MemoryPool,attribute=init
+# TYPE java_lang_g1_eden_space_peakusage_init untyped
+java_lang_g1_eden_space_peakusage_init{type="MemoryPool"} 2.26492416E8
+# HELP java_lang_g1_eden_space_peakusage_max java.lang.management.MemoryUsage java.lang:name=G1 Eden Space,type=MemoryPool,attribute=max
+# TYPE java_lang_g1_eden_space_peakusage_max untyped
+java_lang_g1_eden_space_peakusage_max{type="MemoryPool"} -1.0
+# HELP java_lang_g1_eden_space_peakusage_used java.lang.management.MemoryUsage java.lang:name=G1 Eden Space,type=MemoryPool,attribute=used
+# TYPE java_lang_g1_eden_space_peakusage_used untyped
+java_lang_g1_eden_space_peakusage_used{type="MemoryPool"} 2.148534272E9
+# HELP java_lang_g1_eden_space_usage_committed java.lang.management.MemoryUsage java.lang:name=G1 Eden Space,type=MemoryPool,attribute=committed
+# TYPE java_lang_g1_eden_space_usage_committed untyped
+java_lang_g1_eden_space_usage_committed{type="MemoryPool"} 4.94927872E8
+# HELP java_lang_g1_eden_space_usage_init java.lang.management.MemoryUsage java.lang:name=G1 Eden Space,type=MemoryPool,attribute=init
+# TYPE java_lang_g1_eden_space_usage_init untyped
+java_lang_g1_eden_space_usage_init{type="MemoryPool"} 2.26492416E8
+# HELP java_lang_g1_eden_space_usage_max java.lang.management.MemoryUsage java.lang:name=G1 Eden Space,type=MemoryPool,attribute=max
+# TYPE java_lang_g1_eden_space_usage_max untyped
+java_lang_g1_eden_space_usage_max{type="MemoryPool"} -1.0
+# HELP java_lang_g1_eden_space_usage_used java.lang.management.MemoryUsage java.lang:name=G1 Eden Space,type=MemoryPool,attribute=used
+# TYPE java_lang_g1_eden_space_usage_used untyped
+java_lang_g1_eden_space_usage_used{type="MemoryPool"} 2.097152E7
+# HELP java_lang_g1_eden_space_usagethresholdsupported java.lang:name=G1 Eden Space,type=MemoryPool,attribute=UsageThresholdSupported
+# TYPE java_lang_g1_eden_space_usagethresholdsupported untyped
+java_lang_g1_eden_space_usagethresholdsupported{type="MemoryPool"} 0.0
+# HELP java_lang_g1_eden_space_valid java.lang:name=G1 Eden Space,type=MemoryPool,attribute=Valid
+# TYPE java_lang_g1_eden_space_valid untyped
+java_lang_g1_eden_space_valid{type="MemoryPool"} 1.0
+# HELP java_lang_g1_old_gen_collectionusage_committed java.lang.management.MemoryUsage java.lang:name=G1 Old Gen,type=MemoryPool,attribute=committed
+# TYPE java_lang_g1_old_gen_collectionusage_committed untyped
+java_lang_g1_old_gen_collectionusage_committed{type="MemoryPool"} 0.0
+# HELP java_lang_g1_old_gen_collectionusage_init java.lang.management.MemoryUsage java.lang:name=G1 Old Gen,type=MemoryPool,attribute=init
+# TYPE java_lang_g1_old_gen_collectionusage_init untyped
+java_lang_g1_old_gen_collectionusage_init{type="MemoryPool"} 4.06847488E9
+# HELP java_lang_g1_old_gen_collectionusage_max java.lang.management.MemoryUsage java.lang:name=G1 Old Gen,type=MemoryPool,attribute=max
+# TYPE java_lang_g1_old_gen_collectionusage_max untyped
+java_lang_g1_old_gen_collectionusage_max{type="MemoryPool"} 4.294967296E9
+# HELP java_lang_g1_old_gen_collectionusage_used java.lang.management.MemoryUsage java.lang:name=G1 Old Gen,type=MemoryPool,attribute=used
+# TYPE java_lang_g1_old_gen_collectionusage_used untyped
+java_lang_g1_old_gen_collectionusage_used{type="MemoryPool"} 0.0
+# HELP java_lang_g1_old_gen_collectionusagethreshold java.lang:name=G1 Old Gen,type=MemoryPool,attribute=CollectionUsageThreshold
+# TYPE java_lang_g1_old_gen_collectionusagethreshold untyped
+java_lang_g1_old_gen_collectionusagethreshold{type="MemoryPool"} 0.0
+# HELP java_lang_g1_old_gen_collectionusagethresholdcount java.lang:name=G1 Old Gen,type=MemoryPool,attribute=CollectionUsageThresholdCount
+# TYPE java_lang_g1_old_gen_collectionusagethresholdcount untyped
+java_lang_g1_old_gen_collectionusagethresholdcount{type="MemoryPool"} 0.0
+# HELP java_lang_g1_old_gen_collectionusagethresholdexceeded java.lang:name=G1 Old Gen,type=MemoryPool,attribute=CollectionUsageThresholdExceeded
+# TYPE java_lang_g1_old_gen_collectionusagethresholdexceeded untyped
+java_lang_g1_old_gen_collectionusagethresholdexceeded{type="MemoryPool"} 0.0
+# HELP java_lang_g1_old_gen_collectionusagethresholdsupported java.lang:name=G1 Old Gen,type=MemoryPool,attribute=CollectionUsageThresholdSupported
+# TYPE java_lang_g1_old_gen_collectionusagethresholdsupported untyped
+java_lang_g1_old_gen_collectionusagethresholdsupported{type="MemoryPool"} 1.0
+# HELP java_lang_g1_old_gen_peakusage_committed java.lang.management.MemoryUsage java.lang:name=G1 Old Gen,type=MemoryPool,attribute=committed
+# TYPE java_lang_g1_old_gen_peakusage_committed untyped
+java_lang_g1_old_gen_peakusage_committed{type="MemoryPool"} 4.06847488E9
+# HELP java_lang_g1_old_gen_peakusage_init java.lang.management.MemoryUsage java.lang:name=G1 Old Gen,type=MemoryPool,attribute=init
+# TYPE java_lang_g1_old_gen_peakusage_init untyped
+java_lang_g1_old_gen_peakusage_init{type="MemoryPool"} 4.06847488E9
+# HELP java_lang_g1_old_gen_peakusage_max java.lang.management.MemoryUsage java.lang:name=G1 Old Gen,type=MemoryPool,attribute=max
+# TYPE java_lang_g1_old_gen_peakusage_max untyped
+java_lang_g1_old_gen_peakusage_max{type="MemoryPool"} 4.294967296E9
+# HELP java_lang_g1_old_gen_peakusage_used java.lang.management.MemoryUsage java.lang:name=G1 Old Gen,type=MemoryPool,attribute=used
+# TYPE java_lang_g1_old_gen_peakusage_used untyped
+java_lang_g1_old_gen_peakusage_used{type="MemoryPool"} 8.4225536E7
+# HELP java_lang_g1_old_gen_usage_committed java.lang.management.MemoryUsage java.lang:name=G1 Old Gen,type=MemoryPool,attribute=committed
+# TYPE java_lang_g1_old_gen_usage_committed untyped
+java_lang_g1_old_gen_usage_committed{type="MemoryPool"} 3.7748736E9
+# HELP java_lang_g1_old_gen_usage_init java.lang.management.MemoryUsage java.lang:name=G1 Old Gen,type=MemoryPool,attribute=init
+# TYPE java_lang_g1_old_gen_usage_init untyped
+java_lang_g1_old_gen_usage_init{type="MemoryPool"} 4.06847488E9
+# HELP java_lang_g1_old_gen_usage_max java.lang.management.MemoryUsage java.lang:name=G1 Old Gen,type=MemoryPool,attribute=max
+# TYPE java_lang_g1_old_gen_usage_max untyped
+java_lang_g1_old_gen_usage_max{type="MemoryPool"} 4.294967296E9
+# HELP java_lang_g1_old_gen_usage_used java.lang.management.MemoryUsage java.lang:name=G1 Old Gen,type=MemoryPool,attribute=used
+# TYPE java_lang_g1_old_gen_usage_used untyped
+java_lang_g1_old_gen_usage_used{type="MemoryPool"} 8.4225536E7
+# HELP java_lang_g1_old_gen_usagethreshold java.lang:name=G1 Old Gen,type=MemoryPool,attribute=UsageThreshold
+# TYPE java_lang_g1_old_gen_usagethreshold untyped
+java_lang_g1_old_gen_usagethreshold{type="MemoryPool"} 0.0
+# HELP java_lang_g1_old_gen_usagethresholdcount java.lang:name=G1 Old Gen,type=MemoryPool,attribute=UsageThresholdCount
+# TYPE java_lang_g1_old_gen_usagethresholdcount untyped
+java_lang_g1_old_gen_usagethresholdcount{type="MemoryPool"} 0.0
+# HELP java_lang_g1_old_gen_usagethresholdexceeded java.lang:name=G1 Old Gen,type=MemoryPool,attribute=UsageThresholdExceeded
+# TYPE java_lang_g1_old_gen_usagethresholdexceeded untyped
+java_lang_g1_old_gen_usagethresholdexceeded{type="MemoryPool"} 0.0
+# HELP java_lang_g1_old_gen_usagethresholdsupported java.lang:name=G1 Old Gen,type=MemoryPool,attribute=UsageThresholdSupported
+# TYPE java_lang_g1_old_gen_usagethresholdsupported untyped
+java_lang_g1_old_gen_usagethresholdsupported{type="MemoryPool"} 1.0
+# HELP java_lang_g1_old_gen_valid java.lang:name=G1 Old Gen,type=MemoryPool,attribute=Valid
+# TYPE java_lang_g1_old_gen_valid untyped
+java_lang_g1_old_gen_valid{type="MemoryPool"} 1.0
+# HELP java_lang_g1_old_generation_collectioncount java.lang:name=G1 Old Generation,type=GarbageCollector,attribute=CollectionCount
+# TYPE java_lang_g1_old_generation_collectioncount untyped
+java_lang_g1_old_generation_collectioncount{type="GarbageCollector"} 0.0
+# HELP java_lang_g1_old_generation_collectiontime java.lang:name=G1 Old Generation,type=GarbageCollector,attribute=CollectionTime
+# TYPE java_lang_g1_old_generation_collectiontime untyped
+java_lang_g1_old_generation_collectiontime{type="GarbageCollector"} 0.0
+# HELP java_lang_g1_old_generation_valid java.lang:name=G1 Old Generation,type=GarbageCollector,attribute=Valid
+# TYPE java_lang_g1_old_generation_valid untyped
+java_lang_g1_old_generation_valid{type="GarbageCollector"} 1.0
+# HELP java_lang_g1_survivor_space_collectionusage_committed java.lang.management.MemoryUsage java.lang:name=G1 Survivor Space,type=MemoryPool,attribute=committed
+# TYPE java_lang_g1_survivor_space_collectionusage_committed untyped
+java_lang_g1_survivor_space_collectionusage_committed{type="MemoryPool"} 2.5165824E7
+# HELP java_lang_g1_survivor_space_collectionusage_init java.lang.management.MemoryUsage java.lang:name=G1 Survivor Space,type=MemoryPool,attribute=init
+# TYPE java_lang_g1_survivor_space_collectionusage_init untyped
+java_lang_g1_survivor_space_collectionusage_init{type="MemoryPool"} 0.0
+# HELP java_lang_g1_survivor_space_collectionusage_max java.lang.management.MemoryUsage java.lang:name=G1 Survivor Space,type=MemoryPool,attribute=max
+# TYPE java_lang_g1_survivor_space_collectionusage_max untyped
+java_lang_g1_survivor_space_collectionusage_max{type="MemoryPool"} -1.0
+# HELP java_lang_g1_survivor_space_collectionusage_used java.lang.management.MemoryUsage java.lang:name=G1 Survivor Space,type=MemoryPool,attribute=used
+# TYPE java_lang_g1_survivor_space_collectionusage_used untyped
+java_lang_g1_survivor_space_collectionusage_used{type="MemoryPool"} 2.5165824E7
+# HELP java_lang_g1_survivor_space_collectionusagethreshold java.lang:name=G1 Survivor Space,type=MemoryPool,attribute=CollectionUsageThreshold
+# TYPE java_lang_g1_survivor_space_collectionusagethreshold untyped
+java_lang_g1_survivor_space_collectionusagethreshold{type="MemoryPool"} 0.0
+# HELP java_lang_g1_survivor_space_collectionusagethresholdcount java.lang:name=G1 Survivor Space,type=MemoryPool,attribute=CollectionUsageThresholdCount
+# TYPE java_lang_g1_survivor_space_collectionusagethresholdcount untyped
+java_lang_g1_survivor_space_collectionusagethresholdcount{type="MemoryPool"} 0.0
+# HELP java_lang_g1_survivor_space_collectionusagethresholdexceeded java.lang:name=G1 Survivor Space,type=MemoryPool,attribute=CollectionUsageThresholdExceeded
+# TYPE java_lang_g1_survivor_space_collectionusagethresholdexceeded untyped
+java_lang_g1_survivor_space_collectionusagethresholdexceeded{type="MemoryPool"} 0.0
+# HELP java_lang_g1_survivor_space_collectionusagethresholdsupported java.lang:name=G1 Survivor Space,type=MemoryPool,attribute=CollectionUsageThresholdSupported
+# TYPE java_lang_g1_survivor_space_collectionusagethresholdsupported untyped
+java_lang_g1_survivor_space_collectionusagethresholdsupported{type="MemoryPool"} 1.0
+# HELP java_lang_g1_survivor_space_peakusage_committed java.lang.management.MemoryUsage java.lang:name=G1 Survivor Space,type=MemoryPool,attribute=committed
+# TYPE java_lang_g1_survivor_space_peakusage_committed untyped
+java_lang_g1_survivor_space_peakusage_committed{type="MemoryPool"} 1.21634816E8
+# HELP java_lang_g1_survivor_space_peakusage_init java.lang.management.MemoryUsage java.lang:name=G1 Survivor Space,type=MemoryPool,attribute=init
+# TYPE java_lang_g1_survivor_space_peakusage_init untyped
+java_lang_g1_survivor_space_peakusage_init{type="MemoryPool"} 0.0
+# HELP java_lang_g1_survivor_space_peakusage_max java.lang.management.MemoryUsage java.lang:name=G1 Survivor Space,type=MemoryPool,attribute=max
+# TYPE java_lang_g1_survivor_space_peakusage_max untyped
+java_lang_g1_survivor_space_peakusage_max{type="MemoryPool"} -1.0
+# HELP java_lang_g1_survivor_space_peakusage_used java.lang.management.MemoryUsage java.lang:name=G1 Survivor Space,type=MemoryPool,attribute=used
+# TYPE java_lang_g1_survivor_space_peakusage_used untyped
+java_lang_g1_survivor_space_peakusage_used{type="MemoryPool"} 1.20672944E8
+# HELP java_lang_g1_survivor_space_usage_committed java.lang.management.MemoryUsage java.lang:name=G1 Survivor Space,type=MemoryPool,attribute=committed
+# TYPE java_lang_g1_survivor_space_usage_committed untyped
+java_lang_g1_survivor_space_usage_committed{type="MemoryPool"} 2.5165824E7
+# HELP java_lang_g1_survivor_space_usage_init java.lang.management.MemoryUsage java.lang:name=G1 Survivor Space,type=MemoryPool,attribute=init
+# TYPE java_lang_g1_survivor_space_usage_init untyped
+java_lang_g1_survivor_space_usage_init{type="MemoryPool"} 0.0
+# HELP java_lang_g1_survivor_space_usage_max java.lang.management.MemoryUsage java.lang:name=G1 Survivor Space,type=MemoryPool,attribute=max
+# TYPE java_lang_g1_survivor_space_usage_max untyped
+java_lang_g1_survivor_space_usage_max{type="MemoryPool"} -1.0
+# HELP java_lang_g1_survivor_space_usage_used java.lang.management.MemoryUsage java.lang:name=G1 Survivor Space,type=MemoryPool,attribute=used
+# TYPE java_lang_g1_survivor_space_usage_used untyped
+java_lang_g1_survivor_space_usage_used{type="MemoryPool"} 2.5165824E7
+# HELP java_lang_g1_survivor_space_usagethresholdsupported java.lang:name=G1 Survivor Space,type=MemoryPool,attribute=UsageThresholdSupported
+# TYPE java_lang_g1_survivor_space_usagethresholdsupported untyped
+java_lang_g1_survivor_space_usagethresholdsupported{type="MemoryPool"} 0.0
+# HELP java_lang_g1_survivor_space_valid java.lang:name=G1 Survivor Space,type=MemoryPool,attribute=Valid
+# TYPE java_lang_g1_survivor_space_valid untyped
+java_lang_g1_survivor_space_valid{type="MemoryPool"} 1.0
+# HELP java_lang_g1_young_generation_collectioncount java.lang:name=G1 Young Generation,type=GarbageCollector,attribute=CollectionCount
+# TYPE java_lang_g1_young_generation_collectioncount untyped
+java_lang_g1_young_generation_collectioncount{type="GarbageCollector"} 7.0
+# HELP java_lang_g1_young_generation_collectiontime java.lang:name=G1 Young Generation,type=GarbageCollector,attribute=CollectionTime
+# TYPE java_lang_g1_young_generation_collectiontime untyped
+java_lang_g1_young_generation_collectiontime{type="GarbageCollector"} 346.0
+# HELP java_lang_g1_young_generation_lastgcinfo_duration CompositeType for GC info for G1 Young Generation java.lang:name=G1 Young Generation,type=GarbageCollector,attribute=duration
+# TYPE java_lang_g1_young_generation_lastgcinfo_duration untyped
+java_lang_g1_young_generation_lastgcinfo_duration{type="GarbageCollector"} 76.0
+# HELP java_lang_g1_young_generation_lastgcinfo_endtime CompositeType for GC info for G1 Young Generation java.lang:name=G1 Young Generation,type=GarbageCollector,attribute=endTime
+# TYPE java_lang_g1_young_generation_lastgcinfo_endtime untyped
+java_lang_g1_young_generation_lastgcinfo_endtime{type="GarbageCollector"} 486853.0
+# HELP java_lang_g1_young_generation_lastgcinfo_gcthreadcount CompositeType for GC info for G1 Young Generation java.lang:name=G1 Young Generation,type=GarbageCollector,attribute=GcThreadCount
+# TYPE java_lang_g1_young_generation_lastgcinfo_gcthreadcount untyped
+java_lang_g1_young_generation_lastgcinfo_gcthreadcount{type="GarbageCollector"} 5.0
+# HELP java_lang_g1_young_generation_lastgcinfo_id CompositeType for GC info for G1 Young Generation java.lang:name=G1 Young Generation,type=GarbageCollector,attribute=id
+# TYPE java_lang_g1_young_generation_lastgcinfo_id untyped
+java_lang_g1_young_generation_lastgcinfo_id{type="GarbageCollector"} 7.0
+# HELP java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_committed java.lang.management.MemoryUsage java.lang:name=G1 Young Generation,type=GarbageCollector,attribute=committed
+# TYPE java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_committed untyped
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_committed{key="CodeHeap 'non-nmethods'",type="GarbageCollector"} 2555904.0
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_committed{key="CodeHeap 'non-profiled nmethods'",type="GarbageCollector"} 9371648.0
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_committed{key="CodeHeap 'profiled nmethods'",type="GarbageCollector"} 2.0774912E7
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_committed{key="Compressed Class Space",type="GarbageCollector"} 7995392.0
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_committed{key="G1 Eden Space",type="GarbageCollector"} 4.94927872E8
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_committed{key="G1 Old Gen",type="GarbageCollector"} 3.7748736E9
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_committed{key="G1 Survivor Space",type="GarbageCollector"} 2.5165824E7
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_committed{key="Metaspace",type="GarbageCollector"} 6.2193664E7
+# HELP java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_init java.lang.management.MemoryUsage java.lang:name=G1 Young Generation,type=GarbageCollector,attribute=init
+# TYPE java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_init untyped
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_init{key="CodeHeap 'non-nmethods'",type="GarbageCollector"} 2555904.0
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_init{key="CodeHeap 'non-profiled nmethods'",type="GarbageCollector"} 2555904.0
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_init{key="CodeHeap 'profiled nmethods'",type="GarbageCollector"} 2555904.0
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_init{key="Compressed Class Space",type="GarbageCollector"} 0.0
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_init{key="G1 Eden Space",type="GarbageCollector"} 2.26492416E8
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_init{key="G1 Old Gen",type="GarbageCollector"} 4.06847488E9
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_init{key="G1 Survivor Space",type="GarbageCollector"} 0.0
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_init{key="Metaspace",type="GarbageCollector"} 0.0
+# HELP java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_max java.lang.management.MemoryUsage java.lang:name=G1 Young Generation,type=GarbageCollector,attribute=max
+# TYPE java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_max untyped
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_max{key="CodeHeap 'non-nmethods'",type="GarbageCollector"} 5840896.0
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_max{key="CodeHeap 'non-profiled nmethods'",type="GarbageCollector"} 1.22908672E8
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_max{key="CodeHeap 'profiled nmethods'",type="GarbageCollector"} 1.22908672E8
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_max{key="Compressed Class Space",type="GarbageCollector"} 1.073741824E9
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_max{key="G1 Eden Space",type="GarbageCollector"} -1.0
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_max{key="G1 Old Gen",type="GarbageCollector"} 4.294967296E9
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_max{key="G1 Survivor Space",type="GarbageCollector"} -1.0
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_max{key="Metaspace",type="GarbageCollector"} -1.0
+# HELP java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_used java.lang.management.MemoryUsage java.lang:name=G1 Young Generation,type=GarbageCollector,attribute=used
+# TYPE java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_used untyped
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_used{key="CodeHeap 'non-nmethods'",type="GarbageCollector"} 1399936.0
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_used{key="CodeHeap 'non-profiled nmethods'",type="GarbageCollector"} 9345920.0
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_used{key="CodeHeap 'profiled nmethods'",type="GarbageCollector"} 1.9438336E7
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_used{key="Compressed Class Space",type="GarbageCollector"} 7618008.0
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_used{key="G1 Eden Space",type="GarbageCollector"} 0.0
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_used{key="G1 Old Gen",type="GarbageCollector"} 8.4225536E7
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_used{key="G1 Survivor Space",type="GarbageCollector"} 2.5165824E7
+java_lang_g1_young_generation_lastgcinfo_memoryusageaftergc_used{key="Metaspace",type="GarbageCollector"} 6.148984E7
+# HELP java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_committed java.lang.management.MemoryUsage java.lang:name=G1 Young Generation,type=GarbageCollector,attribute=committed
+# TYPE java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_committed untyped
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_committed{key="CodeHeap 'non-nmethods'",type="GarbageCollector"} 2555904.0
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_committed{key="CodeHeap 'non-profiled nmethods'",type="GarbageCollector"} 9371648.0
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_committed{key="CodeHeap 'profiled nmethods'",type="GarbageCollector"} 2.0774912E7
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_committed{key="Compressed Class Space",type="GarbageCollector"} 7995392.0
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_committed{key="G1 Eden Space",type="GarbageCollector"} 1.048576E8
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_committed{key="G1 Old Gen",type="GarbageCollector"} 4.06847488E9
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_committed{key="G1 Survivor Space",type="GarbageCollector"} 1.21634816E8
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_committed{key="Metaspace",type="GarbageCollector"} 6.2193664E7
+# HELP java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_init java.lang.management.MemoryUsage java.lang:name=G1 Young Generation,type=GarbageCollector,attribute=init
+# TYPE java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_init untyped
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_init{key="CodeHeap 'non-nmethods'",type="GarbageCollector"} 2555904.0
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_init{key="CodeHeap 'non-profiled nmethods'",type="GarbageCollector"} 2555904.0
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_init{key="CodeHeap 'profiled nmethods'",type="GarbageCollector"} 2555904.0
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_init{key="Compressed Class Space",type="GarbageCollector"} 0.0
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_init{key="G1 Eden Space",type="GarbageCollector"} 2.26492416E8
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_init{key="G1 Old Gen",type="GarbageCollector"} 4.06847488E9
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_init{key="G1 Survivor Space",type="GarbageCollector"} 0.0
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_init{key="Metaspace",type="GarbageCollector"} 0.0
+# HELP java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_max java.lang.management.MemoryUsage java.lang:name=G1 Young Generation,type=GarbageCollector,attribute=max
+# TYPE java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_max untyped
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_max{key="CodeHeap 'non-nmethods'",type="GarbageCollector"} 5840896.0
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_max{key="CodeHeap 'non-profiled nmethods'",type="GarbageCollector"} 1.22908672E8
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_max{key="CodeHeap 'profiled nmethods'",type="GarbageCollector"} 1.22908672E8
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_max{key="Compressed Class Space",type="GarbageCollector"} 1.073741824E9
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_max{key="G1 Eden Space",type="GarbageCollector"} -1.0
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_max{key="G1 Old Gen",type="GarbageCollector"} 4.294967296E9
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_max{key="G1 Survivor Space",type="GarbageCollector"} -1.0
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_max{key="Metaspace",type="GarbageCollector"} -1.0
+# HELP java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_used java.lang.management.MemoryUsage java.lang:name=G1 Young Generation,type=GarbageCollector,attribute=used
+# TYPE java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_used untyped
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_used{key="CodeHeap 'non-nmethods'",type="GarbageCollector"} 1399936.0
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_used{key="CodeHeap 'non-profiled nmethods'",type="GarbageCollector"} 9345920.0
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_used{key="CodeHeap 'profiled nmethods'",type="GarbageCollector"} 1.9438336E7
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_used{key="Compressed Class Space",type="GarbageCollector"} 7618008.0
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_used{key="G1 Eden Space",type="GarbageCollector"} 9.0177536E7
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_used{key="G1 Old Gen",type="GarbageCollector"} 1.888768E7
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_used{key="G1 Survivor Space",type="GarbageCollector"} 1.20672944E8
+java_lang_g1_young_generation_lastgcinfo_memoryusagebeforegc_used{key="Metaspace",type="GarbageCollector"} 6.148984E7
+# HELP java_lang_g1_young_generation_lastgcinfo_starttime CompositeType for GC info for G1 Young Generation java.lang:name=G1 Young Generation,type=GarbageCollector,attribute=startTime
+# TYPE java_lang_g1_young_generation_lastgcinfo_starttime untyped
+java_lang_g1_young_generation_lastgcinfo_starttime{type="GarbageCollector"} 486777.0
+# HELP java_lang_g1_young_generation_valid java.lang:name=G1 Young Generation,type=GarbageCollector,attribute=Valid
+# TYPE java_lang_g1_young_generation_valid untyped
+java_lang_g1_young_generation_valid{type="GarbageCollector"} 1.0
+# HELP java_lang_memory_heapmemoryusage_committed java.lang.management.MemoryUsage java.lang:name=null,type=Memory,attribute=committed
+# TYPE java_lang_memory_heapmemoryusage_committed untyped
+java_lang_memory_heapmemoryusage_committed 4.294967296E9
+# HELP java_lang_memory_heapmemoryusage_init java.lang.management.MemoryUsage java.lang:name=null,type=Memory,attribute=init
+# TYPE java_lang_memory_heapmemoryusage_init untyped
+java_lang_memory_heapmemoryusage_init 4.294967296E9
+# HELP java_lang_memory_heapmemoryusage_max java.lang.management.MemoryUsage java.lang:name=null,type=Memory,attribute=max
+# TYPE java_lang_memory_heapmemoryusage_max untyped
+java_lang_memory_heapmemoryusage_max 4.294967296E9
+# HELP java_lang_memory_heapmemoryusage_used java.lang.management.MemoryUsage java.lang:name=null,type=Memory,attribute=used
+# TYPE java_lang_memory_heapmemoryusage_used untyped
+java_lang_memory_heapmemoryusage_used 1.32460032E8
+# HELP java_lang_memory_nonheapmemoryusage_committed java.lang.management.MemoryUsage java.lang:name=null,type=Memory,attribute=committed
+# TYPE java_lang_memory_nonheapmemoryusage_committed untyped
+java_lang_memory_nonheapmemoryusage_committed 1.05250816E8
+# HELP java_lang_memory_nonheapmemoryusage_init java.lang.management.MemoryUsage java.lang:name=null,type=Memory,attribute=init
+# TYPE java_lang_memory_nonheapmemoryusage_init untyped
+java_lang_memory_nonheapmemoryusage_init 7667712.0
+# HELP java_lang_memory_nonheapmemoryusage_max java.lang.management.MemoryUsage java.lang:name=null,type=Memory,attribute=max
+# TYPE java_lang_memory_nonheapmemoryusage_max untyped
+java_lang_memory_nonheapmemoryusage_max -1.0
+# HELP java_lang_memory_nonheapmemoryusage_used java.lang.management.MemoryUsage java.lang:name=null,type=Memory,attribute=used
+# TYPE java_lang_memory_nonheapmemoryusage_used untyped
+java_lang_memory_nonheapmemoryusage_used 1.02553632E8
+# HELP java_lang_memory_objectpendingfinalizationcount java.lang:name=null,type=Memory,attribute=ObjectPendingFinalizationCount
+# TYPE java_lang_memory_objectpendingfinalizationcount untyped
+java_lang_memory_objectpendingfinalizationcount 0.0
+# HELP java_lang_memory_verbose java.lang:name=null,type=Memory,attribute=Verbose
+# TYPE java_lang_memory_verbose untyped
+java_lang_memory_verbose 1.0
+# HELP java_lang_metaspace_collectionusagethresholdsupported java.lang:name=Metaspace,type=MemoryPool,attribute=CollectionUsageThresholdSupported
+# TYPE java_lang_metaspace_collectionusagethresholdsupported untyped
+java_lang_metaspace_collectionusagethresholdsupported{type="MemoryPool"} 0.0
+# HELP java_lang_metaspace_manager_valid java.lang:name=Metaspace Manager,type=MemoryManager,attribute=Valid
+# TYPE java_lang_metaspace_manager_valid untyped
+java_lang_metaspace_manager_valid{type="MemoryManager"} 1.0
+# HELP java_lang_metaspace_peakusage_committed java.lang.management.MemoryUsage java.lang:name=Metaspace,type=MemoryPool,attribute=committed
+# TYPE java_lang_metaspace_peakusage_committed untyped
+java_lang_metaspace_peakusage_committed{type="MemoryPool"} 6.3832064E7
+# HELP java_lang_metaspace_peakusage_init java.lang.management.MemoryUsage java.lang:name=Metaspace,type=MemoryPool,attribute=init
+# TYPE java_lang_metaspace_peakusage_init untyped
+java_lang_metaspace_peakusage_init{type="MemoryPool"} 0.0
+# HELP java_lang_metaspace_peakusage_max java.lang.management.MemoryUsage java.lang:name=Metaspace,type=MemoryPool,attribute=max
+# TYPE java_lang_metaspace_peakusage_max untyped
+java_lang_metaspace_peakusage_max{type="MemoryPool"} -1.0
+# HELP java_lang_metaspace_peakusage_used java.lang.management.MemoryUsage java.lang:name=Metaspace,type=MemoryPool,attribute=used
+# TYPE java_lang_metaspace_peakusage_used untyped
+java_lang_metaspace_peakusage_used{type="MemoryPool"} 6.3141632E7
+# HELP java_lang_metaspace_usage_committed java.lang.management.MemoryUsage java.lang:name=Metaspace,type=MemoryPool,attribute=committed
+# TYPE java_lang_metaspace_usage_committed untyped
+java_lang_metaspace_usage_committed{type="MemoryPool"} 6.3832064E7
+# HELP java_lang_metaspace_usage_init java.lang.management.MemoryUsage java.lang:name=Metaspace,type=MemoryPool,attribute=init
+# TYPE java_lang_metaspace_usage_init untyped
+java_lang_metaspace_usage_init{type="MemoryPool"} 0.0
+# HELP java_lang_metaspace_usage_max java.lang.management.MemoryUsage java.lang:name=Metaspace,type=MemoryPool,attribute=max
+# TYPE java_lang_metaspace_usage_max untyped
+java_lang_metaspace_usage_max{type="MemoryPool"} -1.0
+# HELP java_lang_metaspace_usage_used java.lang.management.MemoryUsage java.lang:name=Metaspace,type=MemoryPool,attribute=used
+# TYPE java_lang_metaspace_usage_used untyped
+java_lang_metaspace_usage_used{type="MemoryPool"} 6.3141632E7
+# HELP java_lang_metaspace_usagethreshold java.lang:name=Metaspace,type=MemoryPool,attribute=UsageThreshold
+# TYPE java_lang_metaspace_usagethreshold untyped
+java_lang_metaspace_usagethreshold{type="MemoryPool"} 0.0
+# HELP java_lang_metaspace_usagethresholdcount java.lang:name=Metaspace,type=MemoryPool,attribute=UsageThresholdCount
+# TYPE java_lang_metaspace_usagethresholdcount untyped
+java_lang_metaspace_usagethresholdcount{type="MemoryPool"} 0.0
+# HELP java_lang_metaspace_usagethresholdexceeded java.lang:name=Metaspace,type=MemoryPool,attribute=UsageThresholdExceeded
+# TYPE java_lang_metaspace_usagethresholdexceeded untyped
+java_lang_metaspace_usagethresholdexceeded{type="MemoryPool"} 0.0
+# HELP java_lang_metaspace_usagethresholdsupported java.lang:name=Metaspace,type=MemoryPool,attribute=UsageThresholdSupported
+# TYPE java_lang_metaspace_usagethresholdsupported untyped
+java_lang_metaspace_usagethresholdsupported{type="MemoryPool"} 1.0
+# HELP java_lang_metaspace_valid java.lang:name=Metaspace,type=MemoryPool,attribute=Valid
+# TYPE java_lang_metaspace_valid untyped
+java_lang_metaspace_valid{type="MemoryPool"} 1.0
+# HELP java_lang_operatingsystem_availableprocessors java.lang:name=null,type=OperatingSystem,attribute=AvailableProcessors
+# TYPE java_lang_operatingsystem_availableprocessors untyped
+java_lang_operatingsystem_availableprocessors 8.0
+# HELP java_lang_operatingsystem_committedvirtualmemorysize java.lang:name=null,type=OperatingSystem,attribute=CommittedVirtualMemorySize
+# TYPE java_lang_operatingsystem_committedvirtualmemorysize untyped
+java_lang_operatingsystem_committedvirtualmemorysize 1.0600124416E10
+# HELP java_lang_operatingsystem_cpuload java.lang:name=null,type=OperatingSystem,attribute=CpuLoad
+# TYPE java_lang_operatingsystem_cpuload untyped
+java_lang_operatingsystem_cpuload 1.624138413842044E-4
+# HELP java_lang_operatingsystem_freememorysize java.lang:name=null,type=OperatingSystem,attribute=FreeMemorySize
+# TYPE java_lang_operatingsystem_freememorysize untyped
+java_lang_operatingsystem_freememorysize 2.417000448E9
+# HELP java_lang_operatingsystem_freephysicalmemorysize java.lang:name=null,type=OperatingSystem,attribute=FreePhysicalMemorySize
+# TYPE java_lang_operatingsystem_freephysicalmemorysize untyped
+java_lang_operatingsystem_freephysicalmemorysize 2.417000448E9
+# HELP java_lang_operatingsystem_freeswapspacesize java.lang:name=null,type=OperatingSystem,attribute=FreeSwapSpaceSize
+# TYPE java_lang_operatingsystem_freeswapspacesize untyped
+java_lang_operatingsystem_freeswapspacesize 0.0
+# HELP java_lang_operatingsystem_maxfiledescriptorcount java.lang:name=null,type=OperatingSystem,attribute=MaxFileDescriptorCount
+# TYPE java_lang_operatingsystem_maxfiledescriptorcount untyped
+java_lang_operatingsystem_maxfiledescriptorcount 1048576.0
+# HELP java_lang_operatingsystem_openfiledescriptorcount java.lang:name=null,type=OperatingSystem,attribute=OpenFileDescriptorCount
+# TYPE java_lang_operatingsystem_openfiledescriptorcount untyped
+java_lang_operatingsystem_openfiledescriptorcount 730.0
+# HELP java_lang_operatingsystem_processcpuload java.lang:name=null,type=OperatingSystem,attribute=ProcessCpuLoad
+# TYPE java_lang_operatingsystem_processcpuload untyped
+java_lang_operatingsystem_processcpuload 0.0058852179560029225
+# HELP java_lang_operatingsystem_processcputime java.lang:name=null,type=OperatingSystem,attribute=ProcessCpuTime
+# TYPE java_lang_operatingsystem_processcputime untyped
+java_lang_operatingsystem_processcputime 3.474E10
+# HELP java_lang_operatingsystem_systemcpuload java.lang:name=null,type=OperatingSystem,attribute=SystemCpuLoad
+# TYPE java_lang_operatingsystem_systemcpuload untyped
+java_lang_operatingsystem_systemcpuload 0.0
+# HELP java_lang_operatingsystem_systemloadaverage java.lang:name=null,type=OperatingSystem,attribute=SystemLoadAverage
+# TYPE java_lang_operatingsystem_systemloadaverage untyped
+java_lang_operatingsystem_systemloadaverage 1.09
+# HELP java_lang_operatingsystem_totalmemorysize java.lang:name=null,type=OperatingSystem,attribute=TotalMemorySize
+# TYPE java_lang_operatingsystem_totalmemorysize untyped
+java_lang_operatingsystem_totalmemorysize 2.7271409664E10
+# HELP java_lang_operatingsystem_totalphysicalmemorysize java.lang:name=null,type=OperatingSystem,attribute=TotalPhysicalMemorySize
+# TYPE java_lang_operatingsystem_totalphysicalmemorysize untyped
+java_lang_operatingsystem_totalphysicalmemorysize 2.7271409664E10
+# HELP java_lang_operatingsystem_totalswapspacesize java.lang:name=null,type=OperatingSystem,attribute=TotalSwapSpaceSize
+# TYPE java_lang_operatingsystem_totalswapspacesize untyped
+java_lang_operatingsystem_totalswapspacesize 0.0
+# HELP java_lang_runtime_bootclasspathsupported java.lang:name=null,type=Runtime,attribute=BootClassPathSupported
+# TYPE java_lang_runtime_bootclasspathsupported untyped
+java_lang_runtime_bootclasspathsupported 0.0
+# HELP java_lang_runtime_pid java.lang:name=null,type=Runtime,attribute=Pid
+# TYPE java_lang_runtime_pid untyped
+java_lang_runtime_pid 202.0
+# HELP java_lang_runtime_starttime java.lang:name=null,type=Runtime,attribute=StartTime
+# TYPE java_lang_runtime_starttime untyped
+java_lang_runtime_starttime 1.731385359962E12
+# HELP java_lang_runtime_uptime java.lang:name=null,type=Runtime,attribute=Uptime
+# TYPE java_lang_runtime_uptime untyped
+java_lang_runtime_uptime 490394.0
+# HELP java_lang_threading_currentthreadallocatedbytes java.lang:name=null,type=Threading,attribute=CurrentThreadAllocatedBytes
+# TYPE java_lang_threading_currentthreadallocatedbytes untyped
+java_lang_threading_currentthreadallocatedbytes 1409792.0
+# HELP java_lang_threading_currentthreadcputime java.lang:name=null,type=Threading,attribute=CurrentThreadCpuTime
+# TYPE java_lang_threading_currentthreadcputime untyped
+java_lang_threading_currentthreadcputime 2.7389583E7
+# HELP java_lang_threading_currentthreadcputimesupported java.lang:name=null,type=Threading,attribute=CurrentThreadCpuTimeSupported
+# TYPE java_lang_threading_currentthreadcputimesupported untyped
+java_lang_threading_currentthreadcputimesupported 1.0
+# HELP java_lang_threading_currentthreadusertime java.lang:name=null,type=Threading,attribute=CurrentThreadUserTime
+# TYPE java_lang_threading_currentthreadusertime untyped
+java_lang_threading_currentthreadusertime 1.0E7
+# HELP java_lang_threading_daemonthreadcount java.lang:name=null,type=Threading,attribute=DaemonThreadCount
+# TYPE java_lang_threading_daemonthreadcount untyped
+java_lang_threading_daemonthreadcount 114.0
+# HELP java_lang_threading_objectmonitorusagesupported java.lang:name=null,type=Threading,attribute=ObjectMonitorUsageSupported
+# TYPE java_lang_threading_objectmonitorusagesupported untyped
+java_lang_threading_objectmonitorusagesupported 1.0
+# HELP java_lang_threading_peakthreadcount java.lang:name=null,type=Threading,attribute=PeakThreadCount
+# TYPE java_lang_threading_peakthreadcount untyped
+java_lang_threading_peakthreadcount 119.0
+# HELP java_lang_threading_synchronizerusagesupported java.lang:name=null,type=Threading,attribute=SynchronizerUsageSupported
+# TYPE java_lang_threading_synchronizerusagesupported untyped
+java_lang_threading_synchronizerusagesupported 1.0
+# HELP java_lang_threading_threadallocatedmemoryenabled java.lang:name=null,type=Threading,attribute=ThreadAllocatedMemoryEnabled
+# TYPE java_lang_threading_threadallocatedmemoryenabled untyped
+java_lang_threading_threadallocatedmemoryenabled 1.0
+# HELP java_lang_threading_threadallocatedmemorysupported java.lang:name=null,type=Threading,attribute=ThreadAllocatedMemorySupported
+# TYPE java_lang_threading_threadallocatedmemorysupported untyped
+java_lang_threading_threadallocatedmemorysupported 1.0
+# HELP java_lang_threading_threadcontentionmonitoringenabled java.lang:name=null,type=Threading,attribute=ThreadContentionMonitoringEnabled
+# TYPE java_lang_threading_threadcontentionmonitoringenabled untyped
+java_lang_threading_threadcontentionmonitoringenabled 0.0
+# HELP java_lang_threading_threadcontentionmonitoringsupported java.lang:name=null,type=Threading,attribute=ThreadContentionMonitoringSupported
+# TYPE java_lang_threading_threadcontentionmonitoringsupported untyped
+java_lang_threading_threadcontentionmonitoringsupported 1.0
+# HELP java_lang_threading_threadcount java.lang:name=null,type=Threading,attribute=ThreadCount
+# TYPE java_lang_threading_threadcount untyped
+java_lang_threading_threadcount 119.0
+# HELP java_lang_threading_threadcputimeenabled java.lang:name=null,type=Threading,attribute=ThreadCpuTimeEnabled
+# TYPE java_lang_threading_threadcputimeenabled untyped
+java_lang_threading_threadcputimeenabled 1.0
+# HELP java_lang_threading_threadcputimesupported java.lang:name=null,type=Threading,attribute=ThreadCpuTimeSupported
+# TYPE java_lang_threading_threadcputimesupported untyped
+java_lang_threading_threadcputimesupported 1.0
+# HELP java_lang_threading_totalstartedthreadcount java.lang:name=null,type=Threading,attribute=TotalStartedThreadCount
+# TYPE java_lang_threading_totalstartedthreadcount untyped
+java_lang_threading_totalstartedthreadcount 260.0
+# HELP java_lang_threading_totalthreadallocatedbytes java.lang:name=null,type=Threading,attribute=TotalThreadAllocatedBytes
+# TYPE java_lang_threading_totalthreadallocatedbytes untyped
+java_lang_threading_totalthreadallocatedbytes 3.50199804E9
+# HELP java_nio_direct_count java.nio:name=direct,type=BufferPool,attribute=Count
+# TYPE java_nio_direct_count untyped
+java_nio_direct_count{type="BufferPool"} 48.0
+# HELP java_nio_direct_memoryused java.nio:name=direct,type=BufferPool,attribute=MemoryUsed
+# TYPE java_nio_direct_memoryused untyped
+java_nio_direct_memoryused{type="BufferPool"} 304539.0
+# HELP java_nio_direct_totalcapacity java.nio:name=direct,type=BufferPool,attribute=TotalCapacity
+# TYPE java_nio_direct_totalcapacity untyped
+java_nio_direct_totalcapacity{type="BufferPool"} 304539.0
+# HELP java_nio_mapped_count java.nio:name=mapped,type=BufferPool,attribute=Count
+# TYPE java_nio_mapped_count untyped
+java_nio_mapped_count{type="BufferPool"} 0.0
+# HELP java_nio_mapped_memoryused java.nio:name=mapped,type=BufferPool,attribute=MemoryUsed
+# TYPE java_nio_mapped_memoryused untyped
+java_nio_mapped_memoryused{type="BufferPool"} 0.0
+# HELP java_nio_mapped_non_volatile_memory_count java.nio:name=mapped - 'non-volatile memory',type=BufferPool,attribute=Count
+# TYPE java_nio_mapped_non_volatile_memory_count untyped
+java_nio_mapped_non_volatile_memory_count{type="BufferPool"} 0.0
+# HELP java_nio_mapped_non_volatile_memory_memoryused java.nio:name=mapped - 'non-volatile memory',type=BufferPool,attribute=MemoryUsed
+# TYPE java_nio_mapped_non_volatile_memory_memoryused untyped
+java_nio_mapped_non_volatile_memory_memoryused{type="BufferPool"} 0.0
+# HELP java_nio_mapped_non_volatile_memory_totalcapacity java.nio:name=mapped - 'non-volatile memory',type=BufferPool,attribute=TotalCapacity
+# TYPE java_nio_mapped_non_volatile_memory_totalcapacity untyped
+java_nio_mapped_non_volatile_memory_totalcapacity{type="BufferPool"} 0.0
+# HELP java_nio_mapped_totalcapacity java.nio:name=mapped,type=BufferPool,attribute=TotalCapacity
+# TYPE java_nio_mapped_totalcapacity untyped
+java_nio_mapped_totalcapacity{type="BufferPool"} 0.0
+# HELP jmx_config_reload_failure_total Number of times configuration have failed to be reloaded.
+# TYPE jmx_config_reload_failure_total counter
+jmx_config_reload_failure_total 0.0
+# HELP jmx_config_reload_success_total Number of times configuration have successfully been reloaded.
+# TYPE jmx_config_reload_success_total counter
+jmx_config_reload_success_total 0.0
+# HELP jmx_exporter_build_info JMX Exporter build information
+# TYPE jmx_exporter_build_info gauge
+jmx_exporter_build_info{name="jmx_prometheus_javaagent",version="1.0.1"} 1
+# HELP jmx_scrape_cached_beans Number of beans with their matching rule cached
+# TYPE jmx_scrape_cached_beans gauge
+jmx_scrape_cached_beans 0.0
+# HELP jmx_scrape_duration_seconds Time this JMX scrape took, in seconds.
+# TYPE jmx_scrape_duration_seconds gauge
+jmx_scrape_duration_seconds 0.0
+# HELP jmx_scrape_error Non-zero if this scrape failed.
+# TYPE jmx_scrape_error gauge
+jmx_scrape_error 0.0
+# HELP jvm_buffer_pool_capacity_bytes Bytes capacity of a given JVM buffer pool.
+# TYPE jvm_buffer_pool_capacity_bytes gauge
+jvm_buffer_pool_capacity_bytes{pool="direct"} 304539.0
+jvm_buffer_pool_capacity_bytes{pool="mapped"} 0.0
+jvm_buffer_pool_capacity_bytes{pool="mapped - 'non-volatile memory'"} 0.0
+# HELP jvm_buffer_pool_used_buffers Used buffers of a given JVM buffer pool.
+# TYPE jvm_buffer_pool_used_buffers gauge
+jvm_buffer_pool_used_buffers{pool="direct"} 48.0
+jvm_buffer_pool_used_buffers{pool="mapped"} 0.0
+jvm_buffer_pool_used_buffers{pool="mapped - 'non-volatile memory'"} 0.0
+# HELP jvm_buffer_pool_used_bytes Used bytes of a given JVM buffer pool.
+# TYPE jvm_buffer_pool_used_bytes gauge
+jvm_buffer_pool_used_bytes{pool="direct"} 304539.0
+jvm_buffer_pool_used_bytes{pool="mapped"} 0.0
+jvm_buffer_pool_used_bytes{pool="mapped - 'non-volatile memory'"} 0.0
+# HELP jvm_classes_currently_loaded The number of classes that are currently loaded in the JVM
+# TYPE jvm_classes_currently_loaded gauge
+jvm_classes_currently_loaded 12370.0
+# HELP jvm_classes_loaded_total The total number of classes that have been loaded since the JVM has started execution
+# TYPE jvm_classes_loaded_total counter
+jvm_classes_loaded_total 12370.0
+# HELP jvm_classes_unloaded_total The total number of classes that have been unloaded since the JVM has started execution
+# TYPE jvm_classes_unloaded_total counter
+jvm_classes_unloaded_total 0.0
+# HELP jvm_compilation_time_seconds_total The total time in seconds taken for HotSpot class compilation
+# TYPE jvm_compilation_time_seconds_total counter
+jvm_compilation_time_seconds_total 20.377
+# HELP jvm_gc_collection_seconds Time spent in a given JVM garbage collector in seconds.
+# TYPE jvm_gc_collection_seconds summary
+jvm_gc_collection_seconds_count{gc="G1 Old Generation"} 0
+jvm_gc_collection_seconds_sum{gc="G1 Old Generation"} 0.0
+jvm_gc_collection_seconds_count{gc="G1 Young Generation"} 7
+jvm_gc_collection_seconds_sum{gc="G1 Young Generation"} 0.346
+# HELP jvm_memory_committed_bytes Committed (bytes) of a given JVM memory area.
+# TYPE jvm_memory_committed_bytes gauge
+jvm_memory_committed_bytes{area="heap"} 4.294967296E9
+jvm_memory_committed_bytes{area="nonheap"} 1.03153664E8
+# HELP jvm_memory_init_bytes Initial bytes of a given JVM memory area.
+# TYPE jvm_memory_init_bytes gauge
+jvm_memory_init_bytes{area="heap"} 4.294967296E9
+jvm_memory_init_bytes{area="nonheap"} 7667712.0
+# HELP jvm_memory_max_bytes Max (bytes) of a given JVM memory area.
+# TYPE jvm_memory_max_bytes gauge
+jvm_memory_max_bytes{area="heap"} 4.294967296E9
+jvm_memory_max_bytes{area="nonheap"} -1.0
+# HELP jvm_memory_objects_pending_finalization The number of objects waiting in the finalizer queue.
+# TYPE jvm_memory_objects_pending_finalization gauge
+jvm_memory_objects_pending_finalization 0.0
+# HELP jvm_memory_pool_allocated_bytes_total Total bytes allocated in a given JVM memory pool. Only updated after GC, not continuously.
+# TYPE jvm_memory_pool_allocated_bytes_total counter
+jvm_memory_pool_allocated_bytes_total{pool="CodeHeap 'non-nmethods'"} 1399936.0
+jvm_memory_pool_allocated_bytes_total{pool="CodeHeap 'non-profiled nmethods'"} 9345920.0
+jvm_memory_pool_allocated_bytes_total{pool="CodeHeap 'profiled nmethods'"} 1.9438336E7
+jvm_memory_pool_allocated_bytes_total{pool="Compressed Class Space"} 7618008.0
+jvm_memory_pool_allocated_bytes_total{pool="G1 Eden Space"} 3.640655872E9
+jvm_memory_pool_allocated_bytes_total{pool="G1 Old Gen"} 8.6322688E7
+jvm_memory_pool_allocated_bytes_total{pool="G1 Survivor Space"} 1.33587688E8
+jvm_memory_pool_allocated_bytes_total{pool="Metaspace"} 6.148984E7
+# HELP jvm_memory_pool_collection_committed_bytes Committed after last collection bytes of a given JVM memory pool.
+# TYPE jvm_memory_pool_collection_committed_bytes gauge
+jvm_memory_pool_collection_committed_bytes{pool="G1 Eden Space"} 4.94927872E8
+jvm_memory_pool_collection_committed_bytes{pool="G1 Old Gen"} 0.0
+jvm_memory_pool_collection_committed_bytes{pool="G1 Survivor Space"} 2.5165824E7
+# HELP jvm_memory_pool_collection_init_bytes Initial after last collection bytes of a given JVM memory pool.
+# TYPE jvm_memory_pool_collection_init_bytes gauge
+jvm_memory_pool_collection_init_bytes{pool="G1 Eden Space"} 2.26492416E8
+jvm_memory_pool_collection_init_bytes{pool="G1 Old Gen"} 4.06847488E9
+jvm_memory_pool_collection_init_bytes{pool="G1 Survivor Space"} 0.0
+# HELP jvm_memory_pool_collection_max_bytes Max bytes after last collection of a given JVM memory pool.
+# TYPE jvm_memory_pool_collection_max_bytes gauge
+jvm_memory_pool_collection_max_bytes{pool="G1 Eden Space"} -1.0
+jvm_memory_pool_collection_max_bytes{pool="G1 Old Gen"} 4.294967296E9
+jvm_memory_pool_collection_max_bytes{pool="G1 Survivor Space"} -1.0
+# HELP jvm_memory_pool_collection_used_bytes Used bytes after last collection of a given JVM memory pool.
+# TYPE jvm_memory_pool_collection_used_bytes gauge
+jvm_memory_pool_collection_used_bytes{pool="G1 Eden Space"} 0.0
+jvm_memory_pool_collection_used_bytes{pool="G1 Old Gen"} 0.0
+jvm_memory_pool_collection_used_bytes{pool="G1 Survivor Space"} 2.5165824E7
+# HELP jvm_memory_pool_committed_bytes Committed bytes of a given JVM memory pool.
+# TYPE jvm_memory_pool_committed_bytes gauge
+jvm_memory_pool_committed_bytes{pool="CodeHeap 'non-nmethods'"} 2555904.0
+jvm_memory_pool_committed_bytes{pool="CodeHeap 'non-profiled nmethods'"} 9437184.0
+jvm_memory_pool_committed_bytes{pool="CodeHeap 'profiled nmethods'"} 2.0774912E7
+jvm_memory_pool_committed_bytes{pool="Compressed Class Space"} 7995392.0
+jvm_memory_pool_committed_bytes{pool="G1 Eden Space"} 4.94927872E8
+jvm_memory_pool_committed_bytes{pool="G1 Old Gen"} 3.7748736E9
+jvm_memory_pool_committed_bytes{pool="G1 Survivor Space"} 2.5165824E7
+jvm_memory_pool_committed_bytes{pool="Metaspace"} 6.2390272E7
+# HELP jvm_memory_pool_init_bytes Initial bytes of a given JVM memory pool.
+# TYPE jvm_memory_pool_init_bytes gauge
+jvm_memory_pool_init_bytes{pool="CodeHeap 'non-nmethods'"} 2555904.0
+jvm_memory_pool_init_bytes{pool="CodeHeap 'non-profiled nmethods'"} 2555904.0
+jvm_memory_pool_init_bytes{pool="CodeHeap 'profiled nmethods'"} 2555904.0
+jvm_memory_pool_init_bytes{pool="Compressed Class Space"} 0.0
+jvm_memory_pool_init_bytes{pool="G1 Eden Space"} 2.26492416E8
+jvm_memory_pool_init_bytes{pool="G1 Old Gen"} 4.06847488E9
+jvm_memory_pool_init_bytes{pool="G1 Survivor Space"} 0.0
+jvm_memory_pool_init_bytes{pool="Metaspace"} 0.0
+# HELP jvm_memory_pool_max_bytes Max bytes of a given JVM memory pool.
+# TYPE jvm_memory_pool_max_bytes gauge
+jvm_memory_pool_max_bytes{pool="CodeHeap 'non-nmethods'"} 5840896.0
+jvm_memory_pool_max_bytes{pool="CodeHeap 'non-profiled nmethods'"} 1.22908672E8
+jvm_memory_pool_max_bytes{pool="CodeHeap 'profiled nmethods'"} 1.22908672E8
+jvm_memory_pool_max_bytes{pool="Compressed Class Space"} 1.073741824E9
+jvm_memory_pool_max_bytes{pool="G1 Eden Space"} -1.0
+jvm_memory_pool_max_bytes{pool="G1 Old Gen"} 4.294967296E9
+jvm_memory_pool_max_bytes{pool="G1 Survivor Space"} -1.0
+jvm_memory_pool_max_bytes{pool="Metaspace"} -1.0
+# HELP jvm_memory_pool_used_bytes Used bytes of a given JVM memory pool.
+# TYPE jvm_memory_pool_used_bytes gauge
+jvm_memory_pool_used_bytes{pool="CodeHeap 'non-nmethods'"} 1406848.0
+jvm_memory_pool_used_bytes{pool="CodeHeap 'non-profiled nmethods'"} 9373056.0
+jvm_memory_pool_used_bytes{pool="CodeHeap 'profiled nmethods'"} 1.956032E7
+jvm_memory_pool_used_bytes{pool="Compressed Class Space"} 7650048.0
+jvm_memory_pool_used_bytes{pool="G1 Eden Space"} 1.048576E7
+jvm_memory_pool_used_bytes{pool="G1 Old Gen"} 8.4225536E7
+jvm_memory_pool_used_bytes{pool="G1 Survivor Space"} 2.5165824E7
+jvm_memory_pool_used_bytes{pool="Metaspace"} 6.1748824E7
+# HELP jvm_memory_used_bytes Used bytes of a given JVM memory area.
+# TYPE jvm_memory_used_bytes gauge
+jvm_memory_used_bytes{area="heap"} 1.1987712E8
+jvm_memory_used_bytes{area="nonheap"} 9.9737656E7
+# HELP jvm_runtime_info JVM runtime info
+# TYPE jvm_runtime_info gauge
+jvm_runtime_info{runtime="OpenJDK Runtime Environment",vendor="Eclipse Adoptium",version="17.0.11+9"} 1
+# HELP jvm_threads_current Current thread count of a JVM
+# TYPE jvm_threads_current gauge
+jvm_threads_current 119.0
+# HELP jvm_threads_daemon Daemon thread count of a JVM
+# TYPE jvm_threads_daemon gauge
+jvm_threads_daemon 114.0
+# HELP jvm_threads_deadlocked Cycles of JVM-threads that are in deadlock waiting to acquire object monitors or ownable synchronizers
+# TYPE jvm_threads_deadlocked gauge
+jvm_threads_deadlocked 0.0
+# HELP jvm_threads_deadlocked_monitor Cycles of JVM-threads that are in deadlock waiting to acquire object monitors
+# TYPE jvm_threads_deadlocked_monitor gauge
+jvm_threads_deadlocked_monitor 0.0
+# HELP jvm_threads_peak Peak thread count of a JVM
+# TYPE jvm_threads_peak gauge
+jvm_threads_peak 119.0
+# HELP jvm_threads_started_total Started thread count of a JVM
+# TYPE jvm_threads_started_total counter
+jvm_threads_started_total 260.0
+# HELP jvm_threads_state Current count of threads by state
+# TYPE jvm_threads_state gauge
+jvm_threads_state{state="BLOCKED"} 0.0
+jvm_threads_state{state="NEW"} 0.0
+jvm_threads_state{state="RUNNABLE"} 14.0
+jvm_threads_state{state="TERMINATED"} 0.0
+jvm_threads_state{state="TIMED_WAITING"} 25.0
+jvm_threads_state{state="UNKNOWN"} 0.0
+jvm_threads_state{state="WAITING"} 80.0
+# HELP metrics_jvm_buffers_direct_capacity_value Attribute exposed for management metrics:name=jvm.buffers.direct.capacity,type=null,attribute=Value
+# TYPE metrics_jvm_buffers_direct_capacity_value untyped
+metrics_jvm_buffers_direct_capacity_value 329114.0
+# HELP metrics_jvm_buffers_direct_count_value Attribute exposed for management metrics:name=jvm.buffers.direct.count,type=null,attribute=Value
+# TYPE metrics_jvm_buffers_direct_count_value untyped
+metrics_jvm_buffers_direct_count_value 48.0
+# HELP metrics_jvm_buffers_direct_used_value Attribute exposed for management metrics:name=jvm.buffers.direct.used,type=null,attribute=Value
+# TYPE metrics_jvm_buffers_direct_used_value untyped
+metrics_jvm_buffers_direct_used_value 304539.0
+# HELP metrics_jvm_buffers_mapped_capacity_value Attribute exposed for management metrics:name=jvm.buffers.mapped.capacity,type=null,attribute=Value
+# TYPE metrics_jvm_buffers_mapped_capacity_value untyped
+metrics_jvm_buffers_mapped_capacity_value 0.0
+# HELP metrics_jvm_buffers_mapped_count_value Attribute exposed for management metrics:name=jvm.buffers.mapped.count,type=null,attribute=Value
+# TYPE metrics_jvm_buffers_mapped_count_value untyped
+metrics_jvm_buffers_mapped_count_value 0.0
+# HELP metrics_jvm_buffers_mapped_used_value Attribute exposed for management metrics:name=jvm.buffers.mapped.used,type=null,attribute=Value
+# TYPE metrics_jvm_buffers_mapped_used_value untyped
+metrics_jvm_buffers_mapped_used_value 0.0
+# HELP metrics_jvm_files_value Attribute exposed for management metrics:name=jvm.files,type=null,attribute=Value
+# TYPE metrics_jvm_files_value untyped
+metrics_jvm_files_value 6.961822509765625E-4
+# HELP metrics_jvm_garbage_g1_old_generation_count_value Attribute exposed for management metrics:name=jvm.garbage.G1-Old-Generation.count,type=null,attribute=Value
+# TYPE metrics_jvm_garbage_g1_old_generation_count_value untyped
+metrics_jvm_garbage_g1_old_generation_count_value 0.0
+# HELP metrics_jvm_garbage_g1_old_generation_time_value Attribute exposed for management metrics:name=jvm.garbage.G1-Old-Generation.time,type=null,attribute=Value
+# TYPE metrics_jvm_garbage_g1_old_generation_time_value untyped
+metrics_jvm_garbage_g1_old_generation_time_value 0.0
+# HELP metrics_jvm_garbage_g1_young_generation_count_value Attribute exposed for management metrics:name=jvm.garbage.G1-Young-Generation.count,type=null,attribute=Value
+# TYPE metrics_jvm_garbage_g1_young_generation_count_value untyped
+metrics_jvm_garbage_g1_young_generation_count_value 7.0
+# HELP metrics_jvm_garbage_g1_young_generation_time_value Attribute exposed for management metrics:name=jvm.garbage.G1-Young-Generation.time,type=null,attribute=Value
+# TYPE metrics_jvm_garbage_g1_young_generation_time_value untyped
+metrics_jvm_garbage_g1_young_generation_time_value 346.0
+# HELP metrics_jvm_memory_heap_committed_value Attribute exposed for management metrics:name=jvm.memory.heap.committed,type=null,attribute=Value
+# TYPE metrics_jvm_memory_heap_committed_value untyped
+metrics_jvm_memory_heap_committed_value 4.294967296E9
+# HELP metrics_jvm_memory_heap_init_value Attribute exposed for management metrics:name=jvm.memory.heap.init,type=null,attribute=Value
+# TYPE metrics_jvm_memory_heap_init_value untyped
+metrics_jvm_memory_heap_init_value 4.294967296E9
+# HELP metrics_jvm_memory_heap_max_value Attribute exposed for management metrics:name=jvm.memory.heap.max,type=null,attribute=Value
+# TYPE metrics_jvm_memory_heap_max_value untyped
+metrics_jvm_memory_heap_max_value 4.294967296E9
+# HELP metrics_jvm_memory_heap_usage_value Attribute exposed for management metrics:name=jvm.memory.heap.usage,type=null,attribute=Value
+# TYPE metrics_jvm_memory_heap_usage_value untyped
+metrics_jvm_memory_heap_usage_value 0.030840754508972168
+# HELP metrics_jvm_memory_heap_used_value Attribute exposed for management metrics:name=jvm.memory.heap.used,type=null,attribute=Value
+# TYPE metrics_jvm_memory_heap_used_value untyped
+metrics_jvm_memory_heap_used_value 1.32460032E8
+# HELP metrics_jvm_memory_non_heap_committed_value Attribute exposed for management metrics:name=jvm.memory.non-heap.committed,type=null,attribute=Value
+# TYPE metrics_jvm_memory_non_heap_committed_value untyped
+metrics_jvm_memory_non_heap_committed_value 1.03415808E8
+# HELP metrics_jvm_memory_non_heap_init_value Attribute exposed for management metrics:name=jvm.memory.non-heap.init,type=null,attribute=Value
+# TYPE metrics_jvm_memory_non_heap_init_value untyped
+metrics_jvm_memory_non_heap_init_value 7667712.0
+# HELP metrics_jvm_memory_non_heap_max_value Attribute exposed for management metrics:name=jvm.memory.non-heap.max,type=null,attribute=Value
+# TYPE metrics_jvm_memory_non_heap_max_value untyped
+metrics_jvm_memory_non_heap_max_value -1.0
+# HELP metrics_jvm_memory_non_heap_usage_value Attribute exposed for management metrics:name=jvm.memory.non-heap.usage,type=null,attribute=Value
+# TYPE metrics_jvm_memory_non_heap_usage_value untyped
+metrics_jvm_memory_non_heap_usage_value -9.9914464E7
+# HELP metrics_jvm_memory_non_heap_used_value Attribute exposed for management metrics:name=jvm.memory.non-heap.used,type=null,attribute=Value
+# TYPE metrics_jvm_memory_non_heap_used_value untyped
+metrics_jvm_memory_non_heap_used_value 1.01996536E8
+# HELP metrics_jvm_memory_pools_codeheap_non_nmethods_committed_value Attribute exposed for management metrics:name=jvm.memory.pools.CodeHeap-'non-nmethods'.committed,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_codeheap_non_nmethods_committed_value untyped
+metrics_jvm_memory_pools_codeheap_non_nmethods_committed_value 2555904.0
+# HELP metrics_jvm_memory_pools_codeheap_non_nmethods_init_value Attribute exposed for management metrics:name=jvm.memory.pools.CodeHeap-'non-nmethods'.init,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_codeheap_non_nmethods_init_value untyped
+metrics_jvm_memory_pools_codeheap_non_nmethods_init_value 2555904.0
+# HELP metrics_jvm_memory_pools_codeheap_non_nmethods_max_value Attribute exposed for management metrics:name=jvm.memory.pools.CodeHeap-'non-nmethods'.max,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_codeheap_non_nmethods_max_value untyped
+metrics_jvm_memory_pools_codeheap_non_nmethods_max_value 5840896.0
+# HELP metrics_jvm_memory_pools_codeheap_non_nmethods_usage_value Attribute exposed for management metrics:name=jvm.memory.pools.CodeHeap-'non-nmethods'.usage,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_codeheap_non_nmethods_usage_value untyped
+metrics_jvm_memory_pools_codeheap_non_nmethods_usage_value 0.24322843618513323
+# HELP metrics_jvm_memory_pools_codeheap_non_nmethods_used_value Attribute exposed for management metrics:name=jvm.memory.pools.CodeHeap-'non-nmethods'.used,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_codeheap_non_nmethods_used_value untyped
+metrics_jvm_memory_pools_codeheap_non_nmethods_used_value 1420672.0
+# HELP metrics_jvm_memory_pools_codeheap_non_profiled_nmethods_committed_value Attribute exposed for management metrics:name=jvm.memory.pools.CodeHeap-'non-profiled-nmethods'.committed,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_codeheap_non_profiled_nmethods_committed_value untyped
+metrics_jvm_memory_pools_codeheap_non_profiled_nmethods_committed_value 9633792.0
+# HELP metrics_jvm_memory_pools_codeheap_non_profiled_nmethods_init_value Attribute exposed for management metrics:name=jvm.memory.pools.CodeHeap-'non-profiled-nmethods'.init,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_codeheap_non_profiled_nmethods_init_value untyped
+metrics_jvm_memory_pools_codeheap_non_profiled_nmethods_init_value 2555904.0
+# HELP metrics_jvm_memory_pools_codeheap_non_profiled_nmethods_max_value Attribute exposed for management metrics:name=jvm.memory.pools.CodeHeap-'non-profiled-nmethods'.max,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_codeheap_non_profiled_nmethods_max_value untyped
+metrics_jvm_memory_pools_codeheap_non_profiled_nmethods_max_value 1.22908672E8
+# HELP metrics_jvm_memory_pools_codeheap_non_profiled_nmethods_usage_value Attribute exposed for management metrics:name=jvm.memory.pools.CodeHeap-'non-profiled-nmethods'.usage,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_codeheap_non_profiled_nmethods_usage_value untyped
+metrics_jvm_memory_pools_codeheap_non_profiled_nmethods_usage_value 0.07739652414436632
+# HELP metrics_jvm_memory_pools_codeheap_non_profiled_nmethods_used_value Attribute exposed for management metrics:name=jvm.memory.pools.CodeHeap-'non-profiled-nmethods'.used,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_codeheap_non_profiled_nmethods_used_value untyped
+metrics_jvm_memory_pools_codeheap_non_profiled_nmethods_used_value 9611776.0
+# HELP metrics_jvm_memory_pools_codeheap_profiled_nmethods_committed_value Attribute exposed for management metrics:name=jvm.memory.pools.CodeHeap-'profiled-nmethods'.committed,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_codeheap_profiled_nmethods_committed_value untyped
+metrics_jvm_memory_pools_codeheap_profiled_nmethods_committed_value 2.0774912E7
+# HELP metrics_jvm_memory_pools_codeheap_profiled_nmethods_init_value Attribute exposed for management metrics:name=jvm.memory.pools.CodeHeap-'profiled-nmethods'.init,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_codeheap_profiled_nmethods_init_value untyped
+metrics_jvm_memory_pools_codeheap_profiled_nmethods_init_value 2555904.0
+# HELP metrics_jvm_memory_pools_codeheap_profiled_nmethods_max_value Attribute exposed for management metrics:name=jvm.memory.pools.CodeHeap-'profiled-nmethods'.max,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_codeheap_profiled_nmethods_max_value untyped
+metrics_jvm_memory_pools_codeheap_profiled_nmethods_max_value 1.22908672E8
+# HELP metrics_jvm_memory_pools_codeheap_profiled_nmethods_usage_value Attribute exposed for management metrics:name=jvm.memory.pools.CodeHeap-'profiled-nmethods'.usage,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_codeheap_profiled_nmethods_usage_value untyped
+metrics_jvm_memory_pools_codeheap_profiled_nmethods_usage_value 0.1644803712467091
+# HELP metrics_jvm_memory_pools_codeheap_profiled_nmethods_used_value Attribute exposed for management metrics:name=jvm.memory.pools.CodeHeap-'profiled-nmethods'.used,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_codeheap_profiled_nmethods_used_value untyped
+metrics_jvm_memory_pools_codeheap_profiled_nmethods_used_value 1.963584E7
+# HELP metrics_jvm_memory_pools_compressed_class_space_committed_value Attribute exposed for management metrics:name=jvm.memory.pools.Compressed-Class-Space.committed,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_compressed_class_space_committed_value untyped
+metrics_jvm_memory_pools_compressed_class_space_committed_value 8192000.0
+# HELP metrics_jvm_memory_pools_compressed_class_space_init_value Attribute exposed for management metrics:name=jvm.memory.pools.Compressed-Class-Space.init,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_compressed_class_space_init_value untyped
+metrics_jvm_memory_pools_compressed_class_space_init_value 0.0
+# HELP metrics_jvm_memory_pools_compressed_class_space_max_value Attribute exposed for management metrics:name=jvm.memory.pools.Compressed-Class-Space.max,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_compressed_class_space_max_value untyped
+metrics_jvm_memory_pools_compressed_class_space_max_value 1.073741824E9
+# HELP metrics_jvm_memory_pools_compressed_class_space_usage_value Attribute exposed for management metrics:name=jvm.memory.pools.Compressed-Class-Space.usage,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_compressed_class_space_usage_value untyped
+metrics_jvm_memory_pools_compressed_class_space_usage_value 0.00729341059923172
+# HELP metrics_jvm_memory_pools_compressed_class_space_used_value Attribute exposed for management metrics:name=jvm.memory.pools.Compressed-Class-Space.used,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_compressed_class_space_used_value untyped
+metrics_jvm_memory_pools_compressed_class_space_used_value 7822296.0
+# HELP metrics_jvm_memory_pools_g1_eden_space_committed_value Attribute exposed for management metrics:name=jvm.memory.pools.G1-Eden-Space.committed,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_g1_eden_space_committed_value untyped
+metrics_jvm_memory_pools_g1_eden_space_committed_value 4.94927872E8
+# HELP metrics_jvm_memory_pools_g1_eden_space_init_value Attribute exposed for management metrics:name=jvm.memory.pools.G1-Eden-Space.init,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_g1_eden_space_init_value untyped
+metrics_jvm_memory_pools_g1_eden_space_init_value 2.26492416E8
+# HELP metrics_jvm_memory_pools_g1_eden_space_max_value Attribute exposed for management metrics:name=jvm.memory.pools.G1-Eden-Space.max,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_g1_eden_space_max_value untyped
+metrics_jvm_memory_pools_g1_eden_space_max_value -1.0
+# HELP metrics_jvm_memory_pools_g1_eden_space_usage_value Attribute exposed for management metrics:name=jvm.memory.pools.G1-Eden-Space.usage,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_g1_eden_space_usage_value untyped
+metrics_jvm_memory_pools_g1_eden_space_usage_value 0.0211864406779661
+# HELP metrics_jvm_memory_pools_g1_eden_space_used_after_gc_value Attribute exposed for management metrics:name=jvm.memory.pools.G1-Eden-Space.used-after-gc,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_g1_eden_space_used_after_gc_value untyped
+metrics_jvm_memory_pools_g1_eden_space_used_after_gc_value 0.0
+# HELP metrics_jvm_memory_pools_g1_eden_space_used_value Attribute exposed for management metrics:name=jvm.memory.pools.G1-Eden-Space.used,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_g1_eden_space_used_value untyped
+metrics_jvm_memory_pools_g1_eden_space_used_value 1.048576E7
+# HELP metrics_jvm_memory_pools_g1_old_gen_committed_value Attribute exposed for management metrics:name=jvm.memory.pools.G1-Old-Gen.committed,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_g1_old_gen_committed_value untyped
+metrics_jvm_memory_pools_g1_old_gen_committed_value 3.7748736E9
+# HELP metrics_jvm_memory_pools_g1_old_gen_init_value Attribute exposed for management metrics:name=jvm.memory.pools.G1-Old-Gen.init,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_g1_old_gen_init_value untyped
+metrics_jvm_memory_pools_g1_old_gen_init_value 4.06847488E9
+# HELP metrics_jvm_memory_pools_g1_old_gen_max_value Attribute exposed for management metrics:name=jvm.memory.pools.G1-Old-Gen.max,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_g1_old_gen_max_value untyped
+metrics_jvm_memory_pools_g1_old_gen_max_value 4.294967296E9
+# HELP metrics_jvm_memory_pools_g1_old_gen_usage_value Attribute exposed for management metrics:name=jvm.memory.pools.G1-Old-Gen.usage,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_g1_old_gen_usage_value untyped
+metrics_jvm_memory_pools_g1_old_gen_usage_value 0.019610285758972168
+# HELP metrics_jvm_memory_pools_g1_old_gen_used_after_gc_value Attribute exposed for management metrics:name=jvm.memory.pools.G1-Old-Gen.used-after-gc,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_g1_old_gen_used_after_gc_value untyped
+metrics_jvm_memory_pools_g1_old_gen_used_after_gc_value 0.0
+# HELP metrics_jvm_memory_pools_g1_old_gen_used_value Attribute exposed for management metrics:name=jvm.memory.pools.G1-Old-Gen.used,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_g1_old_gen_used_value untyped
+metrics_jvm_memory_pools_g1_old_gen_used_value 8.4225536E7
+# HELP metrics_jvm_memory_pools_g1_survivor_space_committed_value Attribute exposed for management metrics:name=jvm.memory.pools.G1-Survivor-Space.committed,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_g1_survivor_space_committed_value untyped
+metrics_jvm_memory_pools_g1_survivor_space_committed_value 2.5165824E7
+# HELP metrics_jvm_memory_pools_g1_survivor_space_init_value Attribute exposed for management metrics:name=jvm.memory.pools.G1-Survivor-Space.init,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_g1_survivor_space_init_value untyped
+metrics_jvm_memory_pools_g1_survivor_space_init_value 0.0
+# HELP metrics_jvm_memory_pools_g1_survivor_space_max_value Attribute exposed for management metrics:name=jvm.memory.pools.G1-Survivor-Space.max,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_g1_survivor_space_max_value untyped
+metrics_jvm_memory_pools_g1_survivor_space_max_value -1.0
+# HELP metrics_jvm_memory_pools_g1_survivor_space_usage_value Attribute exposed for management metrics:name=jvm.memory.pools.G1-Survivor-Space.usage,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_g1_survivor_space_usage_value untyped
+metrics_jvm_memory_pools_g1_survivor_space_usage_value 1.0
+# HELP metrics_jvm_memory_pools_g1_survivor_space_used_after_gc_value Attribute exposed for management metrics:name=jvm.memory.pools.G1-Survivor-Space.used-after-gc,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_g1_survivor_space_used_after_gc_value untyped
+metrics_jvm_memory_pools_g1_survivor_space_used_after_gc_value 2.5165824E7
+# HELP metrics_jvm_memory_pools_g1_survivor_space_used_value Attribute exposed for management metrics:name=jvm.memory.pools.G1-Survivor-Space.used,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_g1_survivor_space_used_value untyped
+metrics_jvm_memory_pools_g1_survivor_space_used_value 2.5165824E7
+# HELP metrics_jvm_memory_pools_metaspace_committed_value Attribute exposed for management metrics:name=jvm.memory.pools.Metaspace.committed,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_metaspace_committed_value untyped
+metrics_jvm_memory_pools_metaspace_committed_value 6.258688E7
+# HELP metrics_jvm_memory_pools_metaspace_init_value Attribute exposed for management metrics:name=jvm.memory.pools.Metaspace.init,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_metaspace_init_value untyped
+metrics_jvm_memory_pools_metaspace_init_value 0.0
+# HELP metrics_jvm_memory_pools_metaspace_max_value Attribute exposed for management metrics:name=jvm.memory.pools.Metaspace.max,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_metaspace_max_value untyped
+metrics_jvm_memory_pools_metaspace_max_value -1.0
+# HELP metrics_jvm_memory_pools_metaspace_usage_value Attribute exposed for management metrics:name=jvm.memory.pools.Metaspace.usage,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_metaspace_usage_value untyped
+metrics_jvm_memory_pools_metaspace_usage_value 0.9881741348985602
+# HELP metrics_jvm_memory_pools_metaspace_used_value Attribute exposed for management metrics:name=jvm.memory.pools.Metaspace.used,type=null,attribute=Value
+# TYPE metrics_jvm_memory_pools_metaspace_used_value untyped
+metrics_jvm_memory_pools_metaspace_used_value 6.317704E7
+# HELP metrics_jvm_memory_total_committed_value Attribute exposed for management metrics:name=jvm.memory.total.committed,type=null,attribute=Value
+# TYPE metrics_jvm_memory_total_committed_value untyped
+metrics_jvm_memory_total_committed_value 4.400152576E9
+# HELP metrics_jvm_memory_total_init_value Attribute exposed for management metrics:name=jvm.memory.total.init,type=null,attribute=Value
+# TYPE metrics_jvm_memory_total_init_value untyped
+metrics_jvm_memory_total_init_value 4.302635008E9
+# HELP metrics_jvm_memory_total_max_value Attribute exposed for management metrics:name=jvm.memory.total.max,type=null,attribute=Value
+# TYPE metrics_jvm_memory_total_max_value untyped
+metrics_jvm_memory_total_max_value 4.294967295E9
+# HELP metrics_jvm_memory_total_used_value Attribute exposed for management metrics:name=jvm.memory.total.used,type=null,attribute=Value
+# TYPE metrics_jvm_memory_total_used_value untyped
+metrics_jvm_memory_total_used_value 2.348946E8
+# HELP metrics_jvm_threads_blocked_count_value Attribute exposed for management metrics:name=jvm.threads.blocked.count,type=null,attribute=Value
+# TYPE metrics_jvm_threads_blocked_count_value untyped
+metrics_jvm_threads_blocked_count_value 0.0
+# HELP metrics_jvm_threads_count_value Attribute exposed for management metrics:name=jvm.threads.count,type=null,attribute=Value
+# TYPE metrics_jvm_threads_count_value untyped
+metrics_jvm_threads_count_value 119.0
+# HELP metrics_jvm_threads_daemon_count_value Attribute exposed for management metrics:name=jvm.threads.daemon.count,type=null,attribute=Value
+# TYPE metrics_jvm_threads_daemon_count_value untyped
+metrics_jvm_threads_daemon_count_value 114.0
+# HELP metrics_jvm_threads_deadlock_count_value Attribute exposed for management metrics:name=jvm.threads.deadlock.count,type=null,attribute=Value
+# TYPE metrics_jvm_threads_deadlock_count_value untyped
+metrics_jvm_threads_deadlock_count_value 0.0
+# HELP metrics_jvm_threads_new_count_value Attribute exposed for management metrics:name=jvm.threads.new.count,type=null,attribute=Value
+# TYPE metrics_jvm_threads_new_count_value untyped
+metrics_jvm_threads_new_count_value 0.0
+# HELP metrics_jvm_threads_runnable_count_value Attribute exposed for management metrics:name=jvm.threads.runnable.count,type=null,attribute=Value
+# TYPE metrics_jvm_threads_runnable_count_value untyped
+metrics_jvm_threads_runnable_count_value 14.0
+# HELP metrics_jvm_threads_terminated_count_value Attribute exposed for management metrics:name=jvm.threads.terminated.count,type=null,attribute=Value
+# TYPE metrics_jvm_threads_terminated_count_value untyped
+metrics_jvm_threads_terminated_count_value 0.0
+# HELP metrics_jvm_threads_timed_waiting_count_value Attribute exposed for management metrics:name=jvm.threads.timed_waiting.count,type=null,attribute=Value
+# TYPE metrics_jvm_threads_timed_waiting_count_value untyped
+metrics_jvm_threads_timed_waiting_count_value 25.0
+# HELP metrics_jvm_threads_waiting_count_value Attribute exposed for management metrics:name=jvm.threads.waiting.count,type=null,attribute=Value
+# TYPE metrics_jvm_threads_waiting_count_value untyped
+metrics_jvm_threads_waiting_count_value 80.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_1xx_responses_count Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.1xx-responses,type=null,attribute=Count
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_1xx_responses_count untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_1xx_responses_count 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_1xx_responses_fifteenminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.1xx-responses,type=null,attribute=FifteenMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_1xx_responses_fifteenminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_1xx_responses_fifteenminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_1xx_responses_fiveminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.1xx-responses,type=null,attribute=FiveMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_1xx_responses_fiveminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_1xx_responses_fiveminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_1xx_responses_meanrate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.1xx-responses,type=null,attribute=MeanRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_1xx_responses_meanrate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_1xx_responses_meanrate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_1xx_responses_oneminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.1xx-responses,type=null,attribute=OneMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_1xx_responses_oneminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_1xx_responses_oneminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_2xx_responses_count Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.2xx-responses,type=null,attribute=Count
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_2xx_responses_count untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_2xx_responses_count 47.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_2xx_responses_fifteenminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.2xx-responses,type=null,attribute=FifteenMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_2xx_responses_fifteenminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_2xx_responses_fifteenminuterate 0.040792913664800236
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_2xx_responses_fiveminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.2xx-responses,type=null,attribute=FiveMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_2xx_responses_fiveminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_2xx_responses_fiveminuterate 0.0797853858784178
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_2xx_responses_meanrate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.2xx-responses,type=null,attribute=MeanRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_2xx_responses_meanrate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_2xx_responses_meanrate 0.09734882124468726
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_2xx_responses_oneminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.2xx-responses,type=null,attribute=OneMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_2xx_responses_oneminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_2xx_responses_oneminuterate 0.10412297654316292
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_3xx_responses_count Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.3xx-responses,type=null,attribute=Count
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_3xx_responses_count untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_3xx_responses_count 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_3xx_responses_fifteenminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.3xx-responses,type=null,attribute=FifteenMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_3xx_responses_fifteenminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_3xx_responses_fifteenminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_3xx_responses_fiveminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.3xx-responses,type=null,attribute=FiveMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_3xx_responses_fiveminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_3xx_responses_fiveminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_3xx_responses_meanrate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.3xx-responses,type=null,attribute=MeanRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_3xx_responses_meanrate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_3xx_responses_meanrate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_3xx_responses_oneminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.3xx-responses,type=null,attribute=OneMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_3xx_responses_oneminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_3xx_responses_oneminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_4xx_responses_count Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.4xx-responses,type=null,attribute=Count
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_4xx_responses_count untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_4xx_responses_count 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_4xx_responses_fifteenminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.4xx-responses,type=null,attribute=FifteenMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_4xx_responses_fifteenminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_4xx_responses_fifteenminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_4xx_responses_fiveminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.4xx-responses,type=null,attribute=FiveMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_4xx_responses_fiveminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_4xx_responses_fiveminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_4xx_responses_meanrate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.4xx-responses,type=null,attribute=MeanRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_4xx_responses_meanrate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_4xx_responses_meanrate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_4xx_responses_oneminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.4xx-responses,type=null,attribute=OneMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_4xx_responses_oneminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_4xx_responses_oneminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_5xx_responses_count Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.5xx-responses,type=null,attribute=Count
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_5xx_responses_count untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_5xx_responses_count 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_5xx_responses_fifteenminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.5xx-responses,type=null,attribute=FifteenMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_5xx_responses_fifteenminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_5xx_responses_fifteenminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_5xx_responses_fiveminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.5xx-responses,type=null,attribute=FiveMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_5xx_responses_fiveminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_5xx_responses_fiveminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_5xx_responses_meanrate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.5xx-responses,type=null,attribute=MeanRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_5xx_responses_meanrate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_5xx_responses_meanrate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_5xx_responses_oneminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.5xx-responses,type=null,attribute=OneMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_5xx_responses_oneminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_5xx_responses_oneminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_active_dispatches_count Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.active-dispatches,type=null,attribute=Count
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_active_dispatches_count untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_active_dispatches_count 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_active_requests_count Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.active-requests,type=null,attribute=Count
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_active_requests_count untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_active_requests_count 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_active_suspended_count Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.active-suspended,type=null,attribute=Count
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_active_suspended_count untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_active_suspended_count 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_async_dispatches_count Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.async-dispatches,type=null,attribute=Count
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_async_dispatches_count untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_async_dispatches_count 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_async_dispatches_fifteenminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.async-dispatches,type=null,attribute=FifteenMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_async_dispatches_fifteenminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_async_dispatches_fifteenminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_async_dispatches_fiveminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.async-dispatches,type=null,attribute=FiveMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_async_dispatches_fiveminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_async_dispatches_fiveminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_async_dispatches_meanrate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.async-dispatches,type=null,attribute=MeanRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_async_dispatches_meanrate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_async_dispatches_meanrate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_async_dispatches_oneminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.async-dispatches,type=null,attribute=OneMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_async_dispatches_oneminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_async_dispatches_oneminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_async_timeouts_count Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.async-timeouts,type=null,attribute=Count
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_async_timeouts_count untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_async_timeouts_count 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_async_timeouts_fifteenminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.async-timeouts,type=null,attribute=FifteenMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_async_timeouts_fifteenminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_async_timeouts_fifteenminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_async_timeouts_fiveminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.async-timeouts,type=null,attribute=FiveMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_async_timeouts_fiveminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_async_timeouts_fiveminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_async_timeouts_meanrate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.async-timeouts,type=null,attribute=MeanRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_async_timeouts_meanrate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_async_timeouts_meanrate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_async_timeouts_oneminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.async-timeouts,type=null,attribute=OneMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_async_timeouts_oneminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_async_timeouts_oneminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_50thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.connect-requests,type=null,attribute=50thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_50thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_50thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_75thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.connect-requests,type=null,attribute=75thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_75thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_75thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_95thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.connect-requests,type=null,attribute=95thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_95thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_95thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_98thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.connect-requests,type=null,attribute=98thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_98thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_98thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_999thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.connect-requests,type=null,attribute=999thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_999thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_999thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_99thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.connect-requests,type=null,attribute=99thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_99thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_99thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_count Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.connect-requests,type=null,attribute=Count
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_count untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_count 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_fifteenminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.connect-requests,type=null,attribute=FifteenMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_fifteenminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_fifteenminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_fiveminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.connect-requests,type=null,attribute=FiveMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_fiveminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_fiveminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_max Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.connect-requests,type=null,attribute=Max
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_max untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_max 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_mean Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.connect-requests,type=null,attribute=Mean
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_mean untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_mean 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_meanrate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.connect-requests,type=null,attribute=MeanRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_meanrate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_meanrate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_min Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.connect-requests,type=null,attribute=Min
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_min untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_min 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_oneminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.connect-requests,type=null,attribute=OneMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_oneminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_oneminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_stddev Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.connect-requests,type=null,attribute=StdDev
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_stddev untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_connect_requests_stddev 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_50thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.delete-requests,type=null,attribute=50thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_50thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_50thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_75thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.delete-requests,type=null,attribute=75thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_75thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_75thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_95thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.delete-requests,type=null,attribute=95thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_95thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_95thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_98thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.delete-requests,type=null,attribute=98thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_98thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_98thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_999thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.delete-requests,type=null,attribute=999thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_999thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_999thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_99thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.delete-requests,type=null,attribute=99thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_99thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_99thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_count Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.delete-requests,type=null,attribute=Count
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_count untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_count 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_fifteenminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.delete-requests,type=null,attribute=FifteenMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_fifteenminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_fifteenminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_fiveminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.delete-requests,type=null,attribute=FiveMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_fiveminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_fiveminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_max Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.delete-requests,type=null,attribute=Max
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_max untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_max 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_mean Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.delete-requests,type=null,attribute=Mean
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_mean untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_mean 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_meanrate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.delete-requests,type=null,attribute=MeanRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_meanrate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_meanrate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_min Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.delete-requests,type=null,attribute=Min
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_min untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_min 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_oneminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.delete-requests,type=null,attribute=OneMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_oneminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_oneminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_stddev Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.delete-requests,type=null,attribute=StdDev
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_stddev untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_delete_requests_stddev 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_50thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.dispatches,type=null,attribute=50thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_50thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_50thpercentile 5.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_75thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.dispatches,type=null,attribute=75thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_75thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_75thpercentile 5.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_95thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.dispatches,type=null,attribute=95thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_95thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_95thpercentile 5.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_98thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.dispatches,type=null,attribute=98thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_98thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_98thpercentile 5.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_999thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.dispatches,type=null,attribute=999thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_999thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_999thpercentile 7.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_99thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.dispatches,type=null,attribute=99thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_99thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_99thpercentile 5.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_count Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.dispatches,type=null,attribute=Count
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_count untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_count 47.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_fifteenminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.dispatches,type=null,attribute=FifteenMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_fifteenminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_fifteenminuterate 0.040792913664800236
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_fiveminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.dispatches,type=null,attribute=FiveMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_fiveminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_fiveminuterate 0.0797853858784178
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_max Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.dispatches,type=null,attribute=Max
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_max untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_max 20.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_mean Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.dispatches,type=null,attribute=Mean
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_mean untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_mean 3.618931995800837
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_meanrate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.dispatches,type=null,attribute=MeanRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_meanrate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_meanrate 0.09733328114670713
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_min Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.dispatches,type=null,attribute=Min
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_min untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_min 1.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_oneminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.dispatches,type=null,attribute=OneMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_oneminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_oneminuterate 0.10412297654316292
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_stddev Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.dispatches,type=null,attribute=StdDev
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_stddev untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_dispatches_stddev 1.508533392137694
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_50thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.get-requests,type=null,attribute=50thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_50thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_50thpercentile 5.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_75thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.get-requests,type=null,attribute=75thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_75thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_75thpercentile 5.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_95thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.get-requests,type=null,attribute=95thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_95thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_95thpercentile 5.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_98thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.get-requests,type=null,attribute=98thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_98thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_98thpercentile 5.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_999thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.get-requests,type=null,attribute=999thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_999thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_999thpercentile 7.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_99thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.get-requests,type=null,attribute=99thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_99thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_99thpercentile 6.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_count Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.get-requests,type=null,attribute=Count
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_count untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_count 47.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_fifteenminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.get-requests,type=null,attribute=FifteenMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_fifteenminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_fifteenminuterate 0.040792913664800236
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_fiveminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.get-requests,type=null,attribute=FiveMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_fiveminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_fiveminuterate 0.0797853858784178
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_max Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.get-requests,type=null,attribute=Max
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_max untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_max 20.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_mean Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.get-requests,type=null,attribute=Mean
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_mean untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_mean 3.6305909004791896
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_meanrate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.get-requests,type=null,attribute=MeanRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_meanrate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_meanrate 0.09733151453941068
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_min Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.get-requests,type=null,attribute=Min
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_min untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_min 1.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_oneminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.get-requests,type=null,attribute=OneMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_oneminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_oneminuterate 0.10412297654316292
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_stddev Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.get-requests,type=null,attribute=StdDev
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_stddev untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_get_requests_stddev 1.5158473790733766
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_50thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.head-requests,type=null,attribute=50thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_50thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_50thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_75thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.head-requests,type=null,attribute=75thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_75thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_75thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_95thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.head-requests,type=null,attribute=95thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_95thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_95thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_98thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.head-requests,type=null,attribute=98thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_98thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_98thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_999thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.head-requests,type=null,attribute=999thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_999thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_999thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_99thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.head-requests,type=null,attribute=99thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_99thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_99thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_count Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.head-requests,type=null,attribute=Count
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_count untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_count 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_fifteenminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.head-requests,type=null,attribute=FifteenMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_fifteenminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_fifteenminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_fiveminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.head-requests,type=null,attribute=FiveMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_fiveminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_fiveminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_max Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.head-requests,type=null,attribute=Max
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_max untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_max 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_mean Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.head-requests,type=null,attribute=Mean
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_mean untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_mean 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_meanrate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.head-requests,type=null,attribute=MeanRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_meanrate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_meanrate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_min Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.head-requests,type=null,attribute=Min
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_min untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_min 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_oneminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.head-requests,type=null,attribute=OneMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_oneminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_oneminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_stddev Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.head-requests,type=null,attribute=StdDev
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_stddev untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_head_requests_stddev 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_50thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.move-requests,type=null,attribute=50thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_50thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_50thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_75thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.move-requests,type=null,attribute=75thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_75thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_75thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_95thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.move-requests,type=null,attribute=95thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_95thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_95thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_98thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.move-requests,type=null,attribute=98thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_98thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_98thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_999thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.move-requests,type=null,attribute=999thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_999thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_999thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_99thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.move-requests,type=null,attribute=99thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_99thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_99thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_count Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.move-requests,type=null,attribute=Count
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_count untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_count 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_fifteenminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.move-requests,type=null,attribute=FifteenMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_fifteenminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_fifteenminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_fiveminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.move-requests,type=null,attribute=FiveMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_fiveminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_fiveminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_max Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.move-requests,type=null,attribute=Max
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_max untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_max 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_mean Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.move-requests,type=null,attribute=Mean
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_mean untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_mean 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_meanrate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.move-requests,type=null,attribute=MeanRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_meanrate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_meanrate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_min Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.move-requests,type=null,attribute=Min
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_min untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_min 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_oneminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.move-requests,type=null,attribute=OneMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_oneminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_oneminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_stddev Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.move-requests,type=null,attribute=StdDev
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_stddev untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_move_requests_stddev 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_50thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.options-requests,type=null,attribute=50thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_50thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_50thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_75thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.options-requests,type=null,attribute=75thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_75thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_75thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_95thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.options-requests,type=null,attribute=95thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_95thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_95thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_98thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.options-requests,type=null,attribute=98thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_98thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_98thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_999thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.options-requests,type=null,attribute=999thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_999thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_999thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_99thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.options-requests,type=null,attribute=99thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_99thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_99thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_count Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.options-requests,type=null,attribute=Count
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_count untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_count 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_fifteenminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.options-requests,type=null,attribute=FifteenMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_fifteenminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_fifteenminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_fiveminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.options-requests,type=null,attribute=FiveMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_fiveminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_fiveminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_max Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.options-requests,type=null,attribute=Max
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_max untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_max 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_mean Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.options-requests,type=null,attribute=Mean
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_mean untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_mean 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_meanrate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.options-requests,type=null,attribute=MeanRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_meanrate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_meanrate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_min Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.options-requests,type=null,attribute=Min
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_min untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_min 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_oneminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.options-requests,type=null,attribute=OneMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_oneminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_oneminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_stddev Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.options-requests,type=null,attribute=StdDev
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_stddev untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_options_requests_stddev 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_50thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.other-requests,type=null,attribute=50thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_50thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_50thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_75thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.other-requests,type=null,attribute=75thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_75thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_75thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_95thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.other-requests,type=null,attribute=95thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_95thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_95thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_98thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.other-requests,type=null,attribute=98thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_98thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_98thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_999thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.other-requests,type=null,attribute=999thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_999thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_999thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_99thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.other-requests,type=null,attribute=99thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_99thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_99thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_count Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.other-requests,type=null,attribute=Count
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_count untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_count 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_fifteenminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.other-requests,type=null,attribute=FifteenMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_fifteenminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_fifteenminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_fiveminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.other-requests,type=null,attribute=FiveMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_fiveminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_fiveminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_max Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.other-requests,type=null,attribute=Max
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_max untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_max 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_mean Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.other-requests,type=null,attribute=Mean
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_mean untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_mean 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_meanrate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.other-requests,type=null,attribute=MeanRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_meanrate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_meanrate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_min Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.other-requests,type=null,attribute=Min
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_min untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_min 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_oneminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.other-requests,type=null,attribute=OneMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_oneminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_oneminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_stddev Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.other-requests,type=null,attribute=StdDev
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_stddev untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_other_requests_stddev 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_percent_4xx_15m_value Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.percent-4xx-15m,type=null,attribute=Value
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_percent_4xx_15m_value untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_percent_4xx_15m_value 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_percent_4xx_1m_value Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.percent-4xx-1m,type=null,attribute=Value
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_percent_4xx_1m_value untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_percent_4xx_1m_value 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_percent_4xx_5m_value Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.percent-4xx-5m,type=null,attribute=Value
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_percent_4xx_5m_value untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_percent_4xx_5m_value 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_percent_5xx_15m_value Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.percent-5xx-15m,type=null,attribute=Value
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_percent_5xx_15m_value untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_percent_5xx_15m_value 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_percent_5xx_1m_value Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.percent-5xx-1m,type=null,attribute=Value
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_percent_5xx_1m_value untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_percent_5xx_1m_value 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_percent_5xx_5m_value Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.percent-5xx-5m,type=null,attribute=Value
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_percent_5xx_5m_value untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_percent_5xx_5m_value 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_50thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.post-requests,type=null,attribute=50thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_50thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_50thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_75thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.post-requests,type=null,attribute=75thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_75thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_75thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_95thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.post-requests,type=null,attribute=95thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_95thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_95thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_98thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.post-requests,type=null,attribute=98thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_98thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_98thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_999thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.post-requests,type=null,attribute=999thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_999thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_999thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_99thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.post-requests,type=null,attribute=99thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_99thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_99thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_count Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.post-requests,type=null,attribute=Count
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_count untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_count 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_fifteenminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.post-requests,type=null,attribute=FifteenMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_fifteenminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_fifteenminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_fiveminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.post-requests,type=null,attribute=FiveMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_fiveminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_fiveminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_max Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.post-requests,type=null,attribute=Max
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_max untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_max 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_mean Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.post-requests,type=null,attribute=Mean
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_mean untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_mean 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_meanrate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.post-requests,type=null,attribute=MeanRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_meanrate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_meanrate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_min Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.post-requests,type=null,attribute=Min
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_min untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_min 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_oneminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.post-requests,type=null,attribute=OneMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_oneminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_oneminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_stddev Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.post-requests,type=null,attribute=StdDev
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_stddev untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_post_requests_stddev 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_50thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.put-requests,type=null,attribute=50thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_50thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_50thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_75thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.put-requests,type=null,attribute=75thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_75thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_75thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_95thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.put-requests,type=null,attribute=95thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_95thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_95thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_98thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.put-requests,type=null,attribute=98thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_98thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_98thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_999thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.put-requests,type=null,attribute=999thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_999thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_999thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_99thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.put-requests,type=null,attribute=99thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_99thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_99thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_count Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.put-requests,type=null,attribute=Count
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_count untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_count 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_fifteenminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.put-requests,type=null,attribute=FifteenMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_fifteenminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_fifteenminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_fiveminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.put-requests,type=null,attribute=FiveMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_fiveminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_fiveminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_max Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.put-requests,type=null,attribute=Max
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_max untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_max 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_mean Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.put-requests,type=null,attribute=Mean
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_mean untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_mean 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_meanrate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.put-requests,type=null,attribute=MeanRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_meanrate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_meanrate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_min Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.put-requests,type=null,attribute=Min
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_min untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_min 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_oneminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.put-requests,type=null,attribute=OneMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_oneminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_oneminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_stddev Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.put-requests,type=null,attribute=StdDev
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_stddev untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_put_requests_stddev 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_requests_50thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.requests,type=null,attribute=50thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_requests_50thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_requests_50thpercentile 5.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_requests_75thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.requests,type=null,attribute=75thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_requests_75thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_requests_75thpercentile 5.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_requests_95thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.requests,type=null,attribute=95thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_requests_95thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_requests_95thpercentile 5.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_requests_98thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.requests,type=null,attribute=98thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_requests_98thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_requests_98thpercentile 5.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_requests_999thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.requests,type=null,attribute=999thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_requests_999thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_requests_999thpercentile 7.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_requests_99thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.requests,type=null,attribute=99thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_requests_99thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_requests_99thpercentile 6.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_requests_count Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.requests,type=null,attribute=Count
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_requests_count untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_requests_count 47.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_requests_fifteenminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.requests,type=null,attribute=FifteenMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_requests_fifteenminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_requests_fifteenminuterate 0.040792913664800236
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_requests_fiveminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.requests,type=null,attribute=FiveMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_requests_fiveminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_requests_fiveminuterate 0.0797853858784178
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_requests_max Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.requests,type=null,attribute=Max
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_requests_max untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_requests_max 20.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_requests_mean Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.requests,type=null,attribute=Mean
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_requests_mean untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_requests_mean 3.6305909004791896
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_requests_meanrate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.requests,type=null,attribute=MeanRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_requests_meanrate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_requests_meanrate 0.09734761334663129
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_requests_min Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.requests,type=null,attribute=Min
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_requests_min untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_requests_min 1.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_requests_oneminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.requests,type=null,attribute=OneMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_requests_oneminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_requests_oneminuterate 0.10412297654316292
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_requests_stddev Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.requests,type=null,attribute=StdDev
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_requests_stddev untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_requests_stddev 1.5158473790733766
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_50thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.trace-requests,type=null,attribute=50thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_50thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_50thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_75thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.trace-requests,type=null,attribute=75thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_75thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_75thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_95thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.trace-requests,type=null,attribute=95thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_95thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_95thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_98thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.trace-requests,type=null,attribute=98thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_98thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_98thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_999thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.trace-requests,type=null,attribute=999thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_999thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_999thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_99thpercentile Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.trace-requests,type=null,attribute=99thPercentile
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_99thpercentile untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_99thpercentile 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_count Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.trace-requests,type=null,attribute=Count
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_count untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_count 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_fifteenminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.trace-requests,type=null,attribute=FifteenMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_fifteenminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_fifteenminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_fiveminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.trace-requests,type=null,attribute=FiveMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_fiveminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_fiveminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_max Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.trace-requests,type=null,attribute=Max
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_max untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_max 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_mean Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.trace-requests,type=null,attribute=Mean
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_mean untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_mean 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_meanrate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.trace-requests,type=null,attribute=MeanRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_meanrate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_meanrate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_min Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.trace-requests,type=null,attribute=Min
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_min untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_min 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_oneminuterate Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.trace-requests,type=null,attribute=OneMinuteRate
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_oneminuterate untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_oneminuterate 0.0
+# HELP metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_stddev Attribute exposed for management metrics:name=org.eclipse.jetty.server.handler.webserver.root.trace-requests,type=null,attribute=StdDev
+# TYPE metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_stddev untyped
+metrics_org_eclipse_jetty_server_handler_webserver_root_trace_requests_stddev 0.0
+# HELP metrics_org_eclipse_jetty_util_thread_queuedthreadpool_webserver_jobs_value Attribute exposed for management metrics:name=org.eclipse.jetty.util.thread.QueuedThreadPool.webserver.jobs,type=null,attribute=Value
+# TYPE metrics_org_eclipse_jetty_util_thread_queuedthreadpool_webserver_jobs_value untyped
+metrics_org_eclipse_jetty_util_thread_queuedthreadpool_webserver_jobs_value 0.0
+# HELP metrics_org_eclipse_jetty_util_thread_queuedthreadpool_webserver_size_value Attribute exposed for management metrics:name=org.eclipse.jetty.util.thread.QueuedThreadPool.webserver.size,type=null,attribute=Value
+# TYPE metrics_org_eclipse_jetty_util_thread_queuedthreadpool_webserver_size_value untyped
+metrics_org_eclipse_jetty_util_thread_queuedthreadpool_webserver_size_value 8.0
+# HELP metrics_org_eclipse_jetty_util_thread_queuedthreadpool_webserver_utilization_max_value Attribute exposed for management metrics:name=org.eclipse.jetty.util.thread.QueuedThreadPool.webserver.utilization-max,type=null,attribute=Value
+# TYPE metrics_org_eclipse_jetty_util_thread_queuedthreadpool_webserver_utilization_max_value untyped
+metrics_org_eclipse_jetty_util_thread_queuedthreadpool_webserver_utilization_max_value 0.035
+# HELP metrics_org_eclipse_jetty_util_thread_queuedthreadpool_webserver_utilization_value Attribute exposed for management metrics:name=org.eclipse.jetty.util.thread.QueuedThreadPool.webserver.utilization,type=null,attribute=Value
+# TYPE metrics_org_eclipse_jetty_util_thread_queuedthreadpool_webserver_utilization_value untyped
+metrics_org_eclipse_jetty_util_thread_queuedthreadpool_webserver_utilization_value 0.875
+# HELP org_apache_logging_log4j2_default_additive Attribute exposed for management org.apache.logging.log4j2:name=org.eclipse.jetty,type=Default,attribute=Additive
+# TYPE org_apache_logging_log4j2_default_additive untyped
+org_apache_logging_log4j2_default_additive{component="Loggers",name=""} 0.0
+org_apache_logging_log4j2_default_additive{component="Loggers",name="com.amazonaws.services.kinesis.clientlibrary.lib.worker.SequenceNumberValidator"} 1.0
+org_apache_logging_log4j2_default_additive{component="Loggers",name="com.datastax.driver.core.QueryLogger.SLOW"} 1.0
+org_apache_logging_log4j2_default_additive{component="Loggers",name="com.streamsets"} 1.0
+org_apache_logging_log4j2_default_additive{component="Loggers",name="org.eclipse.jetty"} 1.0
+# HELP org_apache_logging_log4j2_default_ignoreexceptions Attribute exposed for management org.apache.logging.log4j2:name=null,type=Default,attribute=IgnoreExceptions
+# TYPE org_apache_logging_log4j2_default_ignoreexceptions untyped
+org_apache_logging_log4j2_default_ignoreexceptions{component="Appenders",name="null"} 1.0
+org_apache_logging_log4j2_default_ignoreexceptions{component="Appenders",name="stdout"} 1.0
+org_apache_logging_log4j2_default_ignoreexceptions{component="Appenders",name="streamsets"} 1.0
+# HELP org_apache_logging_log4j2_default_includelocation Attribute exposed for management org.apache.logging.log4j2:name=org.eclipse.jetty,type=Default,attribute=IncludeLocation
+# TYPE org_apache_logging_log4j2_default_includelocation untyped
+org_apache_logging_log4j2_default_includelocation{component="Loggers",name=""} 1.0
+org_apache_logging_log4j2_default_includelocation{component="Loggers",name="com.amazonaws.services.kinesis.clientlibrary.lib.worker.SequenceNumberValidator"} 1.0
+org_apache_logging_log4j2_default_includelocation{component="Loggers",name="com.datastax.driver.core.QueryLogger.SLOW"} 1.0
+org_apache_logging_log4j2_default_includelocation{component="Loggers",name="com.streamsets"} 1.0
+org_apache_logging_log4j2_default_includelocation{component="Loggers",name="org.eclipse.jetty"} 1.0
+# HELP process_cpu_seconds_total Total user and system CPU time spent in seconds.
+# TYPE process_cpu_seconds_total counter
+process_cpu_seconds_total 34.34
+# HELP process_max_fds Maximum number of open file descriptors.
+# TYPE process_max_fds gauge
+process_max_fds 1048576.0
+# HELP process_open_fds Number of open file descriptors.
+# TYPE process_open_fds gauge
+process_open_fds 728.0
+# HELP process_resident_memory_bytes Resident memory size in bytes.
+# TYPE process_resident_memory_bytes gauge
+process_resident_memory_bytes 2.778509312E9
+# HELP process_start_time_seconds Start time of the process since unix epoch in seconds.
+# TYPE process_start_time_seconds gauge
+process_start_time_seconds 1.731385359962E9
+# HELP process_virtual_memory_bytes Virtual memory size in bytes.
+# TYPE process_virtual_memory_bytes gauge
+process_virtual_memory_bytes 1.0595938304E10

@@ -6,33 +6,9 @@ metadata:
   name: streamsets-jmxexporter-configs
   namespace: streamsetsdemos
 data:
-  jmxexporter.yml: |-
+  config.yml: |-
     attrNameSnakeCase: true
     lowercaseOutputName: true
     lowercaseOutputLabelNames: true
-    
-    whitelistObjectNames:
-      # Whitelist objects to be collected, for performance reason
-      # Each object in the rules below has to be added to whitelistObjectNames too !
-      # note that rules use regex (like "foo.*", whereas the whitelist use globbing expressions (like "foo*")
-      - "sdc.pipeline.*"
-      - "java.lang:type=Memory"
-
     rules:
-      - pattern: 'java.lang:type=Memory' 
-        name: 'jvm_memory'
-
-      - pattern: "^com.hazelcast<type=Metrics, instance=(.*), prefix=(.*), tag([0-9]+)=(.*)><>(.+):"
-        name: hazelcast_$5
-        attrNameSnakeCase: true
-        labels:
-          instance: $1
-          prefix: $2
-          tag$3: $4
-
-      - pattern: "^com.hazelcast<type=Metrics, instance=(.*), prefix=(.*)><>(.+):"
-        name: hazelcast_$3
-        attrNameSnakeCase: true
-        labels:
-          instance: $1
-          prefix: $2
+      - pattern: ".*"

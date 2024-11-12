@@ -8,7 +8,7 @@ metadata:
   name: streamsets-deployment-<UUID>
   namespace: streamsetsdemos
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: streamsets-deployment-<UUID>
@@ -19,9 +19,23 @@ spec:
         vendor: streamsets-sch
         env: na01
     spec:
-      terminationGracePeriodSeconds: 30
-      restartPolicy: Always
-      imagePullSecrets: []
+      initContainers:
+        - name: init-jmx-exporter
+          image: bitnami/jmx-exporter:1.0.1
+          imagePullPolicy: IfNotPresent
+          securityContext: {}
+          workingDir: /jmxexporter
+          command: ["sh"]
+          args:
+            - -ce
+            - |
+              echo "Copying jmx_prometheus_javaagent"
+              cp -a /opt/bitnami/jmx-exporter/jmx_prometheus_javaagent.jar /jmxexporter/
+              echo "Copy Complete!"
+          volumeMounts:
+            - mountPath: /jmxexporter
+              name: jmxexporter-shared
+              readOnly: false
       containers:
         - env:
             - name: STREAMSETS_DEPLOYMENT_ID
@@ -34,7 +48,6 @@ spec:
                   optional: false
             - name: STREAMSETS_DEPLOYMENT_SCH_URL
               value: https://na01.hub.streamsets.com
-          image: streamsets/datacollector:JDK17_5.12.0
           livenessProbe:
             failureThreshold: 20
             httpGet:
@@ -49,9 +62,6 @@ spec:
             - containerPort: 18630
               name: engine-port
           resources:
-            limits:
-              cpu: "2"
-              memory: 4Gi
             requests:
               memory: 1Gi
               cpu: "1"
@@ -65,38 +75,16 @@ spec:
             periodSeconds: 10
             timeoutSeconds: 5
           volumeMounts:
-            - name: externalworkingdir
-              subPath: user-libs
-              mountPath: /opt/streamsets-datacollector-user-libs
-              readOnly: true
-            - name: externalworkingdir
-              subPath: streamsets-libs-extras
-              mountPath: /opt/streamsets-datacollector-5.12.0/streamsets-libs-extras
-              readOnly: true
-            - name: externalworkingdir
-              subPath: resources
-              mountPath: /resources
-              readOnly: true
-        - name: sidecar-jmxexporter
-          image: bitnami/jmx-exporter:1.0.1
-          imagePullPolicy: IfNotPresent
-          securityContext: {}
-          ports:
-            - containerPort: 9404
-              name: jmx-exporter-port
-          resources:
-            requests:
-              cpu: "100m"
-              memory: "128Mi"
-            limits:
-              cpu: "100m"
-              memory: "256Mi"
-          volumeMounts:
             - name: jmxexporter-config
-              mountPath: /opt/bitnami/jmx-exporter/config.yml
+              mountPath: /jmxexporter_configs
+              readOnly: true
+            - name: jmxexporter-shared
+              mountPath: /jmxexporter
               readOnly: true
       volumes:
         - name: jmxexporter-config
           configMap:
             name: streamsets-jmxexporter-configs
+        - name: jmxexporter-shared
+          emptyDir: {}
       dnsPolicy: Default
