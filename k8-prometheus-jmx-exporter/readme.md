@@ -7,10 +7,18 @@ Sample to add a JMX-exporter to your SDC in Kubernetes
  
 ### Deploy core supporting assets
 
-Config map for the exporter config
+Config map for the exporter config:
 
 ```sh
-kubectl --namespace streamsetsdemos apply -f ./manifests/cm-jmxexporter-configs.yaml
+kubectl create configmap streamsets-jmxexporter-configs \
+    --namespace streamsetsdemos \
+    --from-file=config.yml=./jmx_exporter_configs/config-simple-all.yaml
+```
+
+If you need to recreate the config map, you'll need to first delete it...do it as so:
+
+```sh
+kubectl delete configmap streamsets-jmxexporter-configs --namespace streamsetsdemos
 ```
 
 ### Deploy the deployment in streamsets
