@@ -61,6 +61,8 @@ spec:
           ports:
             - containerPort: 18630
               name: engine-port
+            - containerPort: 12345
+              name: jmxexporter
           resources:
             requests:
               memory: 1Gi

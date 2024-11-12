@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: streamsets-podmonitor
+  namespace: streamsetsdemos
+  labels:
+    prometheus: "scrape"
+spec:
+  selector:
+    matchLabels:
+      vendor: streamsets-sch
+      env: na01
+  podMetricsEndpoints:
+    - port: jmxexporter
+      interval: 60s
+      path: /metrics
+      scheme: http

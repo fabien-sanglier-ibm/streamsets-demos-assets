@@ -4,7 +4,7 @@ k8-prometheus-jmx-exporter
 Sample to add a JMX-exporter to your SDC in Kubernetes
 
 ## Kubernetes assets
- 
+
 ### Deploy core supporting assets
 
 Config map for the exporter config:
@@ -24,14 +24,16 @@ kubectl delete configmap streamsets-jmxexporter-configs --namespace streamsetsde
 ### Deploy the deployment in streamsets
 
 The deployment file contains the following customization, in addition to the usual StreamSets items:
- - A simple side-car container for the jmx exporter
+- initContainers to copy the jmx-exporter java agent into the collector
+- volumes and volume mounts to help achieve that
+- add new containerPort entry with name "jmxexporter"
 
 The file "./manifests/deployment-jmxexporter-template.yaml" should be added to the StreamSets deployment
 IMPORTANT: make sure to replace the placeholders "UUID" and "ORGID" in that file with what StreamSets expects
 
-
 ## Enable JMX exporter via JVM configs
 
+Now all the Kubernetes assets are added and available, we need to enable the exporter agent in the StreamSets engine...
 
 In deployment > advanced configurations > JAVA configuration > field "Java Options", add:
 
@@ -39,21 +41,27 @@ In deployment > advanced configurations > JAVA configuration > field "Java Optio
 -javaagent:/jmxexporter/jmx_prometheus_javaagent.jar=12345:/jmxexporter_configs/config.yml
 ```
 
-and restart the engine...
+And make sure to restart the engine!!
 
-Verify by running the following request:
+Verify by running the following request from the StreamSets collector container...
 
 ```sh
 curl http://localhost:12345/metrics
 ```
 
+This should return a long list of metrics in the expected format.
+
 ## Prometheus
 
-Don't forget to annotate your resources so Prometheus will scrape your pod's /metrics endpoint:
+Pod monitor for Prometheus to discover the StreamSets pods (this will not run if you don't have the prometheus stack installed, since it relies on the Prometheus CRD - monitoring.coreos.com)
 
-annotations:
-  "prometheus.io/scrape": "true"
-  "prometheus.io/port": "12345"
+```sh
+kubectl --namespace streamsetsdemos apply -f ./manifests/pod-monitor.yaml
+```
+
+NOTE: Our pod monitor has the label "prometheus: scrape" to facilitate being selected by the Prometheus engine.
+
+You should make sure the Prometheus deployment is set to select all the pod monitors with this labels.
 
 ## Troubleshooting: Enable jmxremote
 
@@ -62,6 +70,5 @@ You can expose the JMX objects in order to browse and build your JMX-exporter co
 ```sh
 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=10099 -Dcom.sun.management.jmxremote.rmi.port=10099 -Djava.rmi.server.hostname=localhost -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false
 ```
-
 
 -javaagent:/jmxexporter/jmx_prometheus_javaagent.jar=12345:/jmxexporter_configs/config.yml -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=10099 -Dcom.sun.management.jmxremote.rmi.port=10099 -Djava.rmi.server.hostname=localhost -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false
