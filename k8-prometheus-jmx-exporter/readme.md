@@ -7,6 +7,12 @@ Sample to add a JMX-exporter to your SDC in Kubernetes
 
 ### Deploy core supporting assets
 
+NOTE: The JMX exporter config (./jmx_exporter_configs/config-sdc.yaml) is very broad and will export all metrics with the following patterns:
+ - metrics:name=jvm.*
+ - metrics:name=sdc.pipeline.*
+
+See relevant product doc at: https://docs.streamsets.com/portal/datacollector/latest/help/datacollector/UserGuide/Configuration/JMXMetrics-EnableExternalTools.html
+
 Config map for the exporter config:
 
 ```sh
@@ -65,10 +71,10 @@ You should make sure the Prometheus deployment is set to select all the pod moni
 
 ## Troubleshooting: Enable jmxremote
 
+NOTE: This is not needed by the setup... just for extra browsing of the metrics if you want to update the jmx-exporter configs for example...
+
 You can expose the JMX objects in order to browse and build your JMX-exporter config for example:
 
 ```sh
 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=10099 -Dcom.sun.management.jmxremote.rmi.port=10099 -Djava.rmi.server.hostname=localhost -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false
 ```
-
--javaagent:/jmxexporter/jmx_prometheus_javaagent.jar=12345:/jmxexporter_configs/config.yml -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=10099 -Dcom.sun.management.jmxremote.rmi.port=10099 -Djava.rmi.server.hostname=localhost -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false
