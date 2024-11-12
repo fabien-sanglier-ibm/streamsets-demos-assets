@@ -1,0 +1,8 @@
+attrNameSnakeCase: true
+lowercaseOutputName: true
+lowercaseOutputLabelNames: true
+rules:
+  - pattern: "^org.apache.activemq.artemis<broker=\"([^\"]*)\"><>([^:]*):\\s(.*)"
+    attrNameSnakeCase: true
+    name: artemis_$2
+    type: COUNTER
