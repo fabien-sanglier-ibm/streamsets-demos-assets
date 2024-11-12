@@ -12,7 +12,7 @@ Config map for the exporter config:
 ```sh
 kubectl create configmap streamsets-jmxexporter-configs \
     --namespace streamsetsdemos \
-    --from-file=config.yml=./jmx_exporter_configs/config-simple-all.yaml
+    --from-file=config.yml=./jmx_exporter_configs/config-sdc.yaml
 ```
 
 If you need to recreate the config map, you'll need to first delete it...do it as so:
@@ -59,6 +59,9 @@ annotations:
 
 You can expose the JMX objects in order to browse and build your JMX-exporter config for example:
 
+```sh
+-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=10099 -Dcom.sun.management.jmxremote.rmi.port=10099 -Djava.rmi.server.hostname=localhost -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false
 ```
--Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=9999 -Dcom.sun.management.jmxremote.local.only=true -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false
-```
+
+
+-javaagent:/jmxexporter/jmx_prometheus_javaagent.jar=12345:/jmxexporter_configs/config.yml -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=10099 -Dcom.sun.management.jmxremote.rmi.port=10099 -Djava.rmi.server.hostname=localhost -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false

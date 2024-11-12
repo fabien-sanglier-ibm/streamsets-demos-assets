@@ -1,8 +1,9 @@
 attrNameSnakeCase: true
-lowercaseOutputName: true
+lowercaseOutputName: false
 lowercaseOutputLabelNames: true
+includeObjectNames:
+ - metrics:name=jvm.*
+ - metrics:name=sdc.pipeline.*
+
 rules:
-  - pattern: "^org.apache.activemq.artemis<broker=\"([^\"]*)\"><>([^:]*):\\s(.*)"
-    attrNameSnakeCase: true
-    name: artemis_$2
-    type: COUNTER
+  - pattern: ".*"
