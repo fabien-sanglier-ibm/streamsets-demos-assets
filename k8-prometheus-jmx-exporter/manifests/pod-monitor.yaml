@@ -12,6 +12,6 @@ spec:
       env: na01
   podMetricsEndpoints:
     - port: jmxexporter
-      interval: 60s
+      interval: 10s
       path: /metrics
       scheme: http

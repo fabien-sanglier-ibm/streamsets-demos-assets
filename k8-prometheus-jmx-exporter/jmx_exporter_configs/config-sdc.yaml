@@ -36,7 +36,7 @@ rules:
 
   # pattern for stage COUNTER metrics
   - pattern: 'metrics<name=sdc\.pipeline\.([^\.]+)\.([^\.]+)\.stage\.([^\.]+)\.([^\.]+)\.counter><>Count: (\d+)'
-    name: sdc_pipeline_stage_$1_$2_$3_$4
+    name: sdc_pipeline_stage_counter_$1_$2_$3_$4
     value: $5
     labels:
       pipeline: $1
@@ -51,7 +51,7 @@ rules:
 
   # pattern for stage METER metrics (multiple attributes)
   - pattern: 'metrics<name=sdc\.pipeline\.([^\.]+)\.([^\.]+)\.stage\.([^\.]+)\.([^\.]+)\.meter><>(\w+): (.*)'
-    name: sdc_pipeline_stage_$1_$2_$3_$4_$5
+    name: sdc_pipeline_stage_meter_$1_$2_$3_$4_$5
     value: $6
     labels:
       pipeline: $1
