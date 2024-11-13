@@ -1,4 +1,9 @@
 
+Streamsets JAVA config:
+
+-javaagent:/jmxexporter/jmx_prometheus_javaagent.jar=12345:/home/sdc/config-sdc.yaml -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=10099 -Dcom.sun.management.jmxremote.rmi.port=10099 -Djava.rmi.server.hostname=localhost -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false
+
+
 ^metrics:name=sdc\.pipeline\.([a-zA-Z0-9_-]+)\.([a-zA-Z0-9_-]+)\.([a-zA-Z0-9_-]+)\.([a-zA-Z0-9_:-]+)\.([a-zA-Z0-9_:-]+)\.([a-zA-Z0-9_:-]+)$
 
 sdc.pipeline.<pipeline name>.<pipeline revision>.<category: pipeline|stage|custom>.[<stage library>_<library revision>].<metric name>.<metric type>
