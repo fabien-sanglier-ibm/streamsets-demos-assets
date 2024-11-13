@@ -1,0 +1,36 @@
+attrNameSnakeCase: true
+lowercaseOutputName: false
+lowercaseOutputLabelNames: true
+whitelistObjectNames:
+ - metrics:name=jvm.*
+ - metrics:name=sdc.pipeline.*
+
+rules:
+  # pattern for pipeline level metrics
+  - pattern: 'metrics<name=sdc\.pipeline\.([^\.]+)\.([^\.]+)\.pipeline\.([^\.]+)\.counter><>Count: (\d+)'
+    name: pipeline_$1_$2_$3
+    value: $4
+    labels:
+      pipeline: $1
+      pipeline_revision: $2
+      category: pipeline
+      metric: $3
+    help: "StreamSets Pipeline Counter Metric $1_$2_$3"
+    cache: false
+    type: COUNTER
+    attrNameSnakeCase: false
+
+  # pattern for stage level metrics
+  - pattern: 'metrics<name=sdc\.pipeline\.([^\.]+)\.([^\.]+)\.stage\.([^\.]+)\.([^\.]+)\.counter><>Count: (\d+)'
+    name: stage_$1_$2_$3_$4
+    value: $5
+    labels:
+      pipeline: $1
+      pipeline_revision: $2
+      category: stage
+      stage: $3
+      metric: $4
+    help: "StreamSets Stage Counter Metric $3_$4 for pipeline $1_$2"
+    cache: false
+    type: COUNTER
+    attrNameSnakeCase: false

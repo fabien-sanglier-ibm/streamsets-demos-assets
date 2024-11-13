@@ -1,0 +1,32 @@
+attrNameSnakeCase: true
+lowercaseOutputName: false
+lowercaseOutputLabelNames: true
+whitelistObjectNames:
+ - metrics:name=jvm.*
+ - metrics:name=sdc.pipeline.*
+
+
+
+^(?!\.[.]{2})[a-zA-Z0-9_-]+(?:\.[a-zA-Z0-9_-]+)+$
+
+  - pattern: 'metrics<name=sdc\.pipeline\.([a-zA-Z0-9_\.-]+)><>Count: (\d+)'
+
+
+^sdc\.pipeline\.([^\.]+)\.([^\.]+)\.([^\.]+)\.([^\.]+)\.([^\.]+)\.([^\.]+)$
+
+
+
+^sdc\.pipeline\.([^\.]+)\.([^\.]+)\.([^\.]+)\.([^\.]+)\.([^\.]+)\.counter$
+
+rules:
+  - pattern: 'metrics<name=sdc\.pipeline\.([a-zA-Z0-9_\.-]+)><>Count: (\d+)'
+    name: sxcollector_$1
+    value: $2
+    labels: {}
+    help: "StreamSets Pipeline Counter Metric $1"
+    cache: false
+    type: COUNTER
+    attrNameSnakeCase: false
+    labels:
+      "$1": "$4"
+      "$2": "$3"

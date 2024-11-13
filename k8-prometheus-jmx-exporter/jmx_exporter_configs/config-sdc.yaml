@@ -1,9 +1,65 @@
 attrNameSnakeCase: true
 lowercaseOutputName: false
 lowercaseOutputLabelNames: true
-includeObjectNames:
+whitelistObjectNames:
  - metrics:name=jvm.*
  - metrics:name=sdc.pipeline.*
 
 rules:
-  - pattern: ".*"
+  # pattern for pipeline COUNTER metrics
+  - pattern: 'metrics<name=sdc\.pipeline\.([^\.]+)\.([^\.]+)\.pipeline\.([^\.]+)\.counter><>Count: (\d+)'
+    name: sdc_pipeline_counter_$1_$2_$3
+    value: $4
+    labels:
+      pipeline: $1
+      pipeline_revision: $2
+      category: pipeline
+      metric: $3
+    help: "StreamSets Pipeline COUNTER Metric $1_$2_$3"
+    cache: false
+    type: COUNTER
+    attrNameSnakeCase: false
+  
+  # pattern for pipeline METER metrics (multiple attributes)
+  - pattern: 'metrics<name=sdc\.pipeline\.([^\.]+)\.([^\.]+)\.pipeline\.([^\.]+)\.meter><>(\w+): (.*)'
+    name: sdc_pipeline_meter_$1_$2_$3_$4
+    value: $5
+    labels:
+      pipeline: $1
+      pipeline_revision: $2
+      category: pipeline
+      metric: $3
+    help: "StreamSets Pipeline METER Metric $1_$2_$3_$4"
+    cache: false
+    type: GAUGE
+    attrNameSnakeCase: false
+
+  # pattern for stage COUNTER metrics
+  - pattern: 'metrics<name=sdc\.pipeline\.([^\.]+)\.([^\.]+)\.stage\.([^\.]+)\.([^\.]+)\.counter><>Count: (\d+)'
+    name: sdc_pipeline_stage_$1_$2_$3_$4
+    value: $5
+    labels:
+      pipeline: $1
+      pipeline_revision: $2
+      category: stage
+      stage: $3
+      metric: $4
+    help: "StreamSets Stage COUNTER Metric $3_$4 for pipeline $1_$2"
+    cache: false
+    type: COUNTER
+    attrNameSnakeCase: false
+
+  # pattern for stage METER metrics (multiple attributes)
+  - pattern: 'metrics<name=sdc\.pipeline\.([^\.]+)\.([^\.]+)\.stage\.([^\.]+)\.([^\.]+)\.meter><>(\w+): (.*)'
+    name: sdc_pipeline_stage_$1_$2_$3_$4_$5
+    value: $6
+    labels:
+      pipeline: $1
+      pipeline_revision: $2
+      category: stage
+      stage: $3
+      metric: $4
+    help: "StreamSets Stage METER Metric $3_$4_$5 for pipeline $1_$2"
+    cache: false
+    type: GAUGE
+    attrNameSnakeCase: false

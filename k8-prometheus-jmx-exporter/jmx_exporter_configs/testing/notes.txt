@@ -1,0 +1,29 @@
+
+^metrics:name=sdc\.pipeline\.([a-zA-Z0-9_-]+)\.([a-zA-Z0-9_-]+)\.([a-zA-Z0-9_-]+)\.([a-zA-Z0-9_:-]+)\.([a-zA-Z0-9_:-]+)\.([a-zA-Z0-9_:-]+)$
+
+sdc.pipeline.<pipeline name>.<pipeline revision>.<category: pipeline|stage|custom>.[<stage library>_<library revision>].<metric name>.<metric type>
+
+sdc.pipeline.
+<pipeline name> = customparse__c87e6781-4fa8-48cf-b588-6de42b5cb45a__2704931a-d1b9-11ee-99e0-8bf17f5d66cd
+<pipeline revision>.0
+<category: pipeline|stage|custom.stage
+<stage library>_<library revision>  .DevRawDataSource_1:DevRawDataSource_1OutputLane17102599423460
+<metric name>.outputRecords
+<metric type>.counter
+
+
+
+sample names:
+sdc.pipeline.customparse__c87e6781-4fa8-48cf-b588-6de42b5cb45a__2704931a-d1b9-11ee-99e0-8bf17f5d66cd.0.stage.DevRawDataSource_1:DevRawDataSource_1OutputLane17102599423460.outputRecords.counter
+sdc.pipeline.HCAparse__c87e6781-4fa8-48cf-b588-6de42b5cb45a__2704931a-d1b9-11ee-99e0-8bf17f5d66cd.0.pipeline.errorsPerBatch.counter
+
+
+
+- pattern: 'metrics<name=sdc\.pipeline\.([a-zA-Z0-9_\.-]+)><>Count: (\d+)'
+
+
+^sdc\.pipeline\.([^\.]+)\.([^\.]+)\.([^\.]+)\.([^\.]+)\.([^\.]+)\.([^\.]+)$
+
+
+
+^sdc\.pipeline\.([^\.]+)\.([^\.]+)\.([^\.]+)\.([^\.]+)\.([^\.]+)\.counter$

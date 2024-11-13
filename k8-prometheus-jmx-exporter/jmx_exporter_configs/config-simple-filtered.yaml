@@ -1,0 +1,9 @@
+attrNameSnakeCase: true
+lowercaseOutputName: false
+lowercaseOutputLabelNames: true
+includeObjectNames:
+ - metrics:name=jvm.*
+ - metrics:name=sdc.pipeline.*
+
+rules:
+  - pattern: ".*"
