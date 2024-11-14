@@ -2,6 +2,7 @@ attrNameSnakeCase: true
 lowercaseOutputName: false
 lowercaseOutputLabelNames: true
 whitelistObjectNames:
+ - java.lang:type=OperatingSystem
  - metrics:name=jvm.*
  - metrics:name=sdc.pipeline.*
 
@@ -15,7 +16,7 @@ rules:
       pipeline_revision: $2
       category: pipeline
       metric: $3
-    help: "StreamSets Pipeline COUNTER Metric $1_$2_$3"
+    help: "StreamSets SDC Pipeline COUNTER Metric $1_$2_$3"
     cache: false
     type: COUNTER
     attrNameSnakeCase: false
@@ -29,7 +30,7 @@ rules:
       pipeline_revision: $2
       category: pipeline
       metric: $3
-    help: "StreamSets Pipeline METER Metric $1_$2_$3_$4"
+    help: "StreamSets SDC Pipeline METER Metric $1_$2_$3_$4"
     cache: false
     type: GAUGE
     attrNameSnakeCase: false
@@ -44,7 +45,7 @@ rules:
       category: stage
       stage: $3
       metric: $4
-    help: "StreamSets Stage COUNTER Metric $3_$4 for pipeline $1_$2"
+    help: "StreamSets SDC Pipeline Stage COUNTER Metric $3_$4 for pipeline $1_$2"
     cache: false
     type: COUNTER
     attrNameSnakeCase: false
@@ -59,7 +60,18 @@ rules:
       category: stage
       stage: $3
       metric: $4
-    help: "StreamSets Stage METER Metric $3_$4_$5 for pipeline $1_$2"
+    help: "StreamSets SDC Pipeline Stage METER Metric $3_$4_$5 for pipeline $1_$2"
+    cache: false
+    type: GAUGE
+    attrNameSnakeCase: false
+
+  # pattern for JVM metrics
+  - pattern: 'metrics<name=^jvm\.(.+)$><>Value: (.*)'
+    name: sdc_jvm_$1
+    value: $2
+    labels:
+      category: jvm
+    help: "StreamSets SDC JVM metric jvm.$1"
     cache: false
     type: GAUGE
     attrNameSnakeCase: false
