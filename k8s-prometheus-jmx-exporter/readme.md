@@ -1,4 +1,4 @@
-k8-prometheus-jmx-exporter
+k8s-prometheus-jmx-exporter
 =======================================
 
 Sample to add a JMX-exporter to your SDC in Kubernetes

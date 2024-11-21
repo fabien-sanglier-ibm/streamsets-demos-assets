@@ -2,11 +2,11 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   labels:
-    app: streamsets-pull-external-resources-minio
-  name: streamsets-pull-external-resources-minio
+    app: streamsets-pull-external-resources
+  name: streamsets-pull-external-resources
   namespace: streamsetsdemos
 data:
-  sync-minio.sh: |-
+  datasync.sh: |-
     #!/bin/sh
 
     mc alias set myminio "${AWS_S3_ENDPOINT}" "${AWS_ACCESS_KEY_ID}" "${AWS_SECRET_ACCESS_KEY}" --insecure
@@ -28,3 +28,34 @@ data:
     mc mirror --remove --overwrite --retry --summary --insecure myminio/${AWS_S3_BUCKET_NAME}${AWS_S3_BUCKET_PATH_RESOURCES} /externalworkingdir${AWS_S3_BUCKET_PATH_RESOURCES}
     ls -al /externalworkingdir${AWS_S3_BUCKET_PATH_RESOURCES}/
     echo "Sync complete - resources"
+
+    #recap
+    echo "Quick summary:"
+    ls -al /externalworkingdir${AWS_S3_BUCKET_PATH_SYSTEM_LIBS_EXTRAS}/
+    ls -al /externalworkingdir${AWS_S3_BUCKET_PATH_USER_LIBS}/
+    ls -al /externalworkingdir${AWS_S3_BUCKET_PATH_RESOURCES}/
+
+  schedule-sync.sh: |-
+    #!/bin/sh
+
+    if [ ! -f "${SYNC_SCRIPT_PATH}" ]; then
+        echo "ERROR: file ${SYNC_SCRIPT_PATH} is not found...exiting!!"
+        exit 20;
+    fi
+
+    if [ "x$SCHEDULE_INTERVAL_SEC" == "x" ]; then
+        echo "ERROR: SCHEDULE_INTERVAL_SEC env is not set...exiting!!"
+        exit 10;
+    fi
+
+    echo "Setting ip scheduled sync script ${SYNC_SCRIPT_PATH} at interval = ${SCHEDULE_INTERVAL_SEC} seconds."
+    while true; do
+      echo 'Syncing S3 bucket...'
+      start_time=$(date +%s)
+      /bin/sh -ce "${SYNC_SCRIPT_PATH}"
+      end_time=$(date +%s)
+      duration=$((end_time - start_time))
+      sleep_time=$((${SCHEDULE_INTERVAL_SEC} - duration))
+      echo "Duration: $duration"
+      [ $sleep_time -gt 0 ] && sleep $sleep_time || sleep 0
+    done

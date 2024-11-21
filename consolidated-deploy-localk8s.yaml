@@ -1,0 +1,211 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: streamsets-deployment-73564121-92cd-4228-ac92-06754ffcf41a
+    vendor: streamsets-sch
+    env: na01
+  name: streamsets-deployment-73564121-92cd-4228-ac92-06754ffcf41a
+  namespace: streamsetsdemos
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: streamsets-deployment-73564121-92cd-4228-ac92-06754ffcf41a
+  template:
+    metadata:
+      labels:
+        app: streamsets-deployment-73564121-92cd-4228-ac92-06754ffcf41a
+        vendor: streamsets-sch
+        env: na01
+    spec:
+      terminationGracePeriodSeconds: 30
+      restartPolicy: Always
+      imagePullSecrets: []
+      initContainers:
+        - name: init-jmx-exporter
+          args:
+            - -ce
+            - |
+              echo "Copying jmx_prometheus_javaagent"
+              cp -a /opt/bitnami/jmx-exporter/jmx_prometheus_javaagent.jar /jmxexporter/
+              echo "Copy Complete!"
+          command:
+            - sh
+          image: bitnami/jmx-exporter:1.0.1
+          imagePullPolicy: IfNotPresent
+          securityContext: {}
+          volumeMounts:
+            - mountPath: /jmxexporter
+              name: jmxexporter-shared
+              readOnly: false
+          workingDir: /jmxexporter
+        - name: init-pull-external-resources
+          image: minio/mc:latest
+          imagePullPolicy: IfNotPresent
+          securityContext: {}
+          workingDir: "/externalworkingdir"
+          command: ["sh","-ce","/scripts/datasync.sh"]
+          env:
+            - name: AWS_REGION
+              value: us-east-1
+            - name: AWS_S3_ENDPOINT
+              value: https://minio.minio.svc.cluster.local:443
+            - name: AWS_S3_BUCKET_NAME
+              value: streamsets-externalresources
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: streamsets-pull-external-resources-credentials
+                  key: access_key_id
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: streamsets-pull-external-resources-credentials
+                  key: secret_access_key
+            - name: AWS_S3_BUCKET_PREFIX
+              value: ""
+            - name: AWS_S3_BUCKET_PATH_USER_LIBS
+              value: "/user-libs"
+            - name: AWS_S3_BUCKET_PATH_SYSTEM_LIBS_EXTRAS
+              value: "/streamsets-libs-extras"
+            - name: AWS_S3_BUCKET_PATH_RESOURCES
+              value: "/resources"
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "100m"
+              memory: "256Mi"
+          volumeMounts:
+            - name: datapull-scripts
+              mountPath: /scripts
+            - mountPath: "/externalworkingdir"
+              name: "externalworkingdir"
+              readOnly: false
+      containers:
+        - name: streamsets-engine-73564121-92cd-4228-ac92-06754ffcf41a
+          env:
+            - name: STREAMSETS_DEPLOYMENT_ID
+              value: 73564121-92cd-4228-ac92-06754ffcf41a:2704931a-d1b9-11ee-99e0-8bf17f5d66cd
+            - name: STREAMSETS_DEPLOYMENT_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  key: token
+                  name: streamsets-deployment-secret-73564121-92cd-4228-ac92-06754ffcf41a
+                  optional: false
+            - name: STREAMSETS_DEPLOYMENT_SCH_URL
+              value: https://na01.hub.streamsets.com
+          image: streamsets/datacollector:JDK17_5.12.0
+          livenessProbe:
+            failureThreshold: 20
+            httpGet:
+              path: /public-rest/ping
+              port: engine-port
+              scheme: HTTP
+            initialDelaySeconds: 10
+            periodSeconds: 10
+            timeoutSeconds: 5
+          ports:
+            - containerPort: 18630
+              name: engine-port
+            - containerPort: 12345
+              name: jmxexporter
+          resources:
+            limits:
+              cpu: "4"
+              memory: 8Gi
+            requests:
+              memory: 8Gi
+              cpu: "2"
+          startupProbe:
+            failureThreshold: 60
+            httpGet:
+              path: /public-rest/ping
+              port: engine-port
+              scheme: HTTP
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            timeoutSeconds: 5
+          volumeMounts:
+            - name: externalworkingdir
+              subPath: user-libs
+              mountPath: /opt/streamsets-datacollector-user-libs
+              readOnly: true
+            - name: externalworkingdir
+              subPath: streamsets-libs-extras
+              mountPath: /opt/streamsets-datacollector-5.12.0/streamsets-libs-extras
+              readOnly: true
+            - name: externalworkingdir
+              subPath: resources
+              mountPath: /resources
+              readOnly: true
+            - mountPath: /jmxexporter_configs
+              name: jmxexporter-config
+              readOnly: true
+            - mountPath: /jmxexporter
+              name: jmxexporter-shared
+              readOnly: true
+        - name: sidecar-schedule-pull-external-resources
+          image: minio/mc:latest
+          imagePullPolicy: IfNotPresent
+          securityContext: {}
+          workingDir: "/externalworkingdir"
+          command: ["sh","-ce","/scripts/schedule-sync.sh"]
+          env:
+            - name: SYNC_SCRIPT_PATH
+              value: "/scripts/datasync.sh"
+            - name: SCHEDULE_INTERVAL_SEC
+              value: "300"
+            - name: AWS_REGION
+              value: us-east-1
+            - name: AWS_S3_ENDPOINT
+              value: https://minio.minio.svc.cluster.local:443
+            - name: AWS_S3_BUCKET_NAME
+              value: streamsets-externalresources
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: streamsets-pull-external-resources-credentials
+                  key: access_key_id
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: streamsets-pull-external-resources-credentials
+                  key: secret_access_key
+            - name: AWS_S3_BUCKET_PREFIX
+              value: ""
+            - name: AWS_S3_BUCKET_PATH_USER_LIBS
+              value: "/user-libs"
+            - name: AWS_S3_BUCKET_PATH_SYSTEM_LIBS_EXTRAS
+              value: "/streamsets-libs-extras"
+            - name: AWS_S3_BUCKET_PATH_RESOURCES
+              value: "/resources"
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "100m"
+              memory: "256Mi"
+          volumeMounts:
+            - name: datapull-scripts
+              mountPath: /scripts
+            - mountPath: "/externalworkingdir"
+              name: "externalworkingdir"
+              readOnly: false
+      volumes:
+        - name: datapull-scripts
+          configMap:
+            name: streamsets-pull-external-resources
+            defaultMode: 0777
+        - name: externalworkingdir
+          emptyDir:
+            sizeLimit: 20Gi
+        - configMap:
+            name: streamsets-jmxexporter-configs
+          name: jmxexporter-config
+        - emptyDir: {}
+          name: jmxexporter-shared
+      dnsPolicy: ClusterFirst

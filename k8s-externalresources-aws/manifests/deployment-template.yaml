@@ -2,20 +2,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: streamsets-deployment-UUID
+    app: streamsets-deployment-<UUID>
     vendor: streamsets-sch
     env: na01
-  name: streamsets-deployment-UUID
+  name: streamsets-deployment-<UUID>
   namespace: streamsetsdemos
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: streamsets-deployment-UUID
+      app: streamsets-deployment-<UUID>
   template:
     metadata:
       labels:
-        app: streamsets-deployment-UUID
+        app: streamsets-deployment-<UUID>
         vendor: streamsets-sch
         env: na01
     spec:
@@ -24,27 +24,28 @@ spec:
       imagePullSecrets: []
       initContainers:
         - name: init-pull-external-resources
-          # image: amazon/aws-cli:latest
-          image: minio/mc:latest
+          image: amazon/aws-cli:latest
           imagePullPolicy: IfNotPresent
           securityContext: {}
           workingDir: "/externalworkingdir"
-          command: ["sh","-ce","/scripts/sync-minio.sh"]
+          command: ["sh","-ce","/scripts/sync-aws.sh"]
           env:
+            - name: AWS_REGION
+              value: us-east-1
             - name: AWS_ACCESS_KEY_ID
               valueFrom:
                 secretKeyRef:
-                  name: streamsets-libspull-credentials
+                  name: streamsets-libspull-credentials-aws
                   key: access_key_id
             - name: AWS_SECRET_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
-                  name: streamsets-libspull-credentials
+                  name: streamsets-libspull-credentials-aws
                   key: secret_access_key
-            - name: AWS_S3_ENDPOINT
-              value: https://10.43.107.22:443
             - name: AWS_S3_BUCKET_NAME
-              value: streamsets-datacollector-external-resources
+              value: streamsets-externalresources
+            - name: AWS_S3_BUCKET_PREFIX
+              value: /streamsets-demos/externalresources
             - name: AWS_S3_BUCKET_PATH_USER_LIBS
               value: "/user-libs"
             - name: AWS_S3_BUCKET_PATH_SYSTEM_LIBS_EXTRAS
@@ -54,12 +55,12 @@ spec:
           resources:
             requests:
               cpu: "100m"
-              memory: "256Mi"
+              memory: "128Mi"
             limits:
-              cpu: "500m"
-              memory: "512Mi"
+              cpu: "100m"
+              memory: "256Mi"
           volumeMounts:
-            - name: pull-script-minio
+            - name: pull-script-aws
               mountPath: /scripts
             - mountPath: "/externalworkingdir"
               name: "externalworkingdir"
@@ -67,12 +68,12 @@ spec:
       containers:
         - env:
             - name: STREAMSETS_DEPLOYMENT_ID
-              value: UUID:ORGID
+              value: <UUID>:<ORGID>
             - name: STREAMSETS_DEPLOYMENT_TOKEN
               valueFrom:
                 secretKeyRef:
                   key: token
-                  name: streamsets-deployment-secret-UUID
+                  name: streamsets-deployment-secret-<UUID>
                   optional: false
             - name: STREAMSETS_DEPLOYMENT_SCH_URL
               value: https://na01.hub.streamsets.com
@@ -86,7 +87,7 @@ spec:
             initialDelaySeconds: 10
             periodSeconds: 10
             timeoutSeconds: 5
-          name: streamsets-engine-UUID
+          name: streamsets-engine-<UUID>
           ports:
             - containerPort: 18630
               name: engine-port
@@ -110,24 +111,67 @@ spec:
             - name: externalworkingdir
               subPath: user-libs
               mountPath: /opt/streamsets-datacollector-user-libs
-              # /opt/streamsets-datacollector-5.12.0/externalResources/user-libs
               readOnly: true
             - name: externalworkingdir
               subPath: streamsets-libs-extras
               mountPath: /opt/streamsets-datacollector-5.12.0/streamsets-libs-extras
-              # /opt/streamsets-datacollector-5.12.0/externalResources/streamsets-libs-extras
               readOnly: true
             - name: externalworkingdir
               subPath: resources
               mountPath: /resources
-              # /opt/streamsets-datacollector-5.12.0/externalResources/resources
               readOnly: true
+        - name: sidecar-schedule-pull-external-resources
+          image: amazon/aws-cli:latest
+          imagePullPolicy: IfNotPresent
+          securityContext: {}
+          workingDir: "/externalworkingdir"
+          command: ["sh","-ce","/scripts/schedule-sync.sh"]
+          env:
+            - name: SYNC_SCRIPT_PATH
+              value: "/scripts/sync-aws.sh"
+            - name: SCHEDULE_INTERVAL_SEC
+              value: "300"
+            - name: AWS_REGION
+              value: us-east-1
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: streamsets-libspull-credentials-aws
+                  key: access_key_id
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: streamsets-libspull-credentials-aws
+                  key: secret_access_key
+            - name: AWS_S3_BUCKET_NAME
+              value: streamsets-externalresources
+            - name: AWS_S3_BUCKET_PREFIX
+              value: /streamsets-demos/externalresources
+            - name: AWS_S3_BUCKET_PATH_USER_LIBS
+              value: "/user-libs"
+            - name: AWS_S3_BUCKET_PATH_SYSTEM_LIBS_EXTRAS
+              value: "/streamsets-libs-extras"
+            - name: AWS_S3_BUCKET_PATH_RESOURCES
+              value: "/resources"
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "100m"
+              memory: "256Mi"
+          volumeMounts:
+            - name: pull-script-aws
+              mountPath: /scripts
+            - mountPath: "/externalworkingdir"
+              name: "externalworkingdir"
+              readOnly: false
       volumes:
-        - name: pull-script-minio
+        - name: pull-script-aws
           configMap:
-            name: streamsets-pull-external-resources-minio
+            name: streamsets-pull-external-resources-emptydir-aws
             defaultMode: 0777
         - name: externalworkingdir
-          persistentVolumeClaim:
-            claimName: streamsets-external-resources
+          emptyDir:
+            sizeLimit: 20Gi
       dnsPolicy: Default

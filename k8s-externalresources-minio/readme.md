@@ -1,11 +1,11 @@
-k8-externalresources-mgt-with-minio
+k8s-externalresources-mgt-with-minio
 =======================================
 
 This is a small sample concept, where you centralize your external resources in an object storage (like Minio), and have all the StreamSets data collectors pull from that object store repo automatically to keep in sync.
 
 In this sample/demo, we will use Minio deployed right on our K8 cluster.
 BUT the very same concept could be easily adapted and achieved with AWS S3 or other object storage platforms.
-You can find the same demo where we use AWS instead of Minio. find it [here](../k8-externalresources-mgt-with-aws/)
+You can find the same demo where we use AWS instead of Minio. find it [here](../k8s-externalresources-aws/)
 
 ## Prerequisites
 
@@ -15,7 +15,7 @@ You have a streamSets control hub tenant
 Let's do the work in the Streamsets namespace for simplicity (the namespace that has the streamSets Kubernetes agent)...
 ie. namespace "streamsetsdemos"
 
-If you already have Minio or AWS S3, no need for the next section for you...
+If you already have Minio, no need for the next section for you...
 
 ## Object Storage - Minio
 
@@ -53,71 +53,54 @@ mc alias set myminio https://localhost:55280 ACCESSKEY ACCESSSECRET --insecure
 Create User for StreamSets = streamsets-svc
 + create access key / secret key
 
-Create bucket:
-mc mb --insecure myminio/streamsets-datacollector-libs-collection1
+Create bucket named "streamsets-externalresources":
+
+```sh
+mc mb --insecure myminio/streamsets-externalresources
+```
 
 Note: ensures "streamsets-svc" user has read/write access to that bucket
 
-### Add StreamSets assets in Minio
+## Add StreamSets assets in Minio
 
-Create the following 3 directories in this bucket (names matter... we will use these names in the K8 assets)
-Each of these directory will get mapped to a specific directory on the StreamSets data collector. 
+Create the following 3 directories (names matter... we will use these same names in the K8 assets) in a bucket of choice
+Each of these directory will get pulled from into a specific directory on the StreamSets data collector. 
 
 - streamsets-libs-extras --> for extra libs to be added to specific stages (for example, new JDBC drivers for the stage "streamsets-datacollector-jdbc-lib"...)
 - user-libs --> custom stage (for example, a custom salesforce stage "streamsets-datacollector-salesforce-lib" with different Salesforce client lib versions...)
 - resources --> custom resources (properties files, etc.)
 
 ## Kubernetes assets
+ 
+### Deploy core supporting assets
 
-### create secret for minio access (tokens for minio "streamsets-svc")
+Core Supporting assets 1: Create secret for Minio access:
 
 ```sh
-kubectl create secret generic streamsets-libspull-credentials \
+kubectl create secret generic streamsets-pull-external-resources-credentials \
     --namespace streamsetsdemos \
     --from-literal=access_key_id="<SOMEVALUE>" \
     --from-literal=secret_access_key="<SOMEVALUE>"
 ```
 
-### create config map for the shell command script
+Core Supporting assets 2: Config map for the shell scripts used by the init container + scheduler...
 
 ```sh
-kubectl --namespace streamsetsdemos apply -f ./manifests/cm-sync-minio.yaml
-```
-
-## Deploy supporting assets
-
-Core Supporting assets: 1 PVC (that will get used by the deployment engines)
-
-```sh
-kubectl --namespace streamsetsdemos apply -f ./manifests/pvc-pull-libraries.yaml
-```
-
-1 K8s CRON JOB to offer options and auto-pull assets ongoingly on a schedule  
-
-```sh
-kubectl --namespace streamsetsdemos apply -f ./manifests/cronjob-pull-libraries.yaml
-```
-
-And 1 K8s JOB for easy ad-hoc running if/when needed...
-
-```sh
-kubectl --namespace streamsetsdemos apply -f ./manifests/job-pull-libraries.yaml
-```
-
-You can re-run the ad-hoc job at will by deleting and recreating...
-
-```sh
-kubectl --namespace streamsetsdemos delete -f ./manifests/job-pull-libraries.yaml
-kubectl --namespace streamsetsdemos apply -f ./manifests/job-pull-libraries.yaml
+kubectl --namespace streamsetsdemos apply -f ./manifests/cm-sync.yaml
 ```
 
 ## Deploy the deployment in streamsets
 
 The deployment file contains the following customization, in addition to the usual StreamSets items:
- - The PVC gets used by the data collector pod to create a Persistent Volume (PV),
- - PV gets mounted READ-ONLY to the right places on the data collector (specific Sx directories) using volumeMounts section
- - An init container to automatically pull from minio all the required assets onto the same Persistent Volume (PV) BEFORE the data collector container starts
+ - The single EmptyDir volume gets used by all the containers in the pod
+ - The volume gets mounted READ-ONLY to the right places on the data collector (specific Sx directories) using volumeMounts section
+ - An init container to automatically pull from Minio Bucket all the required assets onto the volume BEFORE the data collector container starts
+ - A simple side-car container to automatically pull the Minio Bucketassets at regular interval to keep the files in sync continuously.
 
-And outside of that, the cronjob will refresh the data on that Persistent Volume (PV) regularly to keep thing fresh...
+The file "./manifests/deployment-template.yaml" should be added to the StreamSets deployment
 
-The file "./manifests/deployment-with-pvc.yaml" should be added to the StreamSets deployment (make sure to replace the UUID and ORGID in that file with what StreamSets expects)
+IMPORTANT: 
+- make sure to replace the placeholders "UUID" and "ORGID" in that file with what StreamSets expects
+- Make sure to replace the AWS_S3_BUCKET_NAME if you named your bucket differently
+- Make sure to replace the AWS_S3_ENDPOINT to go to Minio in the deployment... for example: https://minio.minio.svc.cluster.local:443
+- Make sure to replace the AWS_S3_BUCKET_PREFIX if somehow, the streamsets resources are not at the root of the bucket

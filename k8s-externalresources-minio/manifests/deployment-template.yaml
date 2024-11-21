@@ -24,28 +24,30 @@ spec:
       imagePullSecrets: []
       initContainers:
         - name: init-pull-external-resources
-          image: amazon/aws-cli:latest
+          image: minio/mc:latest
           imagePullPolicy: IfNotPresent
           securityContext: {}
           workingDir: "/externalworkingdir"
-          command: ["sh","-ce","/scripts/sync-aws.sh"]
+          command: ["sh","-ce","/scripts/datasync.sh"]
           env:
             - name: AWS_REGION
               value: us-east-1
+            - name: AWS_S3_ENDPOINT
+              value: https://minio.minio.svc.cluster.local:443
+            - name: AWS_S3_BUCKET_NAME
+              value: streamsets-externalresources
             - name: AWS_ACCESS_KEY_ID
               valueFrom:
                 secretKeyRef:
-                  name: streamsets-libspull-credentials-aws
+                  name: streamsets-pull-external-resources-credentials
                   key: access_key_id
             - name: AWS_SECRET_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
-                  name: streamsets-libspull-credentials-aws
+                  name: streamsets-pull-external-resources-credentials
                   key: secret_access_key
-            - name: AWS_S3_BUCKET_NAME
-              value: softwareaggov-mft-demos
             - name: AWS_S3_BUCKET_PREFIX
-              value: /streamsets-demos/externalresources
+              value: ""
             - name: AWS_S3_BUCKET_PATH_USER_LIBS
               value: "/user-libs"
             - name: AWS_S3_BUCKET_PATH_SYSTEM_LIBS_EXTRAS
@@ -60,7 +62,7 @@ spec:
               cpu: "100m"
               memory: "256Mi"
           volumeMounts:
-            - name: pull-script-aws
+            - name: datapull-scripts
               mountPath: /scripts
             - mountPath: "/externalworkingdir"
               name: "externalworkingdir"
@@ -121,32 +123,34 @@ spec:
               mountPath: /resources
               readOnly: true
         - name: sidecar-schedule-pull-external-resources
-          image: amazon/aws-cli:latest
+          image: minio/mc:latest
           imagePullPolicy: IfNotPresent
           securityContext: {}
           workingDir: "/externalworkingdir"
           command: ["sh","-ce","/scripts/schedule-sync.sh"]
           env:
             - name: SYNC_SCRIPT_PATH
-              value: "/scripts/sync-aws.sh"
+              value: "/scripts/datasync.sh"
             - name: SCHEDULE_INTERVAL_SEC
               value: "300"
             - name: AWS_REGION
               value: us-east-1
+            - name: AWS_S3_ENDPOINT
+              value: https://minio.minio.svc.cluster.local:443
+            - name: AWS_S3_BUCKET_NAME
+              value: streamsets-externalresources
             - name: AWS_ACCESS_KEY_ID
               valueFrom:
                 secretKeyRef:
-                  name: streamsets-libspull-credentials-aws
+                  name: streamsets-pull-external-resources-credentials
                   key: access_key_id
             - name: AWS_SECRET_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
-                  name: streamsets-libspull-credentials-aws
+                  name: streamsets-pull-external-resources-credentials
                   key: secret_access_key
-            - name: AWS_S3_BUCKET_NAME
-              value: softwareaggov-mft-demos
             - name: AWS_S3_BUCKET_PREFIX
-              value: /streamsets-demos/externalresources
+              value: ""
             - name: AWS_S3_BUCKET_PATH_USER_LIBS
               value: "/user-libs"
             - name: AWS_S3_BUCKET_PATH_SYSTEM_LIBS_EXTRAS
@@ -161,15 +165,15 @@ spec:
               cpu: "100m"
               memory: "256Mi"
           volumeMounts:
-            - name: pull-script-aws
+            - name: datapull-scripts
               mountPath: /scripts
             - mountPath: "/externalworkingdir"
               name: "externalworkingdir"
               readOnly: false
       volumes:
-        - name: pull-script-aws
+        - name: datapull-scripts
           configMap:
-            name: streamsets-pull-external-resources-emptydir-aws
+            name: streamsets-pull-external-resources
             defaultMode: 0777
         - name: externalworkingdir
           emptyDir:

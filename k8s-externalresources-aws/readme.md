@@ -1,10 +1,10 @@
-k8-externalresources-mgt-with-aws
+k8s-externalresources-mgt-with-aws
 =======================================
 
 This is a small sample concept, where you centralize your external resources in an object storage (like AWS S3), and have all the StreamSets data collectors pull from that object store repo automatically to keep in sync.
 
 In this sample/demo, we will use AWS S3 as the repo source. 
-You can find the same demo where we use Minio instead of AWS S3. find it [here](../k8-externalresources-mgt-with-minio/)
+You can find the same demo where we use Minio instead of AWS S3. find it [here](../k8s-externalresources-minio/)
 
 ## Prerequisites
 
