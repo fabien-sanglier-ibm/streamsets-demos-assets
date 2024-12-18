@@ -34,13 +34,15 @@ from streamsets.sdk import ControlHub
 from kubernetes import client, config, utils
 import sys
 import yaml
+import hashlib
+
 
 ############################# global variables
 
 kubeconfig_path = '~/.kube/kubeconfig_techzone_k3s.conf'
 
 ##### environment sensible values
-env_name = 'Techzone StreamSets Demos'
+env_name = 'Techzone_{} Demos'
 env_version = '1.2.1'
 env_tags = ['k3s-techzone','demo']
 env_kub_namespace = 'streamsetsdemos'
@@ -48,7 +50,7 @@ env_kub_agent_jvm_opt = ''
 env_kub_labels = {'environment': 'techzone'}
 
 ##### deployment sensible values
-deployment_name = 'Techzone StreamSets Multipurpose Demo 1'
+deployment_name = 'Techzone_{} Multipurpose Demo 1 '
 deployment_engine_version = '6.0.0'
 deployment_engine_type = 'DC'
 deployment_tags = ['k3s-techzone-sdc-6.0.0','kafka','postgres','minio',"s3"]
@@ -106,6 +108,14 @@ if not (cred_id and cred_token):
     print('Error: You must add your Control Hub Credentials to the environment')
     print_usage_and_exit()
 
+# get a constant unique identifier hash based on the cred_id token
+unique_identifier_full = str(int(hashlib.sha256(cred_id.encode('utf-8')).hexdigest(), 16))
+unique_identifier_size = len(unique_identifier_full)
+if unique_identifier_size < 10:
+    unique_identifier = unique_identifier_full
+else:
+    unique_identifier = unique_identifier_full[0:5] + unique_identifier_full[unique_identifier_size-5:unique_identifier_size]
+
 # Check the number of command line args
 if len(sys.argv) != 1:
     print('Error: Wrong number of arguments')
@@ -129,18 +139,19 @@ print("Connected to org = {}".format(org_name))
 ################################ Environment section: create new or get
 
 print("Create new, or get existing, environment for Techzone")
+env_name_final = env_name.format(unique_identifier);
 environment = None
 try:
     ## check if env is already there
-    environment = sch.environments.get(environment_name=env_name)
-    print('Environment \'{}\' already exists in the Org \'{}\''.format(env_name, org_name))
+    environment = sch.environments.get(environment_name=env_name_final)
+    print('Environment \'{}\' already exists in the Org \'{}\''.format(env_name_final, org_name))
     print('No action will be taken')
 
 # If we get here, the object does not exist in the Org
 except ValueError:
     try:
         environment_builder = sch.get_environment_builder(environment_type='KUBERNETES')
-        environment = environment_builder.build(environment_name=env_name,
+        environment = environment_builder.build(environment_name=env_name_final,
                                                 environment_tags=env_tags,
                                                 allow_nightly_builds=False)
         environment.agent_version = env_version
@@ -174,18 +185,19 @@ except Exception as e:
 ################################ deployment section - create new or get
 
 print("Create new, or get existing, deployment for Techzone")
+deployment_name_final = deployment_name.format(unique_identifier);
 deployment = None
 try:
     ## check if env is already there
-    deployment = sch.deployments.get(deployment_name=deployment_name)
-    print('Deployment \'{}\' already exists in the Org \'{}\''.format(deployment_name, org_name))
+    deployment = sch.deployments.get(deployment_name=deployment_name_final)
+    print('Deployment \'{}\' already exists in the Org \'{}\''.format(deployment_name_final, org_name))
     print('No action will be taken')
 
 # If we get here, the object does not exist in the Org
 except ValueError:
     try:
         deployment_builder = sch.get_deployment_builder(deployment_type='KUBERNETES')
-        deployment = deployment_builder.build(deployment_name=deployment_name,
+        deployment = deployment_builder.build(deployment_name=deployment_name_final,
                                             environment=environment,
                                             external_resource_location=deployment_external_resource_location,
                                             engine_type=deployment_engine_type,
