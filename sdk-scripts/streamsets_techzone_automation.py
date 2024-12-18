@@ -258,7 +258,12 @@ except ValueError:
 
 
 # Optional - equivalent to clicking on 'Launch Deployment'
-print('Starting the deployment')
-sch.start_deployment(deployment)
+print('Deployment state = {}'.format(deployment.state))
+if deployment.state != 'ACTIVE':
+    try:
+        print('Deployment not active...Starting the deployment!')
+        sch.start_deployment(deployment)
+    except Exception as e:
+        print(str(e))
 
 print('Done')
