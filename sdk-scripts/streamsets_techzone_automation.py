@@ -120,14 +120,15 @@ def wait_for_state(check_function, desired_state, timeout=10, interval=1):
 
 # Add named arguments
 parser = argparse.ArgumentParser(description="StreamSets Techzone Automation script")
-parser.add_argument("-u", "--cred_id", help="StreamSets Control Hub API ID ()", default=os.environ.get('CRED_ID'))
-parser.add_argument("-p", "--cred_token", help="StreamSets Control Hub API Token", default=os.environ.get('CRED_TOKEN'))
+parser.add_argument("-u", "--cred_id", help="StreamSets Control Hub API ID (Optional: Set via OS ENV var 'CRED_ID)'", default=os.environ.get('CRED_ID'))
+parser.add_argument("-p", "--cred_token", help="StreamSets Control Hub API Token (Optional: Set via OS ENV var 'CRED_TOKEN)'", default=os.environ.get('CRED_TOKEN'))
 parser.add_argument("-d", "--deploy_agent", type=bool, help="Deploy the agent YAML or not", default=False)
 parser.add_argument("-k", "--kube_config", help="Kube Config path", default="~/.kube/config")
 
 # Parse the arguments
 args = parser.parse_args()
 if not (args.cred_id and args.cred_token):
+    print('Parameter required: StreamSets Control Hub API Credentials! Specify either environment varables, or parameters')
     exit(parser.print_usage())
 
 cred_id = args.cred_id
