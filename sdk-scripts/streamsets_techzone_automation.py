@@ -31,9 +31,13 @@ PREREQUISITES:
 """
 import os
 from streamsets.sdk import ControlHub
+from kubernetes import client, config, utils
 import sys
+import yaml
 
 ############################# global variables
+
+kubeconfig_path = '~/.kube/kubeconfig_techzone_k3s.conf'
 
 ##### environment sensible values
 env_name = 'Techzone StreamSets Demos'
@@ -65,9 +69,32 @@ deployment_kub_labels = {'environment': 'techzone'}
 
 def print_usage_and_exit():
     print('Prerequisite: StreamSets Control Hub API Credentials set via environment variables: CRED_ID and CRED_TOKEN')
-    print('Usage: $ python3 streamsets_techzone_automation.py')
-    print('Usage Example: python3 streamsets_techzone_automation.py')
+    print('Usage: $ python3 streamsets_techzone_automation.py <optional:deploy_agent_yaml(true|false)> <optional:kube_config_path>')
+    print('Usage Example: python3 streamsets_techzone_automation.py true')
     sys.exit(1)
+
+
+# Method to add a user to an Organization
+def deploy_k8s_agent(install_yaml, install_namespace):
+    # Load Kubernetes configuration
+    config.load_kube_config(config_file=kubeconfig_path)
+
+    # Create a Kubernetes API client
+    api_client = client.ApiClient()
+
+    install_yaml_objects = yaml.safe_load_all(install_yaml)
+
+    # Create the object from the YAML string
+    utils.create_from_yaml(api_client, yaml_objects=install_yaml_objects, namespace=install_namespace)
+
+    # Create the Kubernetes objects
+    # resp_k8s_objects = client.ExtensionsV1beta1Api().create_namespaced_deployment(
+    #     body=k8s_dep,
+    #     namespace=install_namespace
+    # )
+
+    print("Deployment created. status='%s'" % str(resp_k8s_objects.status))
+
 
 ############################# end functions
 
@@ -130,11 +157,13 @@ except ValueError:
 if environment.state != 'ACTIVE':
     raise ValueError("Environment should be activated at this point")
 
+print("Kubernetes Agent install script for info...")
 install_script = sch.get_kubernetes_apply_agent_yaml_command(environment)
 print(install_script)
 
+print("Deployment Kubernetes environment YAML into Techzone")
 install_yaml = sch.get_kubernetes_environment_yaml(environment)
-print(install_yaml)
+deploy_k8s_agent(install_yaml,env_kub_namespace)
 
 ################################ deployment section - create new or get
 
