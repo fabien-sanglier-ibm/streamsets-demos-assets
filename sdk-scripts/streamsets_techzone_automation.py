@@ -128,7 +128,7 @@ parser.add_argument("-k", "--kube_config", help="Kube Config path", default="~/.
 # Parse the arguments
 args = parser.parse_args()
 if not (args.cred_id and args.cred_token):
-    print('Parameter required: StreamSets Control Hub API Credentials! Specify either environment varables, or parameters')
+    print('Parameter required: StreamSets Control Hub API Credentials! Specify either with environment variables, or script arguments as defined by usage.')
     exit(parser.print_usage())
 
 cred_id = args.cred_id
