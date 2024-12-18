@@ -76,24 +76,24 @@ def print_usage_and_exit():
 
 # Method to add a user to an Organization
 def deploy_k8s_agent(install_yaml, install_namespace):
+    print("Deploying Kubernetes YAML")
+    
     # Load Kubernetes configuration
     config.load_kube_config(config_file=kubeconfig_path)
 
     # Create a Kubernetes API client
     api_client = client.ApiClient()
 
+    # shall we delete the namespace and recreate? too destructive...
+    # k8s_coreapi = client.CoreV1Api()
+    # k8s_coreapi.delete_namespace(name=install_namespace)
+
     install_yaml_objects = yaml.safe_load_all(install_yaml)
 
-    # Create the object from the YAML string
-    utils.create_from_yaml(api_client, yaml_objects=install_yaml_objects, namespace=install_namespace)
+    # Create the Kubernetes objects from the YAML string
+    utils.create_from_yaml(api_client, yaml_objects=install_yaml_objects, namespace=install_namespace, verbose=True)
 
-    # Create the Kubernetes objects
-    # resp_k8s_objects = client.ExtensionsV1beta1Api().create_namespaced_deployment(
-    #     body=k8s_dep,
-    #     namespace=install_namespace
-    # )
-
-    print("Deployment created. status='%s'" % str(resp_k8s_objects.status))
+    print("Agent Deployment created!")
 
 
 ############################# end functions
@@ -148,22 +148,28 @@ except ValueError:
         environment.kubernetes_labels = env_kub_labels
 
         sch.add_environment(environment)
-        sch.activate_environment(environment)
+        sch.activate_environment(environment, timeout_sec=300)
     except Exception as e:
         print('Error creating/adding the environment in Control Hub')
         print(str(e))
         sys.exit(1)
 
+print("INFO: environment state = {} / status = {} / status details = {}".format(environment.state, environment.agent_status, environment.agent_status_detail))
+
 if environment.state != 'ACTIVE':
     raise ValueError("Environment should be activated at this point")
 
-print("Kubernetes Agent install script for info...")
-install_script = sch.get_kubernetes_apply_agent_yaml_command(environment)
-print(install_script)
-
-print("Deployment Kubernetes environment YAML into Techzone")
-install_yaml = sch.get_kubernetes_environment_yaml(environment)
-deploy_k8s_agent(install_yaml,env_kub_namespace)
+try:
+    if environment.agent_status != 'ONLINE':
+        print("Environment agent is not online...installing it!")
+        install_yaml = sch.get_kubernetes_environment_yaml(environment)
+        deploy_k8s_agent(install_yaml,env_kub_namespace)
+except Exception as e:
+    print('Error creating the kubernetes artifatcs automatically!')
+    print("Fallback: Try doing it manually with this Kubernetes Agent install script command:")
+    install_script = sch.get_kubernetes_apply_agent_yaml_command(environment)
+    print(install_script)
+    print(str(e))
 
 ################################ deployment section - create new or get
 
