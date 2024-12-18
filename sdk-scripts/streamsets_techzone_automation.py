@@ -35,11 +35,10 @@ from kubernetes import client, config, utils
 import sys
 import yaml
 import hashlib
-
+import time
+import argparse
 
 ############################# global variables
-
-kubeconfig_path = '~/.kube/kubeconfig_techzone_k3s.conf'
 
 ##### environment sensible values
 env_name = 'Techzone_{} Demos'
@@ -69,15 +68,8 @@ deployment_kub_labels = {'environment': 'techzone'}
 
 ############################# functions
 
-def print_usage_and_exit():
-    print('Prerequisite: StreamSets Control Hub API Credentials set via environment variables: CRED_ID and CRED_TOKEN')
-    print('Usage: $ python3 streamsets_techzone_automation.py <optional:deploy_agent_yaml(true|false)> <optional:kube_config_path>')
-    print('Usage Example: python3 streamsets_techzone_automation.py true')
-    sys.exit(1)
-
-
 # Method to add a user to an Organization
-def deploy_k8s_agent(install_yaml, install_namespace):
+def deploy_k8s_agent(kubeconfig_path, install_yaml, install_namespace):
     print("Deploying Kubernetes YAML")
     
     # Load Kubernetes configuration
@@ -98,15 +90,50 @@ def deploy_k8s_agent(install_yaml, install_namespace):
     print("Agent Deployment created!")
 
 
+def wait_for_state(check_function, desired_state, timeout=10, interval=1):
+    """Waits for a condition to become true.
+
+    Args:
+        check_function: A function that returns the current state.
+        desired_state: The state we are waiting for.
+        timeout: Maximum time to wait (in seconds).
+        interval: Time between checks (in seconds).
+
+    Returns:
+        True if the desired state was reached, False if timeout occurred.
+    """
+
+    start_time = time.time()
+    while True:
+        print('Waiting...')
+        current_state = check_function()
+        if current_state == desired_state:
+            return True
+
+        if time.time() - start_time > timeout:
+            print('Reached timeout...')
+            return False
+
+        time.sleep(interval)
+
 ############################# end functions
 
-# Get Control Hub Credentials from the environment
-cred_id = os.getenv('CRED_ID')
-cred_token = os.getenv('CRED_TOKEN')
+# Add named arguments
+parser = argparse.ArgumentParser(description="StreamSets Techzone Automation script")
+parser.add_argument("-u", "--cred_id", help="StreamSets Control Hub API ID ()", default=os.environ.get('CRED_ID'))
+parser.add_argument("-p", "--cred_token", help="StreamSets Control Hub API Token", default=os.environ.get('CRED_TOKEN'))
+parser.add_argument("-d", "--deploy_agent", type=bool, help="Deploy the agent YAML or not", default=False)
+parser.add_argument("-k", "--kube_config", help="Kube Config path", default="~/.kube/config")
 
-if not (cred_id and cred_token):
-    print('Error: You must add your Control Hub Credentials to the environment')
-    print_usage_and_exit()
+# Parse the arguments
+args = parser.parse_args()
+if not (args.cred_id and args.cred_token):
+    exit(parser.print_usage())
+
+cred_id = args.cred_id
+cred_token = args.cred_token
+do_deploy_agent = args.deploy_agent
+deploy_kube_config = args.kube_config
 
 # get a constant unique identifier hash based on the cred_id token
 unique_identifier_full = str(int(hashlib.sha256(cred_id.encode('utf-8')).hexdigest(), 16))
@@ -115,11 +142,6 @@ if unique_identifier_size < 10:
     unique_identifier = unique_identifier_full
 else:
     unique_identifier = unique_identifier_full[0:5] + unique_identifier_full[unique_identifier_size-5:unique_identifier_size]
-
-# Check the number of command line args
-if len(sys.argv) != 1:
-    print('Error: Wrong number of arguments')
-    print_usage_and_exit()
 
 # Connect to Control Hub
 sch = None
@@ -170,17 +192,27 @@ print("INFO: environment state = {} / status = {} / status details = {}".format(
 if environment.state != 'ACTIVE':
     raise ValueError("Environment should be activated at this point")
 
-try:
-    if environment.agent_status != 'ONLINE':
-        print("Environment agent is not online...installing it!")
-        install_yaml = sch.get_kubernetes_environment_yaml(environment)
-        deploy_k8s_agent(install_yaml,env_kub_namespace)
-except Exception as e:
-    print('Error creating the kubernetes artifatcs automatically!')
-    print("Fallback: Try doing it manually with this Kubernetes Agent install script command:")
-    install_script = sch.get_kubernetes_apply_agent_yaml_command(environment)
-    print(install_script)
-    print(str(e))
+if do_deploy_agent:
+    try:
+        if environment.agent_status != 'ONLINE':
+            print("Environment agent is not online...installing it!")
+            install_yaml = sch.get_kubernetes_environment_yaml(environment)
+            deploy_k8s_agent(deploy_kube_config, install_yaml, env_kub_namespace)
+
+    except Exception as e:
+        print('Error creating the kubernetes artifatcs automatically!')
+        print("Fallback: Try doing it manually with this Kubernetes Agent install script command:")
+        install_script = sch.get_kubernetes_apply_agent_yaml_command(environment)
+        print(install_script)
+        print(str(e))
+
+
+    print("Waiting a bit for Environment ONLINE before next step")
+    def get_environment_status():
+        return environment.agent_status
+
+    if wait_for_state(get_environment_status, 'ONLINE', timeout=30):
+        print("Environment is ONLINE!!")
 
 ################################ deployment section - create new or get
 
@@ -219,12 +251,14 @@ except ValueError:
 
         # Update the deployment's configuration/definition on Control Hub
         sch.update_deployment(deployment)
-
-        # Optional - equivalent to clicking on 'Launch Deployment'
-        sch.start_deployment(deployment)
     except Exception as e:
         print('Error creating/adding the environment in Control Hub')
         print(str(e))
         sys.exit(1)
+
+
+# Optional - equivalent to clicking on 'Launch Deployment'
+print('Starting the deployment')
+sch.start_deployment(deployment)
 
 print('Done')
