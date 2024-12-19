@@ -37,19 +37,24 @@ import yaml
 import hashlib
 import time
 import argparse
+import getpass
+import socket
 
 ############################# global variables
 
-##### environment sensible values
-env_name = 'Techzone_{} Demos'
+##### host
+current_hostname = socket.gethostname()
+
+##### environment values
+env_name = 'TZ_{} Demos'
 env_version = '1.2.1'
 env_tags = ['k3s-techzone','demo']
 env_kub_namespace = 'streamsetsdemos'
 env_kub_agent_jvm_opt = ''
 env_kub_labels = {'environment': 'techzone'}
 
-##### deployment sensible values
-deployment_name = 'Techzone_{} Multipurpose Demo 1 '
+##### deployment values
+deployment_name = 'TZ_{} Multipurpose Demo 1 '
 deployment_engine_version = '6.0.0'
 deployment_engine_type = 'DC'
 deployment_tags = ['k3s-techzone-sdc-6.0.0','kafka','postgres','minio',"s3"]
@@ -116,25 +121,36 @@ def wait_for_state(check_function, desired_state, timeout=10, interval=1):
 
         time.sleep(interval)
 
+class PwdAction(argparse.Action):
+     def __call__(self, parser, namespace, values, option_string=None):
+         mypass = getpass.getpass()
+         setattr(namespace, self.dest, mypass)
+
 ############################# end functions
 
 # Add named arguments
 parser = argparse.ArgumentParser(description="StreamSets Techzone Automation script")
-parser.add_argument("-u", "--cred_id", help="StreamSets Control Hub API ID (Optional: Set via OS ENV var 'CRED_ID)'", default=os.environ.get('CRED_ID'))
-parser.add_argument("-p", "--cred_token", help="StreamSets Control Hub API Token (Optional: Set via OS ENV var 'CRED_TOKEN)'", default=os.environ.get('CRED_TOKEN'))
-parser.add_argument("-d", "--deploy_agent", type=bool, help="Deploy the agent YAML or not", default=False)
-parser.add_argument("-k", "--kube_config", help="Kube Config path", default="~/.kube/config")
+parser.add_argument("-u", "--cred_id", help="StreamSets Control Hub API ID (Optional: Also set via OS ENV var 'SCH_CRED_ID)'", default=os.environ.get('SCH_CRED_ID'))
+parser.add_argument('-p', "--cred_token", action=PwdAction, nargs=0, dest='cred_token', help="StreamSets Control Hub API Token (Optional: Also set via OS ENV var 'SCH_CRED_TOKEN)'", default=os.environ.get('SCH_CRED_TOKEN'))
+parser.add_argument("-kn", "--kube_nodeploy", action='store_true', help="Deploy the agent YAML or not")
+parser.add_argument("-kc", "--kube_config", help="Kube Config path", default="~/.kube/config")
+parser.add_argument("-s", "--suffix", help="Suffix to add to the created objects", default=os.environ.get('SCH_OBJ_SUFFIX'))
 
 # Parse the arguments
 args = parser.parse_args()
+
 if not (args.cred_id and args.cred_token):
     print('Parameter required: StreamSets Control Hub API Credentials! Specify either with environment variables, or script arguments as defined by usage.')
     exit(parser.print_usage())
 
 cred_id = args.cred_id
 cred_token = args.cred_token
-do_deploy_agent = args.deploy_agent
-deploy_kube_config = args.kube_config
+kube_nodeploy = args.kube_nodeploy
+kube_config_path = args.kube_config
+
+obj_suffix = None
+if args.suffix:
+    obj_suffix = args.suffix
 
 # get a constant unique identifier hash based on the cred_id token
 unique_identifier_full = str(int(hashlib.sha256(cred_id.encode('utf-8')).hexdigest(), 16))
@@ -143,6 +159,11 @@ if unique_identifier_size < 10:
     unique_identifier = unique_identifier_full
 else:
     unique_identifier = unique_identifier_full[0:5] + unique_identifier_full[unique_identifier_size-5:unique_identifier_size]
+
+if obj_suffix:
+    unique_identifier += '-' + obj_suffix
+
+print("Unique identifyer {}".format(unique_identifier))
 
 # Connect to Control Hub
 sch = None
@@ -157,13 +178,14 @@ except Exception as e:
 
 # Get the Organization's name
 org_name = sch.organizations[0].name
-print("Connected to org = {}".format(org_name))
+print("Current hostname = {} - Connected to org = {} with unique identifyer {}".format(current_hostname, org_name, unique_identifier))
 
 ################################ Environment section: create new or get
 
-print("Create new, or get existing, environment for Techzone")
-env_name_final = env_name.format(unique_identifier);
 environment = None
+env_name_final = env_name.format(unique_identifier);
+print("Create new, or get existing, environment with name = {}".format(env_name_final))
+
 try:
     ## check if env is already there
     environment = sch.environments.get(environment_name=env_name_final)
@@ -193,12 +215,12 @@ print("INFO: environment state = {} / status = {} / status details = {}".format(
 if environment.state != 'ACTIVE':
     raise ValueError("Environment should be activated at this point")
 
-if do_deploy_agent:
+if not kube_nodeploy:
     try:
         if environment.agent_status != 'ONLINE':
             print("Environment agent is not online...installing it!")
             install_yaml = sch.get_kubernetes_environment_yaml(environment)
-            deploy_k8s_agent(deploy_kube_config, install_yaml, env_kub_namespace)
+            deploy_k8s_agent(kube_config_path, install_yaml, env_kub_namespace)
 
     except Exception as e:
         print('Error creating the kubernetes artifatcs automatically!')
@@ -212,16 +234,17 @@ if do_deploy_agent:
     def get_environment_status():
         return environment.agent_status
 
-    if wait_for_state(get_environment_status, 'ONLINE', timeout=30):
+    if wait_for_state(get_environment_status, 'ONLINE', timeout=60):
         print("Environment is ONLINE!!")
 
 ################################ deployment section - create new or get
 
-print("Create new, or get existing, deployment for Techzone")
-deployment_name_final = deployment_name.format(unique_identifier);
 deployment = None
+deployment_name_final = deployment_name.format(unique_identifier);
+print("Create new, or get existing, deployment with name = {}".format(deployment_name_final))
+
 try:
-    ## check if env is already there
+    ## check if deployment is already there
     deployment = sch.deployments.get(deployment_name=deployment_name_final)
     print('Deployment \'{}\' already exists in the Org \'{}\''.format(deployment_name_final, org_name))
     print('No action will be taken')
@@ -256,7 +279,6 @@ except ValueError:
         print('Error creating/adding the environment in Control Hub')
         print(str(e))
         sys.exit(1)
-
 
 # Optional - equivalent to clicking on 'Launch Deployment'
 print('Deployment state = {}'.format(deployment.state))
