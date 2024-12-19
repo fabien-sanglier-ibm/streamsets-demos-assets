@@ -42,11 +42,8 @@ import socket
 
 ############################# global variables
 
-##### host
-current_hostname = socket.gethostname()
-
 ##### environment values
-env_name = 'TZ_{} Demos'
+env_name = 'TZ-{} Demos'
 env_version = '1.2.1'
 env_tags = ['k3s-techzone','demo']
 env_kub_namespace = 'streamsetsdemos'
@@ -54,7 +51,7 @@ env_kub_agent_jvm_opt = ''
 env_kub_labels = {'environment': 'techzone'}
 
 ##### deployment values
-deployment_name = 'TZ_{} Multipurpose Demo 1 '
+deployment_name = 'TZ-{} Multipurpose Demo 1 '
 deployment_engine_version = '6.0.0'
 deployment_engine_type = 'DC'
 deployment_tags = ['k3s-techzone-sdc-6.0.0','kafka','postgres','minio',"s3"]
@@ -292,7 +289,7 @@ except Exception as e:
 
 # Get the Organization's name
 org_name = sch.organizations[0].name
-print("Current hostname = {} - Connected to org = {} with unique identifyer {}".format(current_hostname, org_name, unique_identifier))
+print("Connected to org = {} with unique identifyer {}".format(org_name, unique_identifier))
 
 ################################ Environment section: create new or get
 
